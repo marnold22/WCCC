@@ -1,0 +1,12 @@
+mixin include-script(path, dontUseRequireJS)
+    - dontUseRequireJS = dontUseRequireJS || false
+    if wordpress == false
+        script(type="text/javascript").
+            requirejs(["!{path}"], function(){ })
+    else if wordpress == true
+        if dontUseRequireJS == true
+            <script src=<?php echo get_template_directory_uri().'!{path}' ?> ></script>
+        else if dontUseRequireJS == false
+            -var wordpressPath = '<?php echo get_template_directory_uri().\''+path+'\'?>'
+            script(type="text/javascript").
+                requirejs(["!{wordpressPath}"], function(){ })

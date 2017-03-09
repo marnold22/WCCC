@@ -1,0 +1,25 @@
+@import './_fonts.scss';
+@import './_colors.scss';
+
+body{
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.vignette{
+    -moz-box-shadow: inset 0 0 10em black;
+    -webkit-box-shadow: inset 0 0 10em black;
+    box-shadow: inset 0 -0 10em black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+}
+
+h1{
+    color: red;
+    text-transform: uppercase;
+}
