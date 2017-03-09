@@ -23,7 +23,7 @@ var filter = require('gulp-filter');
 // ─── GULP PARAMETERS ────────────────────────────────────────────────────────────
 //
 var statics = {
-    wordpress: (argv.wordpress == undefined) ? false : true,
+    wordpress: (argv.regular == undefined) ? true : false,
     isPHP: (argv.html == undefined) ? true : false
 }
 // ────────────────────────────────────────────────────────────────────────────────
@@ -99,6 +99,9 @@ gulp.task('sass', ()=>{
     const wpStylesheetFilter = filter('**/wordpress_theme_info.scss', {restore: true});
 
     return gulp.src(paths.dev.root + '**/*.scss')
+
+    //we treat the wordpress_theme_info file differently --> it needs to be in the root folder
+    //  and called style.css
     .pipe(wpStylesheetFilter)
     .pipe(sass())
     .pipe(rename({
@@ -107,6 +110,9 @@ gulp.task('sass', ()=>{
     }))
     .pipe(gulp.dest(paths.build.baseCSS))
     .pipe(wpStylesheetFilter.restore)
+    //end wordpress_theme_info
+
+    //begin regular scss files
     .pipe(sass({
         // outputStyle: 'compressed'
     }))
@@ -145,13 +151,13 @@ gulp.task('images', ()=>{
 
 //Start a php server so we can look at our generated php files
 gulp.task('php-serve', ()=>{
-    php.server({base: paths.build.root, port: 8020, keepalive: true});
+    php.server({base: paths.build.root, port: 8888, keepalive: true});
 });
 
 //Set up browser-sync server
-gulp.task('browser-sync', ['sass', 'pug', 'js', 'images', 'php-forms', 'php-serve'], ()=>{
+gulp.task('browser-sync', ['sass', 'pug', 'js', 'images', 'php-forms'], ()=>{
     browserSync.init({
-        proxy: '127.0.0.1:8020',
+        proxy: '127.0.0.1:8888',
         port: 8080,
         open: true,
     });
@@ -183,8 +189,10 @@ gulp.task('watch',()=>{
 gulp.task('build', ['sass', 'pug', 'js', 'images', 'php-forms']);
 
 //Default task
-if(statics.isPHP){
+if(statics.isPHP && statics.wordpress){
     gulp.task('default', ['browser-sync', 'watch']);
+}else if(statics.isPHP && !statics.wordpress){
+    gulp.task('default', ['php-serve', 'browser-sync', 'watch']);
 }else{
     gulp.task('default', ['browser-sync-html', 'watch']);
 }
