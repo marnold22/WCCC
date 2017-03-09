@@ -3,4 +3,4 @@ mixin include-css(path)
         link(href=`${path}` rel="stylesheet")
     else if wordpress == true
         -var wordpressPHP = '<?php echo get_template_directory_uri().\''+path+'\'?>'
-        |<link href=!{wordpressPHP} rel="stylesheet">
+        <link href=!{wordpressPHP} rel="stylesheet">
