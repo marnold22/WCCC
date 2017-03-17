@@ -93,7 +93,8 @@ gulp.task('pug-components', ()=>{
     .pipe(gulp.dest(paths.build.partials));
 });
 
-gulp.task('pug', ['pug-pages', 'pug-components'],()=>{});
+// gulp.task('pug', ['pug-pages', 'pug-components'],()=>{});
+gulp.task('pug', ['pug-pages'],()=>{});
 
 //Compile the sass into CSS
 gulp.task('sass', ()=>{
