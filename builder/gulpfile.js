@@ -151,9 +151,6 @@ gulp.task('php-files', ()=>{
     componentsPath = componentsPath.replace(paths.dev.root, '**/') + '**/*.php';
     const phpComponents = filter(componentsPath, {restore: true});
 
-    console.log(paths.dev.components);
-    console.log(componentsPath);
-
     let functionPath = paths.dev.phpFunctions
     functionPath = functionPath.replace(paths.dev.root, '**/') + '*.php'
     const phpFunctions = filter(functionPath, {restore: true});
@@ -209,7 +206,7 @@ gulp.task('php-serve', ()=>{
 });
 
 //Set up browser-sync server
-gulp.task('browser-sync', ['sass', 'pug', 'js', 'images', 'php-files'], ()=>{
+gulp.task('browser-sync', ['php-files', 'sass', 'pug', 'js', 'images'], ()=>{
     browserSync.init({
         proxy: '127.0.0.1:8888',
         port: 8080,
@@ -218,7 +215,7 @@ gulp.task('browser-sync', ['sass', 'pug', 'js', 'images', 'php-files'], ()=>{
 });
 
 //Set up browser-sync server (html)
-gulp.task('browser-sync-html', ['sass', 'pug', 'js', 'images', 'php-files'], ()=>{
+gulp.task('browser-sync-html', ['php-files', 'sass', 'pug', 'js', 'images'], ()=>{
     browserSync.init({
         server: {
             baseDir: paths.build.root
@@ -236,11 +233,11 @@ gulp.task('watch',()=>{
     gulp.watch(paths.dev.root + '**/*.pug', ['pug']).on('change', ()=>{browserSync.reload()});
     gulp.watch(paths.dev.root + '**/*.js', ['js']).on('change', ()=>{browserSync.reload()});
     gulp.watch(paths.dev.images + '**/*.[png | PNG | jpe?g | JPE?G]', ['images']).on('change', ()=>{browserSync.reload()});
-    gulp.watch(paths.build.root + '**/*.php').on('change', ()=>{browserSync.reload()});
+    gulp.watch(paths.dev.root + '**/*.php', ['php-files']).on('change', ()=>{browserSync.reload()});
 });
 
 //Build and compile everything
-gulp.task('build', ['sass', 'pug', 'js', 'images', 'php-files']);
+gulp.task('build', ['php-files', 'sass', 'pug', 'js', 'images']);
 
 //Default task
 if(statics.isPHP && statics.wordpress){
