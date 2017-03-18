@@ -39,7 +39,7 @@ var paths = {
         js: '../assets/js/',
         forms: '../assets/php/forms/',
         images: '../assets/images/',
-        partials: '../partials/',
+        partials: '../assets/partials/',
     },
     dev: {
         root: './src/',
@@ -139,13 +139,20 @@ gulp.task('js', ()=>{
 
 //Adds files to process forms
 gulp.task('php-files', ()=>{
-    let formsPath = paths.dev.forms
-    formsPath = formsPath.replace(paths.dev.root, '**/') + '*.php'
+    let formsPath = paths.dev.forms;
+    formsPath = formsPath.replace(paths.dev.root, '**/') + '*.php';
     const phpForms = filter(formsPath, {restore: true});
 
-    let pagesPath = paths.dev.pages
-    pagesPath = pagesPath.replace(paths.dev.root, '**/') + '*.php'
-    const phpPages = filter(paths.dev.pages + '**/*.php', {restore: true});
+    let pagesPath = paths.dev.pages;
+    pagesPath = pagesPath.replace(paths.dev.root, '**/') + '*.php';
+    const phpPages = filter(pagesPath, {restore: true});
+
+    let componentsPath = paths.dev.components;
+    componentsPath = componentsPath.replace(paths.dev.root, '**/') + '**/*.php';
+    const phpComponents = filter(componentsPath, {restore: true});
+
+    console.log(paths.dev.components);
+    console.log(componentsPath);
 
     let functionPath = paths.dev.phpFunctions
     functionPath = functionPath.replace(paths.dev.root, '**/') + '*.php'
@@ -169,6 +176,15 @@ gulp.task('php-files', ()=>{
     .pipe(gulp.dest(paths.build.root))
     .pipe(phpPages.restore)
     //end PHP pages
+
+    //PHP components
+    .pipe(phpComponents)
+    .pipe(rename({
+      dirname: ''
+    }))
+    .pipe(gulp.dest(paths.build.partials))
+    .pipe(phpComponents.restore)
+    //end PHP components
 
     //PHP function files
     .pipe(phpFunctions)
