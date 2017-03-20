@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+<?php get_header(); ?>
 
-  </body>
-</html>
+<?php
+  get_template_part('assets/partials/image-slider');
+?>
+
+<?php get_footer(); ?>

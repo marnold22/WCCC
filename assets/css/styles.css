@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300,400");
+body {
+  position: relative;
+  margin: 0;
+  padding: 0; }
+
+.vignette {
+  -webkit-box-shadow: inset 0 0 10em black;
+  box-shadow: inset 0 -0 10em black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: ""; }
+
+h1 {
+  color: red;
+  text-transform: uppercase; }
+
+@import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:300,400");
+.image-slider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh; }
+  .image-slider .image-slider-slogan {
+    z-index: 3000;
+    -webkit-transition: 1s;
+    transition: 1s; }
+    .image-slider .image-slider-slogan.image-slider-slogan-hidden {
+      opacity: 0; }
+    .image-slider .image-slider-slogan .logo-container {
+      width: 10em;
+      height: 5em;
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+    .image-slider .image-slider-slogan .image-slider-title {
+      text-transform: uppercase;
+      font-family: "Open Sans", sans-serif;
+      font-size: 2em;
+      margin: 0;
+      text-shadow: 0 0 15px black;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+    .image-slider .image-slider-slogan .image-slider-tag {
+      text-transform: lowercase;
+      font-family: "Open Sans", sans-serif;
+      font-size: 1em;
+      margin: 0;
+      text-shadow: 0 0 15px black;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+  .image-slider .image-slider-content {
+    position: relative;
+    overflow: hidden;
+    width: inherit;
+    height: inherit; }
+    .image-slider .image-slider-content .image-slider-images {
+      width: 100%;
+      height: 100%; }
+      .image-slider .image-slider-content .image-slider-images .image-slider-image {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        -webkit-transition: opacity 1s ease-in-out, -webkit-transform 15s ease-in-out, -webkit-filter 1s ease-in-out;
+        transition: opacity 1s ease-in-out, -webkit-transform 15s ease-in-out, -webkit-filter 1s ease-in-out;
+        transition: opacity 1s ease-in-out, transform 15s ease-in-out, filter 1s ease-in-out;
+        transition: opacity 1s ease-in-out, transform 15s ease-in-out, filter 1s ease-in-out, -webkit-transform 15s ease-in-out, -webkit-filter 1s ease-in-out;
+        opacity: 0;
+        -webkit-filter: brightness(0.5);
+                filter: brightness(0.5);
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0); }
+        .image-slider .image-slider-content .image-slider-images .image-slider-image.image-slider-image-active {
+          opacity: 1;
+          -webkit-transform: scale(1.5);
+              -ms-transform: scale(1.5);
+                  transform: scale(1.5); }
+        .image-slider .image-slider-content .image-slider-images .image-slider-image.image-slider-image-bright {
+          -webkit-filter: brightness(1);
+                  filter: brightness(1); }
+    .image-slider .image-slider-content .image-slider-buttons {
+      position: absolute;
+      margin: auto 0;
+      top: 0;
+      bottom: 0;
+      height: 1.5em;
+      width: 100%;
+      z-index: 1000; }
+      .image-slider .image-slider-content .image-slider-buttons .image-slider-button {
+        width: 2.5em;
+        height: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        -webkit-transition: 0.33s -webkit-transform ease-in-out;
+        transition: 0.33s -webkit-transform ease-in-out;
+        transition: 0.33s transform ease-in-out;
+        transition: 0.33s transform ease-in-out, 0.33s -webkit-transform ease-in-out; }
+        .image-slider .image-slider-content .image-slider-buttons .image-slider-button:hover {
+          -webkit-transform: scale(1.25);
+              -ms-transform: scale(1.25);
+                  transform: scale(1.25); }
+        .image-slider .image-slider-content .image-slider-buttons .image-slider-button.image-slider-button-left {
+          float: left; }
+        .image-slider .image-slider-content .image-slider-buttons .image-slider-button.image-slider-button-right {
+          float: right; }
+  .image-slider .image-slider-indexes {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 20%;
+    height: 2em;
+    margin: 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    z-index: 2000; }
+    .image-slider .image-slider-indexes .image-slider-index {
+      background-color: white;
+      -webkit-border-radius: 100%;
+              border-radius: 100%;
+      width: 0.35em;
+      height: 0.35em;
+      -webkit-transition: background-color 0.33s ease-in-out;
+      transition: background-color 0.33s ease-in-out;
+      border: 1px solid black;
+      opacity: 0.5; }
+      .image-slider .image-slider-indexes .image-slider-index.image-slider-index-active {
+        opacity: 1; }
+
+
+/*
+Theme Name: WCCC
+Theme URI: http://www.westcentralcc.org
+Author: Tyler Reardon, Michael Arnold, Madeline Cook
+Author URI: NA
+Description: A wordpress theme for the West Central Community Center in Spokane, WA
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Text Domain: twentythirteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
