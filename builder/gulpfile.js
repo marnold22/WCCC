@@ -40,6 +40,7 @@ var paths = {
         forms: '../assets/php/forms/',
         images: '../assets/images/',
         partials: '../assets/partials/',
+        util: '../assets/util/',
     },
     dev: {
         root: './src/',
@@ -49,6 +50,7 @@ var paths = {
         forms: './src/resources/php/forms/',
         phpFunctions: './src/resources/php/',
         data: './src/resources/data/data.json',
+        util: './src/util/',
     }
 }
 // ────────────────────────────────────────────────────────────────────────────────
@@ -152,9 +154,13 @@ gulp.task('php-files', ()=>{
     componentsPath = componentsPath.replace(paths.dev.root, '**/') + '**/*.php';
     const phpComponents = filter(componentsPath, {restore: true});
 
-    let functionPath = paths.dev.phpFunctions
-    functionPath = functionPath.replace(paths.dev.root, '**/') + '*.php'
+    let functionPath = paths.dev.phpFunctions;
+    functionPath = functionPath.replace(paths.dev.root, '**/') + '*.php';
     const phpFunctions = filter(functionPath, {restore: true});
+
+    let utilitiesPath = paths.dev.util;
+    utilitiesPath = utilitiesPath.replace(paths.dev.root, '**/') + '**/*.php';
+    const phpUtils = filter(utilitiesPath, {restore: true});
 
     return gulp.src(paths.dev.root + '**/*.php')
     //PHP form processing files
@@ -183,6 +189,15 @@ gulp.task('php-files', ()=>{
     .pipe(gulp.dest(paths.build.partials))
     .pipe(phpComponents.restore)
     //end PHP components
+
+    //PHP utilities
+    .pipe(phpUtils)
+    .pipe(rename({
+      dirname: ''
+    }))
+    .pipe(gulp.dest(paths.build.util))
+    .pipe(phpUtils.restore)
+    //end PHP utilities
 
     //PHP function files
     .pipe(phpFunctions)
