@@ -11,7 +11,7 @@
   <body>
     <div class="content">
       <div>
-        <h1>hi theres</h1>
+        <h1> </h1>
       </div>
     </div>
   </body>
