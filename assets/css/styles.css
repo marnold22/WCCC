@@ -16,12 +16,7 @@ body {
   content: ""; }
 
 h1 {
-<<<<<<< HEAD
   color: blue;
-  text-transform: uppercase; }
-
-=======
-  color: red;
   text-transform: uppercase; }
 
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
@@ -161,7 +156,6 @@ h1 {
         opacity: 1; }
 
 
->>>>>>> origin/dev/tyler
 /*
 Theme Name: WCCC
 Theme URI: http://www.westcentralcc.org
@@ -177,3 +171,4 @@ Text Domain: twentythirteen
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
