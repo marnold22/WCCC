@@ -16,7 +16,7 @@ body {
   content: ""; }
 
 h1 {
-  color: red;
+  color: blue;
   text-transform: uppercase; }
 
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
@@ -155,6 +155,7 @@ h1 {
       .image-slider .image-slider-indexes .image-slider-index.image-slider-index-active {
         opacity: 1; }
 
+
 /*
 Theme Name: WCCC
 Theme URI: http://www.westcentralcc.org
@@ -170,3 +171,34 @@ Text Domain: twentythirteen
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
+.where-we-are {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 30em;
+  background-color: #23396c; }
+  .where-we-are h1 {
+    text-align: center;
+    color: white; }
+  .where-we-are .where-we-go-content {
+    position: relative;
+    width: 100%;
+    height: 100%; }
+    .where-we-are .where-we-go-content .where-we-are-map-container {
+      position: relative;
+      width: 100%;
+      height: 100%; }
+      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map-overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.5;
+        background-color: #23396c;
+        z-index: 1000; }
+      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map {
+        z-index: 0;
+        width: 100%;
+        height: 100%; }
