@@ -9,7 +9,10 @@
 
           //we just need to save all of the image IDs from the database somehow
           //  and then populate the slider using the wp_get_attachment_image_src function
-          $photos = array(wp_get_attachment_image_src(20, 'original')[0], wp_get_attachment_image_src(21, 'original')[0], wp_get_attachment_image_src(22, 'original')[0], wp_get_attachment_image_src(23, 'original')[0]);
+          // $photos = array(wp_get_attachment_image_src(20, 'original')[0], wp_get_attachment_image_src(21, 'original')[0], wp_get_attachment_image_src(22, 'original')[0], wp_get_attachment_image_src(23, 'original')[0]);
+
+          $photos = get_option('image_selection');
+          $photos = explode(' , ', $photos);
 
           foreach ($photos as $photo) {
               echo '<a class="image-slider-image vignette" style="background-image: url('.$photo.')"></a>';
