@@ -14,7 +14,6 @@
   }
 
   function register_media_selector_settings() {
-  	// add_submenu_page( 'options-general.php', 'Media Selector', 'Media Selector', 'manage_options', 'media-selector', 'media_selector_settings_page_callback' );
     register_setting('image-slider-settings-group', 'image_selection');
   }
 
