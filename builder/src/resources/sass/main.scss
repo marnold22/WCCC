@@ -19,7 +19,17 @@ body{
     content: "";
 }
 
-h1{
-    color: blue;
+.title-heading{
+    font-family: $alegreya;
+    font-size: 3em;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: lowercase;
+}
+
+.sub-heading{
+    font-family: $open-sans;
+    font-size: 1.5em;
+    font-weight: 700;
     text-transform: uppercase;
 }
