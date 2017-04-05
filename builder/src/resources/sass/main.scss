@@ -33,3 +33,14 @@ body{
     font-weight: 700;
     text-transform: uppercase;
 }
+
+header, footer{
+    background-color: $blue;
+}
+
+header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 5em;
+}

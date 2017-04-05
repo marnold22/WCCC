@@ -10,9 +10,9 @@
     <?php wp_head(); ?>
   </head>
 
-  <header>
-    <h1>title goes here</h1>
-  </header>
+    <header>
+        <?php get_template_part('assets/partials/navigation'); ?>
+    </header>
 
   <div id="content-container">
     <body>
