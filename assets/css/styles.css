@@ -118,6 +118,7 @@ header {
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;
+        background-attachment: fixed;
         -webkit-transition: opacity 1s ease-in-out, -webkit-transform 15s ease-in-out, -webkit-filter 1s ease-in-out;
         transition: opacity 1s ease-in-out, -webkit-transform 15s ease-in-out, -webkit-filter 1s ease-in-out;
         transition: opacity 1s ease-in-out, transform 15s ease-in-out, filter 1s ease-in-out;

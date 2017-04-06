@@ -110,10 +110,9 @@ class ParallaxPage{
 $(document).ready(()=>{
     let parallax = new ParallaxPage();
     var throttledUpdate = _.throttle(()=>{
-        parallax.handleScroll();
     }, 10)
 
     $(window).scroll(()=>{
-        throttledUpdate();
+      parallax.handleScroll();
     });
 });

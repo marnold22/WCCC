@@ -142,11 +142,9 @@ var ParallaxPage = function () {
 
 $(document).ready(function () {
     var parallax = new ParallaxPage();
-    var throttledUpdate = _.throttle(function () {
-        parallax.handleScroll();
-    }, 10);
+    var throttledUpdate = _.throttle(function () {}, 10);
 
     $(window).scroll(function () {
-        throttledUpdate();
+        parallax.handleScroll();
     });
 });
