@@ -17,6 +17,7 @@ var imagemin = require('gulp-imagemin');
 var rename = require('gulp-rename');
 var argv = require('yargs').argv;
 var filter = require('gulp-filter');
+var runSequence = require('run-sequence');
 // ────────────────────────────────────────────────────────────────────────────────
 
 //
@@ -224,7 +225,7 @@ gulp.task('php-serve', ()=>{
 //Set up browser-sync server
 gulp.task('browser-sync', ['php-files', 'sass', 'pug', 'js', 'images'], ()=>{
     browserSync.init({
-        proxy: '127.0.0.1:8888',
+        proxy: 'localhost:8888',
         port: 8080,
         open: true,
     });
@@ -245,11 +246,21 @@ gulp.task('browser-sync-html', ['php-files', 'sass', 'pug', 'js', 'images'], ()=
 
 //Watch for changes
 gulp.task('watch',()=>{
-    gulp.watch(paths.dev.root + '**/*.scss', ['sass']).on('change', ()=>{browserSync.reload()});
-    gulp.watch(paths.dev.root + '**/*.pug', ['pug']).on('change', ()=>{browserSync.reload()});
-    gulp.watch(paths.dev.root + '**/*.js', ['js']).on('change', ()=>{browserSync.reload()});
-    gulp.watch(paths.dev.images + '**/*.[png | PNG | jpe?g | JPE?G]', ['images']).on('change', ()=>{browserSync.reload()});
-    gulp.watch(paths.dev.root + '**/*.php', ['php-files']).on('change', ()=>{browserSync.reload()});
+    gulp.watch([paths.dev.root + '**/*.scss'], ()=>{
+      runSequence('sass', browserSync.reload);
+    });
+    gulp.watch([paths.dev.root + '**/*.js'], ()=>{
+      runSequence('js', browserSync.reload);
+    });
+    gulp.watch([paths.dev.root + '**/*.pug'], ()=>{
+      runSequence('pug', browserSync.reload);
+    });
+    gulp.watch([paths.dev.root + '**/*.[png | PNG | jpe?g | JPE?G]'], ()=>{
+      runSequence('images', browserSync.reload);
+    });
+    gulp.watch([paths.dev.root + '**/*.php'], ()=>{
+      runSequence('php-files', browserSync.reload);
+    });
 });
 
 //Build and compile everything

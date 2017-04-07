@@ -1,5 +1,20 @@
-<nav>
-  <ul>
-    <li>hi there</li>
-  </ul>
-</nav>
+<script defer src="<?php echo get_template_directory_uri().'/assets/js/navigation.js'; ?>"></script>
+
+<div class="nav-bar">
+    <div class="nav-bar-content">
+        <div class="nav-bar-logo" style="background-image: url(<?php echo get_template_directory_uri().'/assets/images/grey_logo.png'; ?>)"><a href="#"></a></div>
+
+        <nav>
+            <ul>
+              <li><a href="./index">Home</a></li>
+              <li><a href="./about">About</a></li>
+              <li><a href="./programs">Programs</a></li>
+              <li><a href="./events">Events</a></li>
+              <li><a href="./giving">Giving</a></li>
+              <li><a href="./resources">Resources</a></li>
+              <li><a href="./contact">Contact</a></li>
+            </ul>
+            <div class="nav-bar-highlighter"></div>
+        </nav>
+    </div>
+</div>

@@ -22,7 +22,7 @@ class ParallaxPage{
 
             //check if the element we're observing is in the current viewport
             this.checkElementInView(container,{
-                elementInViewCallback: (percentComplete)=>{
+                middleCallback: (percentComplete)=>{
                     let distanceToTravel = $(container).outerHeight() * 0.33;
                     this.moveElements(elements, percentComplete * distanceToTravel);
                 }
@@ -43,11 +43,11 @@ class ParallaxPage{
     }
 
     //Checks to see if an element is above, within, or below the current scroll offset
-    checkElementInView(elementSelector, cbObject){
+    checkElementInView(elementSelector, cbObject = {}){
         const top  = window.pageYOffset || document.documentElement.scrollTop;    //top of the window
         const windowHeight = $(window).height();
         const bottom = top + windowHeight;                                        //bottom of the window
-        
+
 
         const element = $(elementSelector);       //div being observed
         const height = $(element).outerHeight();  //height of the element
@@ -59,7 +59,7 @@ class ParallaxPage{
         const belowView = (top > offset + height);
         const viewInViewport = (bottom > offset || top < offset + height);
 
-        //this will prevent the new top from being set 
+        //this will prevent the new top from being set
         if(top % 2 == 0){
             //will be -1 if scrolling down, 1 if scrolling up
             if(this.previousTop < top){
@@ -110,10 +110,9 @@ class ParallaxPage{
 $(document).ready(()=>{
     let parallax = new ParallaxPage();
     var throttledUpdate = _.throttle(()=>{
-        parallax.handleScroll();
     }, 10)
 
-    $(window).scroll(()=>{ 
-        throttledUpdate();
+    $(window).scroll(()=>{
+      parallax.handleScroll();
     });
 });
