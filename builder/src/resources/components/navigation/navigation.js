@@ -89,11 +89,11 @@ class NavBar{
     }
 
     openBurgerMenu(arg = {callback: ()=>{}}){
-        this.drawBurgerMenu({startVal: 0, endVal: 100, duration: 1000, callback: arg.callback});
+        this.drawBurgerMenu({startVal: 0, endVal: 100, duration: 0.01, callback: arg.callback});
     }
 
     closeBurgerMenu(arg = {callback: ()=>{}}){
-        this.drawBurgerMenu({startVal: 100, endVal: 0, duration: 1000, callback: arg.callback});
+        this.drawBurgerMenu({startVal: 100, endVal: 0, duration: 0.01, callback: arg.callback});
     }
 
 }

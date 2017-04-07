@@ -2,7 +2,7 @@
   <div class="image-slider parallax-container">
     <div class="image-slider-slogan">
 
-                <canvas id="mainCanvas" width="125" height="125"></canvas>
+                <canvas id="mainCanvas" width="175" height="125"></canvas>
 
       <div class="logo-container" style="background-image: url(<?php echo get_option('logo_selection'); ?>)"></div>
       <h1 class="image-slider-title">West Central Community Center</h1>

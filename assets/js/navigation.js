@@ -114,14 +114,14 @@ var NavBar = function () {
         value: function openBurgerMenu() {
             var arg = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { callback: function callback() {} };
 
-            this.drawBurgerMenu({ startVal: 0, endVal: 100, duration: 1000, callback: arg.callback });
+            this.drawBurgerMenu({ startVal: 0, endVal: 100, duration: 0.01, callback: arg.callback });
         }
     }, {
         key: 'closeBurgerMenu',
         value: function closeBurgerMenu() {
             var arg = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { callback: function callback() {} };
 
-            this.drawBurgerMenu({ startVal: 100, endVal: 0, duration: 1000, callback: arg.callback });
+            this.drawBurgerMenu({ startVal: 100, endVal: 0, duration: 0.01, callback: arg.callback });
         }
     }]);
 
