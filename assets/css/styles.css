@@ -49,100 +49,6 @@ header {
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
-.nav-bar {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-align-self: stretch;
-      -ms-flex-item-align: stretch;
-          align-self: stretch;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center; }
-  .nav-bar .nav-bar-content {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
-    .nav-bar .nav-bar-content .nav-bar-logo {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      background-size: contain;
-      background-repeat: no-repeat;
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-          -ms-flex: 1;
-              flex: 1;
-      height: 4em; }
-      .nav-bar .nav-bar-content .nav-bar-logo a {
-        -webkit-box-flex: 1;
-        -webkit-flex: 1;
-            -ms-flex: 1;
-                flex: 1;
-        -webkit-align-self: stretch;
-            -ms-flex-item-align: stretch;
-                    -ms-grid-row-align: stretch;
-                align-self: stretch; }
-    .nav-bar .nav-bar-content nav {
-      position: relative;
-      -webkit-align-self: flex-end;
-          -ms-flex-item-align: end;
-              align-self: flex-end; }
-      .nav-bar .nav-bar-content nav .nav-bar-highlighter {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 5px;
-        background-color: #f2ae00;
-        -webkit-transition: 0.33s ease-in-out;
-        transition: 0.33s ease-in-out; }
-      .nav-bar .nav-bar-content nav ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        width: 100%;
-        height: 2.5em; }
-        .nav-bar .nav-bar-content nav ul > :last-child {
-          margin-right: 0.5em; }
-        .nav-bar .nav-bar-content nav ul li {
-          display: -webkit-inline-box;
-          display: -webkit-inline-flex;
-          display: -ms-inline-flexbox;
-          display: inline-flex;
-          -webkit-align-content: center;
-              -ms-flex-line-pack: center;
-                  align-content: center;
-          -webkit-box-pack: center;
-          -webkit-justify-content: center;
-              -ms-flex-pack: center;
-                  justify-content: center; }
-          .nav-bar .nav-bar-content nav ul li a {
-            padding: 0em 1em;
-            opacity: 0.4;
-            text-decoration: none;
-            color: #ffffff;
-            font-family: "Open Sans", sans-serif;
-            -webkit-transition: 0.2s ease-in-out;
-            transition: 0.2s ease-in-out; }
-            .nav-bar .nav-bar-content nav ul li a:hover {
-              opacity: 1;
-              color: #f2ae00; }
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
 .image-slider {
   position: relative;
   overflow: hidden;
@@ -290,6 +196,100 @@ header {
       .image-slider .image-slider-indexes .image-slider-index.image-slider-index-active {
         opacity: 1; }
 
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.nav-bar {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+          align-self: stretch;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  .nav-bar .nav-bar-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
+    .nav-bar .nav-bar-content .nav-bar-logo {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      background-size: contain;
+      background-repeat: no-repeat;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      height: 4em; }
+      .nav-bar .nav-bar-content .nav-bar-logo a {
+        -webkit-box-flex: 1;
+        -webkit-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+        -webkit-align-self: stretch;
+            -ms-flex-item-align: stretch;
+                    -ms-grid-row-align: stretch;
+                align-self: stretch; }
+    .nav-bar .nav-bar-content nav {
+      position: relative;
+      -webkit-align-self: flex-end;
+          -ms-flex-item-align: end;
+              align-self: flex-end; }
+      .nav-bar .nav-bar-content nav .nav-bar-highlighter {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 5px;
+        background-color: #f2ae00;
+        -webkit-transition: 0.33s ease-in-out;
+        transition: 0.33s ease-in-out; }
+      .nav-bar .nav-bar-content nav ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 100%;
+        height: 2.5em; }
+        .nav-bar .nav-bar-content nav ul > :last-child {
+          margin-right: 0.5em; }
+        .nav-bar .nav-bar-content nav ul li {
+          display: -webkit-inline-box;
+          display: -webkit-inline-flex;
+          display: -ms-inline-flexbox;
+          display: inline-flex;
+          -webkit-align-content: center;
+              -ms-flex-line-pack: center;
+                  align-content: center;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+              -ms-flex-pack: center;
+                  justify-content: center; }
+          .nav-bar .nav-bar-content nav ul li a {
+            padding: 0em 1em;
+            opacity: 0.4;
+            text-decoration: none;
+            color: #ffffff;
+            font-family: "Open Sans", sans-serif;
+            -webkit-transition: 0.2s ease-in-out;
+            transition: 0.2s ease-in-out; }
+            .nav-bar .nav-bar-content nav ul li a:hover {
+              opacity: 1;
+              color: #f2ae00; }
+
 /*
 Theme Name: WCCC
 Theme URI: http://www.westcentralcc.org
@@ -305,7 +305,6 @@ Text Domain: twentythirteen
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-
 
 /* Media Queries */
 /* Card sizing */
@@ -535,6 +534,7 @@ body {
       #timeline .demo-card--step5 .head::after {
         border-color: #23396c; }
 
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
 .where-we-are {
@@ -576,7 +576,8 @@ body {
 .who-we-are {
   position: relative;
   font-family: "Open Sans", sans-serif;
-  overflow: hidden; }
+  overflow: hidden;
+  padding-bottom: 8em; }
   .who-we-are h1 {
     width: 100%;
     text-align: center; }
