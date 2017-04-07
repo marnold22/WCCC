@@ -1,6 +1,9 @@
   <script type="text/javascript" src=<?php echo get_template_directory_uri().'/assets/js/image-slider.js';?>></script>
   <div class="image-slider parallax-container">
     <div class="image-slider-slogan">
+
+                <canvas id="mainCanvas" width="125" height="125"></canvas>
+
       <div class="logo-container" style="background-image: url(<?php echo get_option('logo_selection'); ?>)"></div>
       <h1 class="image-slider-title">West Central Community Center</h1>
       <h6 class="image-slider-tag"><?php echo get_option('slogan_selection'); ?></h6>

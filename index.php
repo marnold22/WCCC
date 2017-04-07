@@ -2,7 +2,7 @@
 
 <?php
   get_template_part('assets/partials/image-slider');
-  get_template_part('assets/partials/where-we-are');
+  // get_template_part('assets/partials/where-we-are');
 ?>
 
 <?php get_footer(); ?>

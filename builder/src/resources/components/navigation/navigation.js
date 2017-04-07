@@ -59,11 +59,51 @@ class NavBar{
         }
     }
 
+    drawBurgerMenu(arg = {startVal: 0, endVal: 100, duration: 0, callback:()=>{}}){
+        //base case
+        if(arg.startVal == arg.endVal){
+            if(typeof arg.callback === 'function'){
+                arg.callback();
+            }
+            return;
+        }
+
+        //if we're incrementing
+        if(arg.startVal < arg.endVal){
+            setTimeout(()=>{
+                WCCCStyleKit.clearCanvas('mainCanvas');
+                WCCCStyleKit.drawBurgerMenu('mainCanvas', arg.startVal);
+                arg.startVal += 1;
+                this.drawBurgerMenu(arg);
+            }, arg.duration/100);
+        }
+        //we're decrementing
+        else{
+            setTimeout(()=>{
+                WCCCStyleKit.clearCanvas('mainCanvas');
+                WCCCStyleKit.drawBurgerMenu('mainCanvas', arg.startVal);
+                arg.startVal -= 1;
+                this.drawBurgerMenu(arg);
+            }, arg.duration/100);
+        }
+    }
+
+    openBurgerMenu(arg = {callback: ()=>{}}){
+        this.drawBurgerMenu({startVal: 0, endVal: 100, duration: 1000, callback: arg.callback});
+    }
+
+    closeBurgerMenu(arg = {callback: ()=>{}}){
+        this.drawBurgerMenu({startVal: 100, endVal: 0, duration: 1000, callback: arg.callback});
+    }
+
 }
 
 $(document).ready(()=>{
     let navBars = $('.nav-bar');
     for(let i = 0; i < navBars.length; i++){
-        new NavBar(navBars[i]);
+        let bar = new NavBar(navBars[i]);
+        bar.openBurgerMenu({callback: ()=>{
+            bar.closeBurgerMenu()
+        }});
     }
 });

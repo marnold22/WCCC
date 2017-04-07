@@ -1,4 +1,8 @@
-<script defer src="<?php echo get_template_directory_uri().'/assets/js/navigation.js'; ?>"></script>
+<script type="text/javascript">
+    requirejs(["<?php echo get_template_directory_uri().'/assets/js/WCCCStyleKit.js'; ?>"], function(){
+        requirejs(["<?php echo get_template_directory_uri().'/assets/js/navigation.js'; ?>"], function(){});
+    });
+</script>
 
 <div class="nav-bar">
     <div class="nav-bar-content">

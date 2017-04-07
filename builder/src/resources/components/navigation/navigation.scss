@@ -1,15 +1,23 @@
 @import "../../../resources/sass/_fonts.scss";
 @import "../../../resources/sass/_colors.scss";
 
+$tablet-size: 1000px;
+
 .nav-bar{
     flex: 1;
     flex-direction: column;
     align-self: stretch;
     display: flex;
     justify-content: center;
+    height: 4em;
 
     .nav-bar-content{
         display: flex;
+
+        @media only screen and (max-width: $tablet-size){
+            flex: 1;
+            align-self: stretch;
+        }
 
         .nav-bar-logo{
             display: flex;
@@ -17,6 +25,10 @@
             background-repeat: no-repeat;
             flex: 1;
             height: 4em;
+
+            @media only screen and (max-width: $tablet-size){
+                display: none;
+            }
 
             a{
                 flex: 1;
@@ -28,6 +40,10 @@
             position: relative;
             align-self: flex-end;
 
+            @media only screen and (max-width: $tablet-size){
+                flex: 1;
+                align-self: stretch;
+            }
 
             .nav-bar-highlighter{
                 position: absolute;
@@ -35,6 +51,10 @@
                 height: 5px;
                 background-color: $gold;
                 transition: 0.33s ease-in-out;
+
+                @media only screen and (max-width: $tablet-size){
+                    display: none;
+                }
             }
 
             ul{
@@ -44,14 +64,26 @@
                 width: 100%;
                 height: 2.5em;
 
+                @media only screen and (max-width: $tablet-size){
+                    height: auto;
+                }
+
                 >:last-child{
                     margin-right: 0.5em;
+
+                    @media only screen and (max-width: $tablet-size){
+                        margin-right: 0;
+                    }
                 }
 
                 li{
                     display: inline-flex;
                     align-content: center;
                     justify-content: center;
+
+                    @media only screen and (max-width: $tablet-size){
+                        display: flex;
+                    }
 
                     a{
                         padding: 0em 1em;
@@ -60,6 +92,10 @@
                         color: $white;
                         font-family: $open-sans;
                         transition: 0.2s ease-in-out;
+
+                        @media only screen and (max-width: $tablet-size){
+                            padding: 0;
+                        }
 
                         &:hover{
                             opacity: 1;
