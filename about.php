@@ -1,7 +1,7 @@
-<?php get_header(); ?>
+<?php /* Template Name: about-template */
 
-<?php
+  get_header();
   get_template_part('assets/partials/who-we-are');
-?>
+  get_footer();
 
-<?php get_footer(); ?>
+?>

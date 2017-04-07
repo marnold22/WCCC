@@ -35,7 +35,12 @@ class NavBar{
             if(pathPieces.length == 0 || pathPieces[pathPieces.length - 1].search('index') !== -1){
                 currPath = 'index'; //if it's just a slash, we want the home page
             }else{
+              if(pathPieces.length > 2 && pathPieces[pathPieces.length - 1] === ""){
+                currPath = pathPieces[pathPieces.length - 2];
+              }
+              else{
                 currPath = pathPieces[pathPieces.length - 1];
+              }
             }
 
             for(let i = 0; i < this.menuItems.length; i++){
