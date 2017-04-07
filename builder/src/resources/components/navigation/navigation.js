@@ -6,16 +6,13 @@ class NavBar{
         this.navBarHighlighter = $(element).find('.nav-bar-highlighter')[0];
         this.updateMenuItemToCurrentPage();
         this.setupOnHover();
+        this.setupListeners();
     }
 
     menuItemHovered(menuItem){
         const width = $(menuItem).width();
-        const outerWidth = $(menuItem).outerWidth();
-        const difference = outerWidth - width;
-        const firstMenuItemOffset = $(this.menuItems[0]).offset().left;
-        const menuItemOffset = $(menuItem).offset().left + difference/2;
-        let relativeOffset = menuItemOffset - firstMenuItemOffset;
-        $(this.navBarHighlighter).css({'left':relativeOffset, 'width': width});
+        const menuItemOffset = $(menuItem).offset().left;
+        $(this.navBarHighlighter).css({'left': menuItemOffset, 'width': width});
     }
 
     //event handlers
@@ -25,6 +22,14 @@ class NavBar{
         });
         $(this.menuItems).mouseleave(()=>{
             this.updateMenuItemToCurrentPage();
+        });
+    }
+
+    setupListeners(){
+        $(window).resize(()=>{
+            if(this.currentMenuItem){
+                this.menuItemHovered(this.currentMenuItem);
+            }
         });
     }
 
@@ -53,9 +58,9 @@ class NavBar{
     }
 
     updateMenuItemToCurrentPage(){
-        const currentMenuItem = this.getMenuItemForCurrentPage();
-        if(currentMenuItem){
-            this.menuItemHovered(currentMenuItem);
+        this.currentMenuItem = this.getMenuItemForCurrentPage();
+        if(this.currentMenuItem){
+            this.menuItemHovered(this.currentMenuItem);
         }
     }
 
@@ -102,8 +107,8 @@ $(document).ready(()=>{
     let navBars = $('.nav-bar');
     for(let i = 0; i < navBars.length; i++){
         let bar = new NavBar(navBars[i]);
-        bar.openBurgerMenu({callback: ()=>{
-            bar.closeBurgerMenu()
-        }});
+        // bar.openBurgerMenu({callback: ()=>{
+        //     bar.closeBurgerMenu()
+        // }});
     }
 });

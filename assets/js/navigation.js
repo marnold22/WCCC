@@ -14,18 +14,15 @@ var NavBar = function () {
         this.navBarHighlighter = $(element).find('.nav-bar-highlighter')[0];
         this.updateMenuItemToCurrentPage();
         this.setupOnHover();
+        this.setupListeners();
     }
 
     _createClass(NavBar, [{
         key: 'menuItemHovered',
         value: function menuItemHovered(menuItem) {
             var width = $(menuItem).width();
-            var outerWidth = $(menuItem).outerWidth();
-            var difference = outerWidth - width;
-            var firstMenuItemOffset = $(this.menuItems[0]).offset().left;
-            var menuItemOffset = $(menuItem).offset().left + difference / 2;
-            var relativeOffset = menuItemOffset - firstMenuItemOffset;
-            $(this.navBarHighlighter).css({ 'left': relativeOffset, 'width': width });
+            var menuItemOffset = $(menuItem).offset().left;
+            $(this.navBarHighlighter).css({ 'left': menuItemOffset, 'width': width });
         }
 
         //event handlers
@@ -40,6 +37,17 @@ var NavBar = function () {
             });
             $(this.menuItems).mouseleave(function () {
                 _this.updateMenuItemToCurrentPage();
+            });
+        }
+    }, {
+        key: 'setupListeners',
+        value: function setupListeners() {
+            var _this2 = this;
+
+            $(window).resize(function () {
+                if (_this2.currentMenuItem) {
+                    _this2.menuItemHovered(_this2.currentMenuItem);
+                }
             });
         }
     }, {
@@ -70,15 +78,15 @@ var NavBar = function () {
     }, {
         key: 'updateMenuItemToCurrentPage',
         value: function updateMenuItemToCurrentPage() {
-            var currentMenuItem = this.getMenuItemForCurrentPage();
-            if (currentMenuItem) {
-                this.menuItemHovered(currentMenuItem);
+            this.currentMenuItem = this.getMenuItemForCurrentPage();
+            if (this.currentMenuItem) {
+                this.menuItemHovered(this.currentMenuItem);
             }
         }
     }, {
         key: 'drawBurgerMenu',
         value: function drawBurgerMenu() {
-            var _this2 = this;
+            var _this3 = this;
 
             var arg = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { startVal: 0, endVal: 100, duration: 0, callback: function callback() {} };
 
@@ -96,7 +104,7 @@ var NavBar = function () {
                     WCCCStyleKit.clearCanvas('mainCanvas');
                     WCCCStyleKit.drawBurgerMenu('mainCanvas', arg.startVal);
                     arg.startVal += 1;
-                    _this2.drawBurgerMenu(arg);
+                    _this3.drawBurgerMenu(arg);
                 }, arg.duration / 100);
             }
             //we're decrementing
@@ -105,7 +113,7 @@ var NavBar = function () {
                         WCCCStyleKit.clearCanvas('mainCanvas');
                         WCCCStyleKit.drawBurgerMenu('mainCanvas', arg.startVal);
                         arg.startVal -= 1;
-                        _this2.drawBurgerMenu(arg);
+                        _this3.drawBurgerMenu(arg);
                     }, arg.duration / 100);
                 }
         }
@@ -130,15 +138,10 @@ var NavBar = function () {
 
 $(document).ready(function () {
     var navBars = $('.nav-bar');
-
-    var _loop = function _loop(i) {
-        var bar = new NavBar(navBars[i]);
-        bar.openBurgerMenu({ callback: function callback() {
-                bar.closeBurgerMenu();
-            } });
-    };
-
     for (var i = 0; i < navBars.length; i++) {
-        _loop(i);
+        var bar = new NavBar(navBars[i]);
+        // bar.openBurgerMenu({callback: ()=>{
+        //     bar.closeBurgerMenu()
+        // }});
     }
 });

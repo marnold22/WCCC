@@ -6,7 +6,9 @@
 
 <div class="nav-bar">
     <div class="nav-bar-content">
-        <div class="nav-bar-logo" style="background-image: url(<?php echo get_template_directory_uri().'/assets/images/grey_logo.png'; ?>)"><a href="#"></a></div>
+        <!-- <div class="nav-bar-logo" style="background-image: url(<?php echo get_template_directory_uri().'/assets/images/grey_logo.png'; ?>)"><a href="#"></a></div> -->
+
+        <!-- <canvas id="mainCanvas" width="175" height="125"></canvas> -->
 
         <nav>
             <ul>

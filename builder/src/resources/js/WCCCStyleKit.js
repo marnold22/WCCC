@@ -42,7 +42,7 @@ var WCCCStyleKit = {};
         canvas = initializeCanvas(typeof canvas === 'string' ? document.getElementById(canvas) : canvas);
         var context = canvas.getContext('2d');
         var pixelRatio = canvas.paintCodePixelRatio;
-        
+
         //// Resize to Target Frame
         context.save();
         var resizedFrame = applyResizingBehavior(resizing, makeRect(0, 0, 175, 125), targetFrame);
@@ -96,7 +96,7 @@ var WCCCStyleKit = {};
         context.fillStyle = white;
         context.fill();
         context.restore();
-        
+
         context.restore();
 
     }
