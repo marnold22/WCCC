@@ -67,7 +67,20 @@ $tablet-size: 1000px;
                         text-decoration: none;
                         color: $white;
                         font-family: $open-sans;
-                        transition: 0.2s ease-in-out;
+                        transition: 0.5s ease-in-out;
+
+                        @media only screen and (max-width: $tablet-size){
+                            display: none;
+
+                            &.menu-item-display{
+                                display: flex;
+                                opacity: 0;
+                            }
+
+                            &.menu-item-active{
+                                opacity: 1;
+                            }
+                        }
 
                         &:hover{
                             opacity: 1;

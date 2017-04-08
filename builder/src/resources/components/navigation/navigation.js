@@ -145,11 +145,59 @@ class NavBar{
     openBurgerMenu(arg = {callback: ()=>{}}){
         this.drawBurgerMenu({startVal: 0, endVal: 100, duration: 175, direction: 'up', callback: arg.callback});
         $(this.navContent).addClass('nav-bar-content-active');
+        this.showAllMenuItems();
     }
 
     closeBurgerMenu(arg = {callback: ()=>{}}){
         this.drawBurgerMenu({startVal: 100, endVal: 0, duration: 175, direction: 'down', callback: arg.callback});
         $(this.navContent).removeClass('nav-bar-content-active');
+        this.hideAllMenuItems();
+    }
+
+    showAllMenuItems(){
+        for(let i = 0; i < this.menuItems.length; i++){
+            setTimeout(()=>{
+                this.showMenuItem(i);
+            }, 200*i)
+        }
+    }
+
+    hideAllMenuItems(){
+        for(let i = 0; i < this.menuItems.length; i++){
+            this.hideMenuItem(i);
+        }
+    }
+
+    displayMenuItem(index){
+        if(index < this.menuItems.length){
+            $(this.menuItems[index]).addClass('menu-item-display');
+        }
+    }
+
+    noDisplayMenuItem(index){
+        if(index < this.menuItems.length){
+            $(this.menuItems[index]).removeClass('menu-item-display');
+        }
+    }
+
+    showMenuItem(index){
+        this.displayMenuItem(index);
+        if(index < this.menuItems.length){
+            setTimeout(()=>{
+                $(this.menuItems[index]).addClass('menu-item-active');
+            },10);
+        }
+    }
+
+    hideMenuItem(index){
+        setTimeout(()=>{
+            this.noDisplayMenuItem(index);
+        }, 500);
+        if(index < this.menuItems.length){
+            setTimeout(()=>{
+                $(this.menuItems[index]).removeClass('menu-item-active');
+            },0);
+        }
     }
 
 }
