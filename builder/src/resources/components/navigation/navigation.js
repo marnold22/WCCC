@@ -192,14 +192,18 @@ class NavBar{
         this.displayMenuItem(index);
         if(index < this.menuItems.length){
             setTimeout(()=>{
-                $(this.menuItems[index]).addClass('menu-item-active');
+                if(this.burgerMenuOpen){
+                    $(this.menuItems[index]).addClass('menu-item-active');
+                }
             },10);
         }
     }
 
     hideMenuItem(index){
         setTimeout(()=>{
-            this.noDisplayMenuItem(index);
+            if(!this.burgerMenuOpen){
+                this.noDisplayMenuItem(index);
+            }
         }, 500);
         if(index < this.menuItems.length){
             setTimeout(()=>{
