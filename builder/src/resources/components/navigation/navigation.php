@@ -5,12 +5,11 @@
 </script>
 
 <div class="nav-bar">
+    <div class="nav-bar-logo" style="background-image: url(<?php echo get_template_directory_uri().'/assets/images/grey_logo.png'; ?>)"><a href="./index"></a></div>
 
-    <canvas id="burger-menu" width="50px" height="50px"></canvas>
+    <canvas id="burger-menu" width="35px" height="35px"></canvas>
 
     <div class="nav-bar-content">
-        <!-- <div class="nav-bar-logo" style="background-image: url(<?php echo get_template_directory_uri().'/assets/images/grey_logo.png'; ?>)"><a href="#"></a></div> -->
-
         <nav>
             <ul>
               <li><a href="./index">Home</a></li>

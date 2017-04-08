@@ -1,18 +1,25 @@
 class NavBar{
     constructor(element){
+        //ELEMENTS
         this.nav = element;
         this.navContent = $(element).find('.nav-bar-content')[0];
         this.menuItems = $(element).find('nav > ul > li > a');
         this.currentMenuItem = null;
         this.navBarHighlighter = $(element).find('.nav-bar-highlighter')[0];
 
+        //BURGER
         //define the burger menu
         this.burgerMenuID = 'burger-menu';
+        //the dimensions of the burger menu
+        this.burgerMenuSize = 35;
         //display the burger menu
         this.drawBurgerMenuAtPercentage(0);
         this.burgerMenuOpen = false;
 
+        //PAGE
+        //which page are we on
         this.updateMenuItemToCurrentPage();
+        //set up the page interactions
         this.setupListeners();
     }
 
@@ -35,7 +42,7 @@ class NavBar{
     //REGULAR MENU---------------------------------------------------
 
     menuItemHovered(menuItem){
-        const width = $(menuItem).width();
+        const width = $(menuItem).outerWidth(true);
         const menuItemOffset = $(menuItem).offset().left;
         $(this.navBarHighlighter).css({'left': menuItemOffset, 'width': width});
     }
@@ -83,6 +90,7 @@ class NavBar{
         this.currentMenuItem = this.getMenuItemForCurrentPage();
         if(this.currentMenuItem){
             this.menuItemHovered(this.currentMenuItem);
+            $(this.currentMenuItem).addClass('menu-item-current-page');
         }
     }
 
@@ -107,7 +115,7 @@ class NavBar{
         }
 
         WCCCStyleKit.clearCanvas(this.burgerMenuID);
-        WCCCStyleKit.drawBurgerMenu(this.burgerMenuID, percentComplete, WCCCStyleKit.makeRect(0,0,50,50), 'aspectfit');
+        WCCCStyleKit.drawBurgerMenu(this.burgerMenuID, percentComplete, WCCCStyleKit.makeRect(0,0,this.burgerMenuSize,this.burgerMenuSize), 'aspectfit');
     }
 
     drawBurgerMenu(arg = {startVal: 0, endVal: 100, duration: 0, direction: '', callback:()=>{}}){
