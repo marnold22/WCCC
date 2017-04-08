@@ -77,7 +77,11 @@ var NavBar = function () {
                 if (pathPieces.length == 0 || pathPieces[pathPieces.length - 1].search('index') !== -1) {
                     currPath = 'index'; //if it's just a slash, we want the home page
                 } else {
-                    currPath = pathPieces[pathPieces.length - 1];
+                    if (pathPieces.length > 2 && pathPieces[pathPieces.length - 1] === "") {
+                        currPath = pathPieces[pathPieces.length - 2];
+                    } else {
+                        currPath = pathPieces[pathPieces.length - 1];
+                    }
                 }
 
                 for (var i = 0; i < this.menuItems.length; i++) {
