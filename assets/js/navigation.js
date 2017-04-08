@@ -9,15 +9,44 @@ var NavBar = function () {
         _classCallCheck(this, NavBar);
 
         this.nav = element;
+        this.navContent = $(element).find('.nav-bar-content')[0];
         this.menuItems = $(element).find('nav > ul > li > a');
         this.currentMenuItem = null;
         this.navBarHighlighter = $(element).find('.nav-bar-highlighter')[0];
+
+        //define the burger menu
+        this.burgerMenuID = 'burger-menu';
+        //display the burger menu
+        this.drawBurgerMenuAtPercentage(0);
+        this.burgerMenuOpen = false;
+
         this.updateMenuItemToCurrentPage();
-        this.setupOnHover();
         this.setupListeners();
     }
 
     _createClass(NavBar, [{
+        key: 'setupListeners',
+        value: function setupListeners() {
+            var _this = this;
+
+            //on resize of window so highlight offset is correct
+            $(window).resize(function () {
+                if (_this.currentMenuItem) {
+                    _this.menuItemHovered(_this.currentMenuItem);
+                }
+            });
+
+            //menu item hovered
+            this.setupOnHover();
+
+            //burger menu
+            var burgerMenuID = '#' + this.burgerMenuID;
+            $(burgerMenuID).click(this.toggleBurgerMenu.bind(this));
+        }
+
+        //REGULAR MENU---------------------------------------------------
+
+    }, {
         key: 'menuItemHovered',
         value: function menuItemHovered(menuItem) {
             var width = $(menuItem).width();
@@ -30,24 +59,13 @@ var NavBar = function () {
     }, {
         key: 'setupOnHover',
         value: function setupOnHover() {
-            var _this = this;
-
-            $(this.menuItems).hover(function (event) {
-                _this.menuItemHovered(event.target);
-            });
-            $(this.menuItems).mouseleave(function () {
-                _this.updateMenuItemToCurrentPage();
-            });
-        }
-    }, {
-        key: 'setupListeners',
-        value: function setupListeners() {
             var _this2 = this;
 
-            $(window).resize(function () {
-                if (_this2.currentMenuItem) {
-                    _this2.menuItemHovered(_this2.currentMenuItem);
-                }
+            $(this.menuItems).hover(function (event) {
+                _this2.menuItemHovered(event.target);
+            });
+            $(this.menuItems).mouseleave(function () {
+                _this2.updateMenuItemToCurrentPage();
             });
         }
     }, {
@@ -83,53 +101,84 @@ var NavBar = function () {
                 this.menuItemHovered(this.currentMenuItem);
             }
         }
+
+        //BURGER MENU---------------------------------------------------
+
+    }, {
+        key: 'toggleBurgerMenu',
+        value: function toggleBurgerMenu() {
+            if (this.burgerMenuOpen) {
+                this.closeBurgerMenu();
+                this.burgerMenuOpen = false;
+            } else {
+                this.openBurgerMenu();
+                this.burgerMenuOpen = true;
+            }
+        }
+    }, {
+        key: 'drawBurgerMenuAtPercentage',
+        value: function drawBurgerMenuAtPercentage(percentComplete) {
+            if (percentComplete > 100) {
+                percentComplete = 100;
+            } else if (percentComplete < 0) {
+                percentComplete = 0;
+            }
+
+            WCCCStyleKit.clearCanvas(this.burgerMenuID);
+            WCCCStyleKit.drawBurgerMenu(this.burgerMenuID, percentComplete, WCCCStyleKit.makeRect(0, 0, 50, 50), 'aspectfit');
+        }
     }, {
         key: 'drawBurgerMenu',
         value: function drawBurgerMenu() {
             var _this3 = this;
 
-            var arg = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { startVal: 0, endVal: 100, duration: 0, callback: function callback() {} };
+            var arg = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { startVal: 0, endVal: 100, duration: 0, direction: '', callback: function callback() {} };
 
+            var shouldStop = false;
             //base case
-            if (arg.startVal == arg.endVal) {
+            if (arg.direction === 'up' && arg.startVal >= arg.endVal || arg.direction === 'down' && arg.startVal <= arg.endVal) {
+                shouldStop = true;
+            }
+
+            //setTimeout's minimum timeout is 10ms, so we need to do some adjusting of frames
+            //  if the timeout is less than 10ms
+            var numFrames = 100;
+            if (arg.duration / numFrames < 10) {
+                numFrames = 20;
+            }
+
+            //will be at least 1
+            var incrementBy = 100 / numFrames;
+
+            setTimeout(function () {
+                _this3.drawBurgerMenuAtPercentage(arg.startVal);
+                arg.startVal += arg.direction === 'up' ? incrementBy : -incrementBy;
+                if (!shouldStop) {
+                    _this3.drawBurgerMenu(arg);
+                }
+            }, arg.duration / numFrames);
+
+            if (shouldStop) {
                 if (typeof arg.callback === 'function') {
                     arg.callback();
                 }
-                return;
             }
-
-            //if we're incrementing
-            if (arg.startVal < arg.endVal) {
-                setTimeout(function () {
-                    WCCCStyleKit.clearCanvas('mainCanvas');
-                    WCCCStyleKit.drawBurgerMenu('mainCanvas', arg.startVal);
-                    arg.startVal += 1;
-                    _this3.drawBurgerMenu(arg);
-                }, arg.duration / 100);
-            }
-            //we're decrementing
-            else {
-                    setTimeout(function () {
-                        WCCCStyleKit.clearCanvas('mainCanvas');
-                        WCCCStyleKit.drawBurgerMenu('mainCanvas', arg.startVal);
-                        arg.startVal -= 1;
-                        _this3.drawBurgerMenu(arg);
-                    }, arg.duration / 100);
-                }
         }
     }, {
         key: 'openBurgerMenu',
         value: function openBurgerMenu() {
             var arg = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { callback: function callback() {} };
 
-            this.drawBurgerMenu({ startVal: 0, endVal: 100, duration: 0.01, callback: arg.callback });
+            this.drawBurgerMenu({ startVal: 0, endVal: 100, duration: 175, direction: 'up', callback: arg.callback });
+            $(this.navContent).addClass('nav-bar-content-active');
         }
     }, {
         key: 'closeBurgerMenu',
         value: function closeBurgerMenu() {
             var arg = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { callback: function callback() {} };
 
-            this.drawBurgerMenu({ startVal: 100, endVal: 0, duration: 0.01, callback: arg.callback });
+            this.drawBurgerMenu({ startVal: 100, endVal: 0, duration: 175, direction: 'down', callback: arg.callback });
+            $(this.navContent).removeClass('nav-bar-content-active');
         }
     }]);
 
@@ -140,8 +189,5 @@ $(document).ready(function () {
     var navBars = $('.nav-bar');
     for (var i = 0; i < navBars.length; i++) {
         var bar = new NavBar(navBars[i]);
-        // bar.openBurgerMenu({callback: ()=>{
-        //     bar.closeBurgerMenu()
-        // }});
     }
 });

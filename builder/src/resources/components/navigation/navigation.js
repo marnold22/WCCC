@@ -1,13 +1,38 @@
 class NavBar{
     constructor(element){
         this.nav = element;
+        this.navContent = $(element).find('.nav-bar-content')[0];
         this.menuItems = $(element).find('nav > ul > li > a');
         this.currentMenuItem = null;
         this.navBarHighlighter = $(element).find('.nav-bar-highlighter')[0];
+
+        //define the burger menu
+        this.burgerMenuID = 'burger-menu';
+        //display the burger menu
+        this.drawBurgerMenuAtPercentage(0);
+        this.burgerMenuOpen = false;
+
         this.updateMenuItemToCurrentPage();
-        this.setupOnHover();
         this.setupListeners();
     }
+
+    setupListeners(){
+        //on resize of window so highlight offset is correct
+        $(window).resize(()=>{
+            if(this.currentMenuItem){
+                this.menuItemHovered(this.currentMenuItem);
+            }
+        });
+
+        //menu item hovered
+        this.setupOnHover();
+
+        //burger menu
+        let burgerMenuID = '#'+this.burgerMenuID;
+        $(burgerMenuID).click(this.toggleBurgerMenu.bind(this));
+    }
+
+    //REGULAR MENU---------------------------------------------------
 
     menuItemHovered(menuItem){
         const width = $(menuItem).width();
@@ -22,14 +47,6 @@ class NavBar{
         });
         $(this.menuItems).mouseleave(()=>{
             this.updateMenuItemToCurrentPage();
-        });
-    }
-
-    setupListeners(){
-        $(window).resize(()=>{
-            if(this.currentMenuItem){
-                this.menuItemHovered(this.currentMenuItem);
-            }
         });
     }
 
@@ -64,41 +81,70 @@ class NavBar{
         }
     }
 
-    drawBurgerMenu(arg = {startVal: 0, endVal: 100, duration: 0, callback:()=>{}}){
+
+    //BURGER MENU---------------------------------------------------
+
+    toggleBurgerMenu(){
+        if(this.burgerMenuOpen){
+            this.closeBurgerMenu();
+            this.burgerMenuOpen = false;
+        }else{
+            this.openBurgerMenu();
+            this.burgerMenuOpen = true;
+        }
+    }
+
+    drawBurgerMenuAtPercentage(percentComplete){
+        if(percentComplete > 100){
+            percentComplete = 100;
+        }else if(percentComplete < 0){
+            percentComplete = 0
+        }
+
+        WCCCStyleKit.clearCanvas(this.burgerMenuID);
+        WCCCStyleKit.drawBurgerMenu(this.burgerMenuID, percentComplete, WCCCStyleKit.makeRect(0,0,50,50), 'aspectfit');
+    }
+
+    drawBurgerMenu(arg = {startVal: 0, endVal: 100, duration: 0, direction: '', callback:()=>{}}){
+        let shouldStop = false;
         //base case
-        if(arg.startVal == arg.endVal){
+        if((arg.direction === 'up' && arg.startVal >= arg.endVal) || arg.direction === 'down' && arg.startVal <= arg.endVal){
+            shouldStop = true;
+        }
+
+        //setTimeout's minimum timeout is 10ms, so we need to do some adjusting of frames
+        //  if the timeout is less than 10ms
+        let numFrames = 100;
+        if(arg.duration/numFrames < 10){
+            numFrames = 20;
+        }
+
+        //will be at least 1
+        let incrementBy = 100/numFrames;
+
+        setTimeout(()=>{
+            this.drawBurgerMenuAtPercentage(arg.startVal);
+            arg.startVal += arg.direction === 'up' ? incrementBy : -incrementBy;
+            if(!shouldStop){
+                this.drawBurgerMenu(arg);
+            }
+        }, arg.duration/numFrames);
+
+        if(shouldStop){
             if(typeof arg.callback === 'function'){
                 arg.callback();
             }
-            return;
-        }
-
-        //if we're incrementing
-        if(arg.startVal < arg.endVal){
-            setTimeout(()=>{
-                WCCCStyleKit.clearCanvas('mainCanvas');
-                WCCCStyleKit.drawBurgerMenu('mainCanvas', arg.startVal);
-                arg.startVal += 1;
-                this.drawBurgerMenu(arg);
-            }, arg.duration/100);
-        }
-        //we're decrementing
-        else{
-            setTimeout(()=>{
-                WCCCStyleKit.clearCanvas('mainCanvas');
-                WCCCStyleKit.drawBurgerMenu('mainCanvas', arg.startVal);
-                arg.startVal -= 1;
-                this.drawBurgerMenu(arg);
-            }, arg.duration/100);
         }
     }
 
     openBurgerMenu(arg = {callback: ()=>{}}){
-        this.drawBurgerMenu({startVal: 0, endVal: 100, duration: 0.01, callback: arg.callback});
+        this.drawBurgerMenu({startVal: 0, endVal: 100, duration: 175, direction: 'up', callback: arg.callback});
+        $(this.navContent).addClass('nav-bar-content-active');
     }
 
     closeBurgerMenu(arg = {callback: ()=>{}}){
-        this.drawBurgerMenu({startVal: 100, endVal: 0, duration: 0.01, callback: arg.callback});
+        this.drawBurgerMenu({startVal: 100, endVal: 0, duration: 175, direction: 'down', callback: arg.callback});
+        $(this.navContent).removeClass('nav-bar-content-active');
     }
 
 }
@@ -107,8 +153,5 @@ $(document).ready(()=>{
     let navBars = $('.nav-bar');
     for(let i = 0; i < navBars.length; i++){
         let bar = new NavBar(navBars[i]);
-        // bar.openBurgerMenu({callback: ()=>{
-        //     bar.closeBurgerMenu()
-        // }});
     }
 });

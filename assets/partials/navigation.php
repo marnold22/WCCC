@@ -5,10 +5,11 @@
 </script>
 
 <div class="nav-bar">
+
+    <canvas id="burger-menu" width="50px" height="50px"></canvas>
+
     <div class="nav-bar-content">
         <!-- <div class="nav-bar-logo" style="background-image: url(<?php echo get_template_directory_uri().'/assets/images/grey_logo.png'; ?>)"><a href="#"></a></div> -->
-
-        <!-- <canvas id="mainCanvas" width="175" height="125"></canvas> -->
 
         <nav>
             <ul>

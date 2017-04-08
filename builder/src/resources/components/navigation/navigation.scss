@@ -5,11 +5,16 @@ $tablet-size: 1000px;
 
 .nav-bar{
     height: 4em;
-    transition: 0.5s ease-in-out;
 
-    &.nav-bar-active{
+    #burger-menu{
+        position: absolute;
+        top: 0; bottom: 0; right: 10px;
+        margin: auto;
+        display: none;
+        cursor: pointer; cursor: hand;
+
         @media only screen and (max-width: $tablet-size){
-            height: 100vh;
+            display: inline-block;
         }
     }
 
@@ -17,6 +22,14 @@ $tablet-size: 1000px;
         display: flex;
         flex: 1;
         height: 100%;
+        transition: 0.5s ease-in-out;
+        background-color: $blue;
+
+        &.nav-bar-content-active{
+            @media only screen and (max-width: $tablet-size){
+                height: 100vh;
+            }
+        }
 
         nav{
             flex: 1;
