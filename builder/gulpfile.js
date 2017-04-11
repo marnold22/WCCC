@@ -42,6 +42,7 @@ var paths = {
         images: '../assets/images/',
         partials: '../assets/partials/',
         util: '../assets/util/',
+        templates: '../assets/templates/',
     },
     dev: {
         root: './src/',
@@ -52,6 +53,7 @@ var paths = {
         phpFunctions: './src/resources/php/',
         data: './src/resources/data/data.json',
         util: './src/util/',
+        templates: './src/resources/',
     }
 }
 // ────────────────────────────────────────────────────────────────────────────────
@@ -141,6 +143,14 @@ gulp.task('js', ()=>{
     .pipe(gulp.dest(paths.build.js));
 });
 
+gulp.task('mustache', ()=>{
+    return gulp.src(paths.dev.templates + '**/*.mustache')
+    .pipe(rename({
+        dirname: ''
+    }))
+    .pipe(gulp.dest(paths.build.templates));
+});
+
 //Adds files to process forms
 gulp.task('php-files', ()=>{
     let formsPath = paths.dev.forms;
@@ -193,8 +203,9 @@ gulp.task('php-files', ()=>{
 
     //PHP utilities
     .pipe(phpUtils)
-    .pipe(rename({
-      dirname: ''
+    .pipe(rename((path)=>{
+        let utilPath = paths.dev.util.replace(paths.dev.root, '');
+        path.dirname = path.dirname.replace(utilPath, '');
     }))
     .pipe(gulp.dest(paths.build.util))
     .pipe(phpUtils.restore)
@@ -223,7 +234,7 @@ gulp.task('php-serve', ()=>{
 });
 
 //Set up browser-sync server
-gulp.task('browser-sync', ['php-files', 'sass', 'pug', 'js', 'images'], ()=>{
+gulp.task('browser-sync', ['php-files', 'mustache', 'sass', 'pug', 'js', 'images'], ()=>{
     browserSync.init({
         proxy: 'wordpress.localhost:8888',
         port: 8080,
@@ -232,7 +243,7 @@ gulp.task('browser-sync', ['php-files', 'sass', 'pug', 'js', 'images'], ()=>{
 });
 
 //Set up browser-sync server (html)
-gulp.task('browser-sync-html', ['php-files', 'sass', 'pug', 'js', 'images'], ()=>{
+gulp.task('browser-sync-html', ['php-files', 'mustache', 'sass', 'pug', 'js', 'images'], ()=>{
     browserSync.init({
         server: {
             baseDir: paths.build.root
@@ -258,13 +269,16 @@ gulp.task('watch',()=>{
     gulp.watch([paths.dev.root + '**/*.[png | PNG | jpe?g | JPE?G]'], ()=>{
       runSequence('images', browserSync.reload);
     });
+    gulp.watch([paths.dev.root + '**/*.mustache'], ()=>{
+      runSequence('mustache', browserSync.reload);
+    });
     gulp.watch([paths.dev.root + '**/*.php'], ()=>{
       runSequence('php-files', browserSync.reload);
     });
 });
 
 //Build and compile everything
-gulp.task('build', ['php-files', 'sass', 'pug', 'js', 'images']);
+gulp.task('build', ['php-files', 'mustache', 'sass', 'pug', 'js', 'images']);
 
 //Default task
 if(statics.isPHP && statics.wordpress){
