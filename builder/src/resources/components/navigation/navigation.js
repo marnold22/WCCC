@@ -3,6 +3,7 @@ class NavBar{
         //ELEMENTS
         this.nav = element;
         this.subNav = $(element).find('.sub-nav-list')[0];
+        this.subNavItems = null; //set in setupSubMenu()
         this.pageAnchors = $('.anchor');
         this.navContent = $(element).find('.nav-bar-content')[0];
         this.menuItems = $(element).find('nav > ul > li > a');
@@ -31,21 +32,33 @@ class NavBar{
 
     //FIX CONTENT OFFSET---------------------------------------------
 
-    setPageContentOffset(){
+    getPageContentOffset(){
         let content = $('#content-container');
         let navHeight = $(this.navContent).height() + $(this.subNav).height();
+        return navHeight;
+    }
+
+    setPageContentOffset(){
+        let content = $('#content-container');
+        let navHeight = this.getPageContentOffset();
         $(content).css({'margin-top': navHeight+'px'});
     }
 
     //PAGE LISTENERS-------------------------------------------------
 
     setupListeners(){
-        //on resize of window so highlight offset is correct
         $(window).resize(()=>{
+            //on resize of window so highlight offset is correct
             if(this.currentMenuItem){
                 this.menuItemHovered(this.currentMenuItem);
             }
+            //make sure content is never behind menu on window resize
             this.setPageContentOffset();
+        });
+
+        $(window).scroll(()=>{
+            //find the current menu item in the viewport
+            this.setCurrentSubMenuItem();
         });
 
         //menu item hovered
@@ -231,10 +244,16 @@ class NavBar{
     //SUB MENU-----------------------------------------------------
     setupSubMenu(){
         let anchorIDs = {};
+        let subNavActive = false;
+
         for(let i = 0; i < this.pageAnchors.length; i++){
+            //we have nav items
+            subNavActive = true;
+
             let currAnchor = this.pageAnchors[i];
             let anchorID = $(currAnchor).attr('name');
             let title = $(currAnchor).attr('title');
+
             //if we haven't seen this id before
             if(!anchorIDs[anchorID]){
                 //keep track of the IDs to make sure they're unique
@@ -244,10 +263,37 @@ class NavBar{
                 let randomString = Math.random().toString(36).substring(7);
                 anchorID += ('_' + randomString);
                 $(currAnchor).attr('name', anchorID);
+                $(currAnchor).attr('id', anchorID);
             }
 
-            let navItem = `<li class="sub-nav-item"><a href=${anchorID}>${title}</a></li>`
+            let navItem = `<li class="sub-nav-item"><a href="#${anchorID}">${title}</a></li>`
             $(this.subNav).append(navItem);
+        }
+
+        $(this.subNav).addClass('sub-nav-active');
+        this.subNavItems = $('.sub-nav-item');
+    }
+
+    setCurrentSubMenuItem(){
+        //window scroll position
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        //height of nav bar
+        let offset = this.getPageContentOffset();
+        //current scroll position taking nav bar into account
+        let currPos = scrollTop - offset;
+
+        $(this.pageAnchors).removeClass('anchor-active');
+
+        for(let i = 0; i < this.pageAnchors.length; i++){
+            let currAnchor = this.pageAnchors[i];
+            let anchorOffset = $(currAnchor).position().top;
+            let anchorHeight = $(currAnchor).height();
+            //if the current position is in the middle of the anchor
+            if(currPos > anchorOffset && currPos < (anchorOffset + anchorHeight)){
+                let anchorTag = $(currAnchor).attr('name');
+                $(currAnchor).addClass('anchor-active');
+                break;
+            }
         }
     }
 }
