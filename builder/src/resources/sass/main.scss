@@ -1,6 +1,10 @@
 @import './_fonts.scss';
 @import './_colors.scss';
 
+*{
+    font-family: $open-sans;
+}
+
 body{
     position: relative;
     margin: 0;
