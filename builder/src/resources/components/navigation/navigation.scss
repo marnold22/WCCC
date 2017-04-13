@@ -128,4 +128,11 @@ $side-margins: 10px;
             }
         }
     }
+
+    .sub-nav-content{
+        .sub-nav-list{
+            margin: 0;
+            padding: 0;
+        }
+    }
 }

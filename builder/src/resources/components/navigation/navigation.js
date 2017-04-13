@@ -2,6 +2,7 @@ class NavBar{
     constructor(element){
         //ELEMENTS
         this.nav = element;
+        this.subNav = $(element).find('.sub-nav-content')[0];
         this.navContent = $(element).find('.nav-bar-content')[0];
         this.menuItems = $(element).find('nav > ul > li > a');
         this.currentMenuItem = null;
@@ -21,7 +22,19 @@ class NavBar{
         this.updateMenuItemToCurrentPage();
         //set up the page interactions
         this.setupListeners();
+        //set the page offset
+        this.setPageContentOffset();
     }
+
+    //FIX CONTENT OFFSET---------------------------------------------
+
+    setPageContentOffset(){
+        let content = $('#content-container');
+        let navHeight = $(this.navContent).height() + $(this.subNav).height();
+        $(content).css({'margin-top': navHeight+'px'});
+    }
+
+    //PAGE LISTENERS-------------------------------------------------
 
     setupListeners(){
         //on resize of window so highlight offset is correct
