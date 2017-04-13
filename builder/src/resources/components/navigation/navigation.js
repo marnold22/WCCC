@@ -2,7 +2,8 @@ class NavBar{
     constructor(element){
         //ELEMENTS
         this.nav = element;
-        this.subNav = $(element).find('.sub-nav-content')[0];
+        this.subNav = $(element).find('.sub-nav-list')[0];
+        this.pageAnchors = $('.anchor');
         this.navContent = $(element).find('.nav-bar-content')[0];
         this.menuItems = $(element).find('nav > ul > li > a');
         this.currentMenuItem = null;
@@ -20,6 +21,8 @@ class NavBar{
         //PAGE
         //which page are we on
         this.updateMenuItemToCurrentPage();
+        //setup the sub menu items
+        this.setupSubMenu();
         //set up the page interactions
         this.setupListeners();
         //set the page offset
@@ -42,6 +45,7 @@ class NavBar{
             if(this.currentMenuItem){
                 this.menuItemHovered(this.currentMenuItem);
             }
+            this.setPageContentOffset();
         });
 
         //menu item hovered
@@ -106,7 +110,6 @@ class NavBar{
             $(this.currentMenuItem).addClass('menu-item-current-page');
         }
     }
-
 
     //BURGER MENU---------------------------------------------------
 
@@ -225,4 +228,26 @@ class NavBar{
         }
     }
 
+    //SUB MENU-----------------------------------------------------
+    setupSubMenu(){
+        let anchorIDs = {};
+        for(let i = 0; i < this.pageAnchors.length; i++){
+            let currAnchor = this.pageAnchors[i];
+            let anchorID = $(currAnchor).attr('name');
+            let title = $(currAnchor).attr('title');
+            //if we haven't seen this id before
+            if(!anchorIDs[anchorID]){
+                //keep track of the IDs to make sure they're unique
+                anchorIDs[anchorID] = true;
+            }else{
+                //generate a random string and append it to our ID
+                let randomString = Math.random().toString(36).substring(7);
+                anchorID += ('_' + randomString);
+                $(currAnchor).attr('name', anchorID);
+            }
+
+            let navItem = `<li class="sub-nav-item"><a href=${anchorID}>${title}</a></li>`
+            $(this.subNav).append(navItem);
+        }
+    }
 }

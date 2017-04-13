@@ -18,6 +18,6 @@
         </nav>
     </div>
     <div class="sub-nav-content">
-        <ul class="sub-nav-list">hello world</ul>
+        <ul class="sub-nav-list"></ul>
     </div>
 </div>
