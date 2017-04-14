@@ -236,7 +236,7 @@ gulp.task('php-serve', ()=>{
 //Set up browser-sync server
 gulp.task('browser-sync', ['php-files', 'mustache', 'sass', 'pug', 'js', 'images'], ()=>{
     browserSync.init({
-        proxy: 'wordpress.localhost:8888',
+        proxy: 'localhost:8888',
         port: 8080,
         open: true,
     });

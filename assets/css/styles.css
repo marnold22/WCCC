@@ -16,7 +16,7 @@ body {
   content: ""; }
 
 .title-heading {
-  font-family: "Alegreya", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 3em;
   font-weight: 300;
   letter-spacing: 0.3em;
@@ -50,6 +50,7 @@ header {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center; }
+
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -122,6 +123,7 @@ header {
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;
+        background-attachment: fixed;
         -webkit-transition: opacity 1s ease-in-out, -webkit-transform 15s ease-in-out, -webkit-filter 1s ease-in-out;
         transition: opacity 1s ease-in-out, -webkit-transform 15s ease-in-out, -webkit-filter 1s ease-in-out;
         transition: opacity 1s ease-in-out, transform 15s ease-in-out, filter 1s ease-in-out;
@@ -199,10 +201,50 @@ header {
       .image-slider .image-slider-indexes .image-slider-index.image-slider-index-active {
         opacity: 1; }
 
+/*
+Theme Name: WCCC
+Theme URI: http://www.westcentralcc.org
+Author: Tyler Reardon, Michael Arnold, Madeline Cook
+Author URI: NA
+Description: A wordpress theme for the West Central Community Center in Spokane, WA
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Text Domain: twentythirteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
 .nav-bar {
   height: 4em; }
+  .nav-bar .nav-bar-logo {
+    position: absolute;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat; }
+    .nav-bar .nav-bar-logo a {
+      -webkit-align-self: stretch;
+          -ms-flex-item-align: stretch;
+                  -ms-grid-row-align: stretch;
+              align-self: stretch;
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+          -ms-flex: 1;
+              flex: 1; }
   .nav-bar #burger-menu {
     position: absolute;
     top: 0;
@@ -245,6 +287,10 @@ header {
         -webkit-align-items: center;
             -ms-flex-align: center;
                 align-items: center;
+        -webkit-box-pack: end;
+        -webkit-justify-content: flex-end;
+            -ms-flex-pack: end;
+                justify-content: flex-end;
         -webkit-box-flex: 1;
         -webkit-flex: 1;
             -ms-flex: 1;
@@ -278,8 +324,7 @@ header {
                   align-items: center;
           -webkit-align-self: stretch;
               -ms-flex-item-align: stretch;
-                  align-self: stretch;
-          padding: 0 1em; }
+                  align-self: stretch; }
           @media only screen and (max-width: 1000px) {
             .nav-bar .nav-bar-content nav ul li {
               padding: 0;
@@ -302,10 +347,21 @@ header {
             text-decoration: none;
             color: #ffffff;
             font-family: "Open Sans", sans-serif;
-            -webkit-transition: 0.2s ease-in-out;
-            transition: 0.2s ease-in-out; }
-            .nav-bar .nav-bar-content nav ul li a:hover {
-              opacity: 1;
+            -webkit-transition: 0.5s ease-in-out;
+            transition: 0.5s ease-in-out;
+            padding: 0 1em; }
+            @media only screen and (max-width: 1000px) {
+              .nav-bar .nav-bar-content nav ul li a {
+                display: none; }
+                .nav-bar .nav-bar-content nav ul li a.menu-item-display {
+                  display: -webkit-box;
+                  display: -webkit-flex;
+                  display: -ms-flexbox;
+                  display: flex;
+                  opacity: 0; }
+                .nav-bar .nav-bar-content nav ul li a.menu-item-active {
+                  opacity: 1; } }
+            .nav-bar .nav-bar-content nav ul li a.menu-item-current-page, .nav-bar .nav-bar-content nav ul li a:hover {
               color: #f2ae00; }
       .nav-bar .nav-bar-content nav .nav-bar-highlighter {
         position: absolute;
@@ -319,22 +375,237 @@ header {
           .nav-bar .nav-bar-content nav .nav-bar-highlighter {
             display: none; } }
 
-/*
-Theme Name: WCCC
-Theme URI: http://www.westcentralcc.org
-Author: Tyler Reardon, Michael Arnold, Madeline Cook
-Author URI: NA
-Description: A wordpress theme for the West Central Community Center in Spokane, WA
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
-Text Domain: twentythirteen
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-*/
+/* Media Queries */
+/* Card sizing */
+/* Colors */
+/* Calculations */
+/* Placeholders */
+@media (min-width: 1000px) {
+  #timeline .demo-card:nth-child(odd) .head::after, #timeline .demo-card:nth-child(even) .head::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent; }
+  #timeline .demo-card:nth-child(odd) .head::before, #timeline .demo-card:nth-child(even) .head::before {
+    position: absolute;
+    content: "";
+    width: 9px;
+    height: 9px;
+    background-color: #bdbdbd;
+    -webkit-border-radius: 9px;
+            border-radius: 9px;
+    -webkit-box-shadow: 0px 0px 2px 8px #f7f7f7;
+            box-shadow: 0px 0px 2px 8px #f7f7f7; } }
 
+/* Some Cool Stuff */
+.demo-card:nth-child(1) {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1; }
+
+.demo-card:nth-child(2) {
+  -webkit-box-ordinal-group: 5;
+  -webkit-order: 4;
+      -ms-flex-order: 4;
+          order: 4; }
+
+.demo-card:nth-child(3) {
+  -webkit-box-ordinal-group: 3;
+  -webkit-order: 2;
+      -ms-flex-order: 2;
+          order: 2; }
+
+.demo-card:nth-child(4) {
+  -webkit-box-ordinal-group: 6;
+  -webkit-order: 5;
+      -ms-flex-order: 5;
+          order: 5; }
+
+.demo-card:nth-child(5) {
+  -webkit-box-ordinal-group: 4;
+  -webkit-order: 3;
+      -ms-flex-order: 3;
+          order: 3; }
+
+.demo-card:nth-child(6) {
+  -webkit-box-ordinal-group: 7;
+  -webkit-order: 6;
+      -ms-flex-order: 6;
+          order: 6; }
+
+/* Border Box */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+/* Fonts */
+body {
+  font-family: Roboto; }
+
+#timeline {
+  padding: 100px 0;
+  background: #f7f7f7;
+  border-top: 1px solid rgba(191, 191, 191, 0.4);
+  border-bottom: 1px solid rgba(191, 191, 191, 0.4); }
+  #timeline h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 200;
+    margin-bottom: 20px; }
+  #timeline p.leader {
+    text-align: center;
+    max-width: 90%;
+    margin: auto;
+    margin-bottom: 45px; }
+  #timeline .demo-card-wrapper {
+    position: relative;
+    margin: auto; }
+    @media (min-width: 1000px) {
+      #timeline .demo-card-wrapper {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-flow: column wrap;
+            -ms-flex-flow: column wrap;
+                flex-flow: column wrap;
+        width: 1170px;
+        height: 1650px;
+        margin: 0 auto; } }
+    #timeline .demo-card-wrapper::after {
+      z-index: 1;
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      border-left: 1px solid rgba(191, 191, 191, 0.4); }
+      @media (min-width: 1000px) {
+        #timeline .demo-card-wrapper::after {
+          border-left: 1px solid #bdbdbd; } }
+  #timeline .demo-card {
+    position: relative;
+    display: block;
+    margin: 10px auto 80px;
+    max-width: 94%;
+    z-index: 2; }
+    @media (min-width: 480px) {
+      #timeline .demo-card {
+        max-width: 60%;
+        -webkit-box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
+                box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07); } }
+    @media (min-width: 720px) {
+      #timeline .demo-card {
+        max-width: 40%; } }
+    @media (min-width: 1000px) {
+      #timeline .demo-card {
+        max-width: 450px;
+        height: 400px;
+        margin: 90px;
+        margin-top: 45px;
+        margin-bottom: 45px; }
+        #timeline .demo-card:nth-child(odd) {
+          margin-right: 45px; }
+          #timeline .demo-card:nth-child(odd) .head::after {
+            border-left-width: 15px;
+            border-left-style: solid;
+            left: 100%; }
+          #timeline .demo-card:nth-child(odd) .head::before {
+            left: 491.5px; }
+        #timeline .demo-card:nth-child(even) {
+          margin-left: 45px; }
+          #timeline .demo-card:nth-child(even) .head::after {
+            border-right-width: 15px;
+            border-right-style: solid;
+            right: 100%; }
+          #timeline .demo-card:nth-child(even) .head::before {
+            right: 489.5px; }
+        #timeline .demo-card:nth-child(2) {
+          margin-top: 180px; } }
+    #timeline .demo-card .head {
+      position: relative;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      color: #fff;
+      font-weight: 400; }
+      #timeline .demo-card .head .number-box {
+        display: inline;
+        float: left;
+        margin: 15px;
+        padding: 10px;
+        font-size: 35px;
+        line-height: 35px;
+        font-weight: 600;
+        background: rgba(0, 0, 0, 0.17); }
+      #timeline .demo-card .head h2 {
+        text-transform: uppercase;
+        font-size: 1.3rem;
+        font-weight: inherit;
+        letter-spacing: 2px;
+        margin: 0;
+        padding-bottom: 6px;
+        line-height: 1rem; }
+        @media (min-width: 480px) {
+          #timeline .demo-card .head h2 {
+            font-size: 165%;
+            line-height: 1.2rem; } }
+        #timeline .demo-card .head h2 span {
+          display: block;
+          font-size: 0.6rem;
+          margin: 0; }
+          @media (min-width: 480px) {
+            #timeline .demo-card .head h2 span {
+              font-size: 0.8rem; } }
+    #timeline .demo-card .body {
+      background: #fff;
+      border: 1px solid rgba(191, 191, 191, 0.4);
+      border-top: 0;
+      padding: 15px; }
+      @media (min-width: 1000px) {
+        #timeline .demo-card .body {
+          height: 315px; } }
+      #timeline .demo-card .body p {
+        font-size: 14px;
+        line-height: 18px;
+        margin-bottom: 15px; }
+      #timeline .demo-card .body img {
+        display: block;
+        width: 100%; }
+    #timeline .demo-card--step1 {
+      background-color: #23396c; }
+      #timeline .demo-card--step1 .head::after {
+        border-color: #23396c; }
+    #timeline .demo-card--step2 {
+      background-color: #23396c; }
+      #timeline .demo-card--step2 .head::after {
+        border-color: #23396c; }
+    #timeline .demo-card--step3 {
+      background-color: #23396c; }
+      #timeline .demo-card--step3 .head::after {
+        border-color: #23396c; }
+    #timeline .demo-card--step4 {
+      background-color: #23396c; }
+      #timeline .demo-card--step4 .head::after {
+        border-color: #23396c; }
+    #timeline .demo-card--step5 {
+      background-color: #23396c; }
+      #timeline .demo-card--step5 .head::after {
+        border-color: #23396c; }
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
 .where-we-are {
   position: relative;
   overflow: hidden;
@@ -368,3 +639,54 @@ Use it to make something cool, have fun, and share what you've learned with othe
         z-index: 0;
         width: 100%;
         height: 100%; }
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.who-we-are {
+  position: relative;
+  font-family: "Open Sans", sans-serif;
+  overflow: hidden;
+  padding-bottom: 8em; }
+  .who-we-are h1 {
+    width: 100%;
+    text-align: center; }
+  .who-we-are:after {
+    content: " ";
+    clear: both;
+    display: block; }
+  .who-we-are .who-we-are-content {
+    position: relative;
+    width: 80%;
+    margin: 0 auto; }
+    .who-we-are .who-we-are-content:after {
+      content: " ";
+      clear: both;
+      display: block; }
+    .who-we-are .who-we-are-content .who-we-are-person {
+      margin: 2em 0;
+      padding: 0;
+      width: 33.33333%;
+      float: left;
+      text-align: center; }
+      .who-we-are .who-we-are-content .who-we-are-person .who-we-are-picture {
+        margin: 0 auto;
+        -webkit-border-radius: 100%;
+                border-radius: 100%;
+        width: 75%;
+        padding-bottom: 75%;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat; }
+        @media (min-width: 800px) {
+          .who-we-are .who-we-are-content .who-we-are-person .who-we-are-picture {
+            width: 50%;
+            padding-bottom: 50%; } }
+      .who-we-are .who-we-are-content .who-we-are-person .who-we-are-name {
+        margin: 0.5em 0;
+        text-transform: uppercase; }
+      .who-we-are .who-we-are-content .who-we-are-person .who-we-are-title, .who-we-are .who-we-are-content .who-we-are-person .who-we-are-phone {
+        margin: 0;
+        font-size: 0.75em; }
+      @media (max-width: 580px) {
+        .who-we-are .who-we-are-content .who-we-are-person {
+          width: 50%; } }
