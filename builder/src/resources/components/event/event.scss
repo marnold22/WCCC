@@ -1,0 +1,65 @@
+$border: 1px solid rgba(0, 0, 0, 0.5);
+
+.event-component{
+    width: 100%;
+
+    //contains all of the content
+    .event-component-content{
+        display: flex;
+        flex-direction: row;
+        max-width: 100%;
+        height: 100%;
+
+        //determines which side the image is on
+        &.left{
+            flex-direction: row-reverse;
+        }
+    }
+
+    //contains the content that will be half the width of the parent
+    .event-component-content-part{
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+        min-height: 15em;
+        margin: 20px 0;
+
+        &.event-component-text-part{
+            flex: 2;
+            border-top: $border;
+            // border-bottom: $border;
+        }
+
+        &.event-component-image-part{
+            flex: 1;
+        }
+    }
+
+    .event-component-image{
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+    }
+
+    .event-component-image, .event-component-text{
+        width: 90%;
+    }
+
+    .event-component-text{
+        word-wrap: break-word;
+        width: 75%;
+
+        .event-component-title{
+            margin: 0;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .event-component-text-content{
+            margin: 0;
+        }
+    }
+}

@@ -3,17 +3,31 @@
 
 $tablet-size: 1000px;
 $side-margins: 10px;
+$bar-height: 4em;
+$content-animation: height 0.5s ease-in-out, color 0.5s ease-in-out;
+
+.menu-item-current-page{
+    color: $gold;
+}
+
+.highlighter{
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 5px;
+    background-color: $gold;
+    transition: 0.33s ease-in-out;
+}
 
 .nav-bar{
-    height: 4em;
+    height: $bar-height;
 
     .nav-bar-logo{
         position: absolute;
         display: flex;
         top: 0; bottom: 0; left: $side-margins;
         margin: auto;
-        width: 50px;
-        height: 50px;
+        width: $bar-height;
+        height: $bar-height;
         background-position: center center;
         background-size: contain;
         background-repeat: no-repeat;
@@ -40,7 +54,7 @@ $side-margins: 10px;
         display: flex;
         flex: 1;
         height: 100%;
-        transition: 0.5s ease-in-out;
+        transition: $content-animation;
         background-color: $blue;
 
         &.nav-bar-content-active{
@@ -101,10 +115,6 @@ $side-margins: 10px;
                             }
                         }
 
-                        &.menu-item-current-page{
-                            color: $gold;
-                        }
-
                         &:hover{
                             @extend .menu-item-current-page;
                         }
@@ -115,15 +125,68 @@ $side-margins: 10px;
 
             //the moving bar
             .nav-bar-highlighter{
-                position: absolute;
-                bottom: 0; left: 0;
-                height: 5px;
-                background-color: $gold;
-                transition: 0.33s ease-in-out;
+                @extend .highlighter;
 
                 //make it disappear on tablets
                 @media only screen and (max-width: $tablet-size){
                     display: none;
+                }
+            }
+        }
+    }
+
+
+    //SUB NAV--------------------------------------------------
+    .sub-nav-content{
+        border-top: 1px solid rgba(255,255,255,0.5);
+        background-color: $blue;
+        text-align: center;
+
+        ::-webkit-scrollbar {
+            width: 0px;  /* remove scrollbar space */
+            background: transparent;  /* optional: just make scrollbar invisible */
+        }
+        /* optional: show position indicator in red */
+        ::-webkit-scrollbar-thumb {
+            background: transparent;
+        }
+
+        .sub-nav-list{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: auto;
+            white-space: nowrap;
+            transition: $content-animation;
+
+            @media only screen and (max-width: $tablet-size){
+                justify-content: flex-start;
+            }
+
+            &.sub-nav-active{
+                height: $bar-height;
+            }
+
+            .sub-nav-item{
+                display: inline-block;
+                margin: 0 0.5em;
+
+                a{
+                    color: $white;
+                    text-decoration: none;
+                    transition: 0.5s border-bottom ease-in-out;
+                    border-bottom: 5px solid rgba(0,0,0,0);
+
+                    &:hover{
+                        @extend .sub-nav-item-active;
+                    }
+
+                    &.sub-nav-item-active{
+                        @extend .menu-item-current-page;
+                        border-bottom: 5px solid $gold;
+                    }
                 }
             }
         }

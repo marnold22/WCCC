@@ -2,12 +2,22 @@
     require_once(get_template_directory().'/assets/util/Mustache/Autoloader.php');
     Mustache_Autoloader::register();
 
-    function createEventComponent($title, $imageRef, $content, $imageOnLeft){
+    //array('title'=>$title, 'image_ref'=>$image_ref, 'content'=>$content, 'image_on_left'=>$left)
+    function createEventComponent($args){
         //setup
         $m = new Mustache_Engine(array(
             'loader' => new Mustache_Loader_FilesystemLoader(get_template_directory().'/assets/templates')
         ));
-        $args = array('title'=>$title, 'imageRef'=>$imageRef, 'content'=>$content);
+
+        $sideClass = ($args['image_on_left'] ? 'left' : 'right');
+        $args['class'] = $sideClass;
+
+        $name = "";
+        if($args['title']){
+            $name = strtolower($args['title']);
+            $name = str_replace(" ", "_", $name);
+        }
+        $args["name"] = $name;
 
         $tpl = $m->loadTemplate('event-template');
         return $tpl->render($args);

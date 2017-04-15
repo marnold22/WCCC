@@ -1,5 +1,16 @@
-<ul>
-    <li>{{title}}</li>
-    <li>{{imageRef}}</li>
-    <li>{{content}}</li>
-</ul>
+<!DOCTYPE html>
+<div class="event-component anchor" id="{{name}}" name="{{name}}" title="{{title}}">
+
+    <div class="event-component-content {{class}}">
+        <div class="event-component-content-part event-component-text-part">
+            <div class="event-component-text">
+                <h1 class="event-component-title title-heading">{{title}}</h1>
+                <p class="event-component-text-content">{{content}}</p>
+            </div>
+        </div>
+        <div class="event-component-content-part event-component-image-part">
+            <div class="event-component-image" style="background-image: url({{image_ref}})"></div>
+        </div>
+    </div>
+
+</div>
