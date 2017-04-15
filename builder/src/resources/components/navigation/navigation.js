@@ -303,7 +303,7 @@ class NavBar{
         });
     }
 
-    setupMenuItemHover(){
+    setupSubMenuItemHover(){
         $(this.subNavItems).hover((event)=>{
             this.menuItemHovered(event.target, this.subNavHighlighter);
         });

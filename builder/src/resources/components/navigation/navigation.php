@@ -18,7 +18,9 @@
         </nav>
     </div>
     <div class="sub-nav-content">
-        <ul class="sub-nav-list"></ul>
-        <div class="sub-nav-highlighter"></div>
+        <nav>
+            <ul class="sub-nav-list"></ul>
+            <div class="sub-nav-highlighter"></div>
+        </nav>
     </div>
 </div>
