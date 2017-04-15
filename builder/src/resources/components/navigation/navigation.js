@@ -9,6 +9,7 @@ class NavBar{
         this.menuItems = $(element).find('nav > ul > li > a');
         this.currentMenuItem = null;
         this.navBarHighlighter = $(element).find('.nav-bar-highlighter')[0];
+        this.subNavHighlighter = $(element).find('.sub-nav-highligher')[0];
         this.pageContentOffset = null; //set in setPageContentOffset()
 
         //BURGER
@@ -29,6 +30,8 @@ class NavBar{
         this.setupListeners();
         //set the page offset
         this.setPageContentOffset();
+        //set the currently highlighted SubNav item
+        this.setCurrentSubMenuItem();
     }
 
     //FIX CONTENT OFFSET---------------------------------------------
@@ -64,7 +67,7 @@ class NavBar{
         });
 
         //menu item hovered
-        this.setupOnHover();
+        this.setupMenuItemHover();
 
         //burger menu
         let burgerMenuID = '#'+this.burgerMenuID;
@@ -73,16 +76,16 @@ class NavBar{
 
     //REGULAR MENU---------------------------------------------------
 
-    menuItemHovered(menuItem){
+    menuItemHovered(menuItem, highlighter){
         const width = $(menuItem).outerWidth(true);
         const menuItemOffset = $(menuItem).offset().left;
-        $(this.navBarHighlighter).css({'left': menuItemOffset, 'width': width});
+        $(highlighter).css({'left': menuItemOffset, 'width': width});
     }
 
     //event handlers
-    setupOnHover(){
+    setupMenuItemHover(){
         $(this.menuItems).hover((event)=>{
-            this.menuItemHovered(event.target);
+            this.menuItemHovered(event.target, this.navBarHighlighter);
         });
         $(this.menuItems).mouseleave(()=>{
             this.updateMenuItemToCurrentPage();
@@ -121,7 +124,7 @@ class NavBar{
     updateMenuItemToCurrentPage(){
         this.currentMenuItem = this.getMenuItemForCurrentPage();
         if(this.currentMenuItem){
-            this.menuItemHovered(this.currentMenuItem);
+            this.menuItemHovered(this.currentMenuItem, this.navBarHighlighter);
             $(this.currentMenuItem).addClass('menu-item-current-page');
         }
     }
@@ -300,24 +303,36 @@ class NavBar{
         });
     }
 
+    setupMenuItemHover(){
+        $(this.subNavItems).hover((event)=>{
+            this.menuItemHovered(event.target, this.subNavHighlighter);
+        });
+        $(this.subNavItems).mouseleave(()=>{
+            this.menuItemHovered($('.sub-nav-item-active')[0], this.subNavHighlighter);
+        });
+    }
+
     setCurrentSubMenuItem(){
         //window scroll position
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         //height of nav bar
         let offset = this.getPageContentOffset();
         //current scroll position taking nav bar into account
-        let currPos = scrollTop - offset;
+        let currPos = scrollTop;
 
         $(this.pageAnchors).removeClass('anchor-active');
+        $('.sub-nav-item-active').removeClass('sub-nav-item-active');
 
         for(let i = 0; i < this.pageAnchors.length; i++){
             let currAnchor = this.pageAnchors[i];
             let anchorOffset = $(currAnchor).position().top;
             let anchorHeight = $(currAnchor).height();
             //if the current position is in the middle of the anchor
-            if(currPos > anchorOffset && currPos < (anchorOffset + anchorHeight)){
+            if(currPos >= anchorOffset && currPos < (anchorOffset + anchorHeight)){
                 let anchorTag = $(currAnchor).attr('name');
                 $(currAnchor).addClass('anchor-active');
+                let id = $(currAnchor).attr('id');
+                $(`[href="#${id}"]`).addClass('sub-nav-item-active');
                 break;
             }
         }

@@ -6,6 +6,10 @@ $side-margins: 10px;
 $bar-height: 4em;
 $content-animation: 0.5s ease-in-out;
 
+.menu-item-current-page{
+    color: $gold;
+}
+
 .nav-bar{
     height: $bar-height;
 
@@ -103,10 +107,6 @@ $content-animation: 0.5s ease-in-out;
                             }
                         }
 
-                        &.menu-item-current-page{
-                            color: $gold;
-                        }
-
                         &:hover{
                             @extend .menu-item-current-page;
                         }
@@ -149,11 +149,16 @@ $content-animation: 0.5s ease-in-out;
         .sub-nav-list{
             display: flex;
             align-items: center;
+            justify-content: center;
             margin: 0;
             padding: 0;
             overflow-x: auto;
             white-space: nowrap;
             transition: $content-animation;
+
+            @media only screen and (max-width: $tablet-size){
+                justify-content: flex-start;
+            }
 
             &.sub-nav-active{
                 height: $bar-height/1.5;
@@ -166,6 +171,15 @@ $content-animation: 0.5s ease-in-out;
                 a{
                     color: $white;
                     text-decoration: none;
+                    transition: $content-animation;
+
+                    &:hover{
+                        @extend .menu-item-current-page;
+                    }
+
+                    &.sub-nav-item-active{
+                        @extend .menu-item-current-page;
+                    }
                 }
             }
         }
