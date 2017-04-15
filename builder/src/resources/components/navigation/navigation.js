@@ -9,6 +9,7 @@ class NavBar{
         this.menuItems = $(element).find('nav > ul > li > a');
         this.currentMenuItem = null;
         this.navBarHighlighter = $(element).find('.nav-bar-highlighter')[0];
+        this.pageContentOffset = null; //set in setPageContentOffset()
 
         //BURGER
         //define the burger menu
@@ -42,6 +43,7 @@ class NavBar{
         let content = $('#content-container');
         let navHeight = this.getPageContentOffset();
         $(content).css({'margin-top': navHeight+'px'});
+        this.pageContentOffset = navHeight;
     }
 
     //PAGE LISTENERS-------------------------------------------------
@@ -272,6 +274,30 @@ class NavBar{
 
         $(this.subNav).addClass('sub-nav-active');
         this.subNavItems = $('.sub-nav-item');
+        this.setupSmoothScrollAnchors();
+    }
+
+    setupSmoothScrollAnchors(){
+        // Get all links in the Sub Nav
+        let links = $(this.subNav).find('a');
+        // Add smooth scrolling to all links in the sub nav
+        $(links).click((event)=>{
+            // Make sure this.hash has a value before overriding default behavior
+            if (event.target.hash !== "") {
+              // Prevent default anchor click behavior
+              event.preventDefault();
+              // Store hash
+              var hash = event.target.hash;
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top - this.pageContentOffset
+              }, 800, function(){
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            } // End if
+        });
     }
 
     setCurrentSubMenuItem(){
