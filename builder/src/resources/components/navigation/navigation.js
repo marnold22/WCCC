@@ -320,9 +320,6 @@ class NavBar{
         //current scroll position taking nav bar into account
         let currPos = scrollTop;
 
-        $(this.pageAnchors).removeClass('anchor-active');
-        $('.sub-nav-item-active').removeClass('sub-nav-item-active');
-
         for(let i = 0; i < this.pageAnchors.length; i++){
             let currAnchor = this.pageAnchors[i];
             let anchorOffset = $(currAnchor).position().top;
@@ -330,9 +327,21 @@ class NavBar{
             //if the current position is in the middle of the anchor
             if(currPos >= anchorOffset && currPos < (anchorOffset + anchorHeight)){
                 let anchorTag = $(currAnchor).attr('name');
-                $(currAnchor).addClass('anchor-active');
-                let id = $(currAnchor).attr('id');
-                $(`[href="#${id}"]`).addClass('sub-nav-item-active');
+                //if we have a new item
+                if(!$(currAnchor).hasClass('anchor-active')){
+                    //remove the active classes of the other element
+                    $(this.pageAnchors).removeClass('anchor-active');
+                    $('.sub-nav-item-active').removeClass('sub-nav-item-active');
+
+                    //add the new active class
+                    $(currAnchor).addClass('anchor-active');
+                    let id = $(currAnchor).attr('id');
+                    let subMenuItem = $(`[href="#${id}"]`);
+                    $(subMenuItem).addClass('sub-nav-item-active');
+                    $(this.subNav).animate({
+                        scrollLeft: $(subMenuItem).position().left
+                    }, 100, null);
+                }
                 break;
             }
         }
