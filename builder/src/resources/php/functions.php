@@ -159,10 +159,10 @@
     register_sidebar( array(
       'name'          => 'Footer',
       'id'            => 'footer',
-      'before_widget' => '<div>',
+      'before_widget' => '<div class="widget">',
       'after_widget'  => '</div>',
-      'before_title'  => '<h2 class="rounded">',
-      'after_title'   => '</h2>',
+      'before_title'  => '',
+      'after_title'   => '',
     ) );
 
   }

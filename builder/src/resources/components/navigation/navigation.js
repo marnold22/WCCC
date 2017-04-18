@@ -289,9 +289,13 @@ class NavBar{
         }
 
         if($('.anchor').length > 0){
-            $(this.subNav).addClass('sub-nav-active');
+          $(this.subNav).addClass('sub-nav-active');
         }
 
+        if($('.anchor').length > 0){
+            $(this.subNav).addClass('sub-nav-active');
+        }
+        
         this.subNavItems = $('.sub-nav-item');
         this.setupSmoothScrollAnchors();
     }
