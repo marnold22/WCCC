@@ -127,25 +127,6 @@ header {
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
-.widget {
-  padding-top: 1em;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex; }
-  .widget .sfsi_widget {
-    display: inline-block; }
-
-.footer-contact {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.1em;
-  color: white;
-  padding: 0 0; }
-  .footer-contact:last-child {
-    padding-bottom: 1em; }
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
 .image-slider {
   position: relative;
   overflow: hidden;
@@ -293,22 +274,24 @@ header {
       .image-slider .image-slider-indexes .image-slider-index.image-slider-index-active {
         opacity: 1; }
 
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.widget {
+  padding-top: 1em;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex; }
+  .widget .sfsi_widget {
+    display: inline-block; }
 
-/*
-Theme Name: WCCC
-Theme URI: http://www.westcentralcc.org
-Author: Tyler Reardon, Michael Arnold, Madeline Cook
-Author URI: NA
-Description: A wordpress theme for the West Central Community Center in Spokane, WA
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
-Text Domain: twentythirteen
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-*/
+.footer-contact {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1em;
+  color: white;
+  padding: 0 0 0 20px; }
+  .footer-contact:last-child {
+    padding-bottom: 1em; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -519,6 +502,23 @@ Use it to make something cool, have fun, and share what you've learned with othe
           border-bottom: 5px solid transparent; }
           .nav-bar .sub-nav-content .sub-nav-list .sub-nav-item a.sub-nav-item-active, .nav-bar .sub-nav-content .sub-nav-list .sub-nav-item a:hover {
             border-bottom: 5px solid #f2ae00; }
+
+/*
+Theme Name: WCCC
+Theme URI: http://www.westcentralcc.org
+Author: Tyler Reardon, Michael Arnold, Madeline Cook
+Author URI: NA
+Description: A wordpress theme for the West Central Community Center in Spokane, WA
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Text Domain: twentythirteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
 
 /* Media Queries */
 /* Card sizing */
