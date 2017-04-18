@@ -55,7 +55,7 @@ class NavBar{
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         if(this.lastScrollPos < scrollTop){
             $(this.nav).addClass('nav-bar-hidden');
-        }else if(this.lastScrollPos >= scrollTop){
+        }else if(this.lastScrollPos > scrollTop){
             $(this.nav).removeClass('nav-bar-hidden');
         }
         this.setPageContentOffset();
@@ -80,8 +80,8 @@ class NavBar{
             if(!this.isScrollingProgrammatically){
                 //find the current menu item in the viewport
                 this.setCurrentSubMenuItem();
-                this.setMenuPageScroll();
             }
+            this.setMenuPageScroll();
         }, throttle));
 
         //menu item hovered
@@ -370,7 +370,7 @@ class NavBar{
                     $(subMenuItem).addClass('sub-nav-item-active');
                     $(this.subNav).animate({
                         scrollLeft: $(subMenuItem).position().left
-                    }, 150, null);
+                    }, 333, null);
                 }
                 noItemSelected = false;
                 break;
