@@ -22,5 +22,4 @@
         $tpl = $m->loadTemplate('text-image-template');
         return $tpl->render($args);
     }
-
 ?>
