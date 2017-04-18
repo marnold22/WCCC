@@ -151,48 +151,52 @@ $content-animation: height 0.5s ease-in-out, color 0.5s ease-in-out;
 
         ::-webkit-scrollbar {
             width: 0px;  /* remove scrollbar space */
+            height: 0px;
             background: transparent;  /* optional: just make scrollbar invisible */
         }
-        /* optional: show position indicator in red */
         ::-webkit-scrollbar-thumb {
+            width: 0px;  /* remove scrollbar space */
+            height: 0px;
             background: transparent;
         }
 
-        .sub-nav-list{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            padding: 0;
-            overflow-x: auto;
-            white-space: nowrap;
-            transition: $content-animation;
+        nav{
+            .sub-nav-list{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+                overflow-x: auto;
+                white-space: nowrap;
+                transition: $content-animation;
 
-            @media only screen and (max-width: $tablet-size){
-                justify-content: flex-start;
-            }
+                @media only screen and (max-width: $tablet-size){
+                    justify-content: flex-start;
+                }
 
-            &.sub-nav-active{
-                height: $bar-height;
-            }
+                &.sub-nav-active{
+                    height: $bar-height;
+                }
 
-            .sub-nav-item{
-                display: inline-block;
-                margin: 0 0.5em;
+                .sub-nav-item{
+                    display: inline-block;
+                    margin: auto 0.5em;
 
-                a{
-                    color: $blue;
-                    text-decoration: none;
-                    transition: 0.5s border-bottom ease-in-out;
+                    a{
+                        color: $blue;
+                        text-decoration: none;
+                        transition: 0.5s border-bottom ease-in-out;
 
-                    &:hover{
-                        @extend .sub-nav-item-active;
-                        text-shadow: 1px 1px $blue;
-                    }
+                        &:hover{
+                            @extend .sub-nav-item-active;
+                            text-shadow: 1px 1px $blue;
+                        }
 
-                    &.sub-nav-item-active{
-                        @extend .menu-item-current-page;
-                        text-shadow: 0.5px 0.5px $blue;
+                        &.sub-nav-item-active{
+                            @extend .menu-item-current-page;
+                            text-shadow: 0.5px 0.5px $blue;
+                        }
                     }
                 }
             }
