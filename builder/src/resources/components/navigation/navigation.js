@@ -369,7 +369,7 @@ class NavBar{
                     let subMenuItem = $(`[href="#${id}"]`);
                     $(subMenuItem).addClass('sub-nav-item-active');
                     $(this.subNav).animate({
-                        scrollLeft: $(subMenuItem).position().left
+                        scrollLeft: $(subMenuItem).offset().left
                     }, 333, null);
                 }
                 noItemSelected = false;
