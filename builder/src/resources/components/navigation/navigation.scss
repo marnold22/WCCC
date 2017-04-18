@@ -19,7 +19,12 @@ $content-animation: height 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 .nav-bar{
+    position: relative;
     height: $bar-height;
+
+    &.nav-bar-hidden{
+        margin-top: -$bar-height;
+    }
 
     .nav-bar-logo{
         position: absolute;
@@ -185,7 +190,6 @@ $content-animation: height 0.5s ease-in-out, color 0.5s ease-in-out;
 
                     &.sub-nav-item-active{
                         @extend .menu-item-current-page;
-                        border-bottom: 5px solid $gold;
                     }
                 }
             }
