@@ -12,6 +12,7 @@ class NavBar{
         this.subNavHighlighter = $(element).find('.sub-nav-highligher')[0];
         this.pageContentOffset = null; //set in setPageContentOffset()
         this.lastScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+        this.isScrollingProgrammatically = false;
 
         //BURGER
         //define the burger menu
@@ -39,7 +40,7 @@ class NavBar{
 
     getPageContentOffset(){
         let content = $('#content-container');
-        let navOffset = $(this.subNav).position().top + $(this.subNav).height() + parseInt($(this.nav).css("margin-top"));
+        let navOffset = $(this.nav).height() + $(this.subNav).height() + parseInt($(this.nav).css("margin-top"));
         return navOffset;
     }
 
@@ -64,6 +65,8 @@ class NavBar{
     //PAGE LISTENERS-------------------------------------------------
 
     setupListeners(){
+        let throttle = 50;
+
         $(window).resize(_.throttle(()=>{
             //on resize of window so highlight offset is correct
             if(this.currentMenuItem){
@@ -71,13 +74,15 @@ class NavBar{
             }
             //make sure content is never behind menu on window resize
             this.setPageContentOffset();
-        }, 20));
+        }, throttle));
 
         $(window).scroll(_.throttle(()=>{
-            //find the current menu item in the viewport
-            this.setCurrentSubMenuItem();
-            this.setMenuPageScroll();
-        }, 20));
+            if(!this.isScrollingProgrammatically){
+                //find the current menu item in the viewport
+                this.setCurrentSubMenuItem();
+                this.setMenuPageScroll();
+            }
+        }, throttle));
 
         //menu item hovered
         this.setupMenuItemHover();
@@ -295,7 +300,7 @@ class NavBar{
         if($('.anchor').length > 0){
             $(this.subNav).addClass('sub-nav-active');
         }
-        
+
         this.subNavItems = $('.sub-nav-item');
         this.setupSmoothScrollAnchors();
     }
@@ -303,8 +308,10 @@ class NavBar{
     setupSmoothScrollAnchors(){
         // Get all links in the Sub Nav
         let links = $(this.subNav).find('a');
+        let setCurrentSubMenuItemFunction = this.setCurrentSubMenuItem.bind(this);
         // Add smooth scrolling to all links in the sub nav
         $(links).click((event)=>{
+            this.isScrollingProgrammatically = true;
             // Make sure this.hash has a value before overriding default behavior
             if (event.target.hash !== "") {
               // Prevent default anchor click behavior
@@ -315,9 +322,11 @@ class NavBar{
               // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
               $('html, body').animate({
                 scrollTop: $(hash).offset().top - this.pageContentOffset
-              }, 800, function(){
+            }, 800, ()=>{
                 // Add hash (#) to URL when done scrolling (default click behavior)
                 window.location.hash = hash;
+                this.isScrollingProgrammatically = false;
+                setCurrentSubMenuItemFunction();
               });
             } // End if
         });
@@ -342,10 +351,11 @@ class NavBar{
         let noItemSelected = true;
         for(let i = 0; i < this.pageAnchors.length; i++){
             let currAnchor = this.pageAnchors[i];
-            let anchorOffset = $(currAnchor).position().top;
-            let anchorHeight = $(currAnchor).height();
+            let anchorOffset = Math.round($(currAnchor).position().top);
+            let anchorHeight = Math.round($(currAnchor).height());
+
             //if the current position is in the middle of the anchor
-            if(currPos >= anchorOffset && currPos < (anchorOffset + anchorHeight)){
+            if(currPos >= anchorOffset && currPos < anchorOffset + anchorHeight){
                 let anchorTag = $(currAnchor).attr('name');
                 //if we have a new item
                 if(!$(currAnchor).hasClass('anchor-active')){
@@ -360,7 +370,7 @@ class NavBar{
                     $(subMenuItem).addClass('sub-nav-item-active');
                     $(this.subNav).animate({
                         scrollLeft: $(subMenuItem).position().left
-                    }, 100, null);
+                    }, 150, null);
                 }
                 noItemSelected = false;
                 break;
