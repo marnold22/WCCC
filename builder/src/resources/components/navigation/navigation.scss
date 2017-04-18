@@ -170,6 +170,7 @@ $content-animation: height 0.5s ease-in-out, color 0.5s ease-in-out;
                 overflow-x: auto;
                 white-space: nowrap;
                 transition: $content-animation;
+                list-style: none;
 
                 @media only screen and (max-width: $tablet-size){
                     justify-content: flex-start;
@@ -180,10 +181,13 @@ $content-animation: height 0.5s ease-in-out, color 0.5s ease-in-out;
                 }
 
                 .sub-nav-item{
-                    display: inline-block;
                     margin: auto 0.5em;
+                    height: 100%;
 
                     a{
+                        display: inline-flex;
+                        align-items: center;
+                        height: 100%;
                         color: $blue;
                         text-decoration: none;
                         transition: 0.5s border-bottom ease-in-out;
