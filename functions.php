@@ -155,7 +155,7 @@
   		'before_title'  => '<h2 class="rounded">',
   		'after_title'   => '</h2>',
   	) );
-    
+
     register_sidebar( array(
       'name'          => 'Footer',
       'id'            => 'footer',

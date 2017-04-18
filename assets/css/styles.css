@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+* {
+  font-family: "Open Sans", sans-serif; }
+
 body {
   position: relative;
   margin: 0;
@@ -51,6 +54,73 @@ header {
       -ms-flex-pack: center;
           justify-content: center; }
 
+.event-component {
+  width: 100%; }
+  .event-component .event-component-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    max-width: 100%;
+    height: 100%; }
+    .event-component .event-component-content.left {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+      -webkit-flex-direction: row-reverse;
+          -ms-flex-direction: row-reverse;
+              flex-direction: row-reverse; }
+  .event-component .event-component-content-part {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    min-height: 15em;
+    margin: 20px 0; }
+    .event-component .event-component-content-part.event-component-text-part {
+      -webkit-box-flex: 2;
+      -webkit-flex: 2;
+          -ms-flex: 2;
+              flex: 2;
+      border-top: 1px solid rgba(0, 0, 0, 0.5); }
+    .event-component .event-component-content-part.event-component-image-part {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+          -ms-flex: 1;
+              flex: 1; }
+  .event-component .event-component-image {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%; }
+  .event-component .event-component-image, .event-component .event-component-text {
+    width: 90%; }
+  .event-component .event-component-text {
+    word-wrap: break-word;
+    width: 75%; }
+    .event-component .event-component-text .event-component-title {
+      margin: 0;
+      font-size: 2em;
+      font-weight: bold; }
+    .event-component .event-component-text .event-component-text-content {
+      margin: 0; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -219,6 +289,18 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.menu-item-current-page, .nav-bar .nav-bar-content nav ul li a:hover, .nav-bar .sub-nav-content .sub-nav-list .sub-nav-item a.sub-nav-item-active, .nav-bar .sub-nav-content .sub-nav-list .sub-nav-item a:hover {
+  color: #f2ae00; }
+
+.highlighter, .nav-bar .nav-bar-content nav .nav-bar-highlighter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  background-color: #f2ae00;
+  -webkit-transition: 0.33s ease-in-out;
+  transition: 0.33s ease-in-out; }
+
 .nav-bar {
   height: 4em; }
   .nav-bar .nav-bar-logo {
@@ -231,8 +313,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
     bottom: 0;
     left: 10px;
     margin: auto;
-    width: 50px;
-    height: 50px;
+    width: 4em;
+    height: 4em;
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat; }
@@ -267,8 +349,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
         -ms-flex: 1;
             flex: 1;
     height: 100%;
-    -webkit-transition: 0.5s ease-in-out;
-    transition: 0.5s ease-in-out;
+    -webkit-transition: height 0.5s ease-in-out, color 0.5s ease-in-out;
+    transition: height 0.5s ease-in-out, color 0.5s ease-in-out;
     background-color: #23396c; }
     @media only screen and (max-width: 1000px) {
       .nav-bar .nav-bar-content.nav-bar-content-active {
@@ -361,19 +443,59 @@ Use it to make something cool, have fun, and share what you've learned with othe
                   opacity: 0; }
                 .nav-bar .nav-bar-content nav ul li a.menu-item-active {
                   opacity: 1; } }
-            .nav-bar .nav-bar-content nav ul li a.menu-item-current-page, .nav-bar .nav-bar-content nav ul li a:hover {
-              color: #f2ae00; }
-      .nav-bar .nav-bar-content nav .nav-bar-highlighter {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 5px;
-        background-color: #f2ae00;
-        -webkit-transition: 0.33s ease-in-out;
-        transition: 0.33s ease-in-out; }
-        @media only screen and (max-width: 1000px) {
-          .nav-bar .nav-bar-content nav .nav-bar-highlighter {
-            display: none; } }
+      @media only screen and (max-width: 1000px) {
+        .nav-bar .nav-bar-content nav .nav-bar-highlighter {
+          display: none; } }
+  .nav-bar .sub-nav-content {
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: #23396c;
+    text-align: center;
+    /* optional: show position indicator in red */ }
+    .nav-bar .sub-nav-content ::-webkit-scrollbar {
+      width: 0px;
+      /* remove scrollbar space */
+      background: transparent;
+      /* optional: just make scrollbar invisible */ }
+    .nav-bar .sub-nav-content ::-webkit-scrollbar-thumb {
+      background: transparent; }
+    .nav-bar .sub-nav-content .sub-nav-list {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      margin: 0;
+      padding: 0;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-transition: height 0.5s ease-in-out, color 0.5s ease-in-out;
+      transition: height 0.5s ease-in-out, color 0.5s ease-in-out; }
+      @media only screen and (max-width: 1000px) {
+        .nav-bar .sub-nav-content .sub-nav-list {
+          -webkit-box-pack: start;
+          -webkit-justify-content: flex-start;
+              -ms-flex-pack: start;
+                  justify-content: flex-start; } }
+      .nav-bar .sub-nav-content .sub-nav-list.sub-nav-active {
+        height: 4em; }
+      .nav-bar .sub-nav-content .sub-nav-list .sub-nav-item {
+        display: inline-block;
+        margin: 0 0.5em; }
+        .nav-bar .sub-nav-content .sub-nav-list .sub-nav-item a {
+          color: #ffffff;
+          text-decoration: none;
+          -webkit-transition: 0.5s border-bottom ease-in-out;
+          transition: 0.5s border-bottom ease-in-out;
+          border-bottom: 5px solid transparent; }
+          .nav-bar .sub-nav-content .sub-nav-list .sub-nav-item a.sub-nav-item-active, .nav-bar .sub-nav-content .sub-nav-list .sub-nav-item a:hover {
+            border-bottom: 5px solid #f2ae00; }
 
 
 /* Media Queries */
