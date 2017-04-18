@@ -27,8 +27,8 @@ body{
     font-family: $open-sans;
     font-size: 3em;
     font-weight: 300;
-    letter-spacing: 0.3em;
-    text-transform: lowercase;
+    // letter-spacing: 0.2em;
+    // text-transform: lowercase;
 }
 
 .sub-heading{
@@ -49,4 +49,8 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+#content-container{
+    transition: margin-top 0.5s ease-in-out;
 }
