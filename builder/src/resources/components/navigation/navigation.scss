@@ -21,6 +21,7 @@ $content-animation: height 0.5s ease-in-out, color 0.5s ease-in-out;
 .nav-bar{
     position: relative;
     height: $bar-height;
+    transition: margin-top 0.5s ease-in-out;
 
     &.nav-bar-hidden{
         margin-top: -$bar-height;
@@ -143,9 +144,10 @@ $content-animation: height 0.5s ease-in-out, color 0.5s ease-in-out;
 
     //SUB NAV--------------------------------------------------
     .sub-nav-content{
-        border-top: 1px solid rgba(255,255,255,0.5);
-        background-color: $blue;
+        // border-top: 1px solid rgba(255,255,255,0.5);
+        background-color: $white;
         text-align: center;
+        box-shadow: 0px 1px 25px $black;
 
         ::-webkit-scrollbar {
             width: 0px;  /* remove scrollbar space */
@@ -179,17 +181,18 @@ $content-animation: height 0.5s ease-in-out, color 0.5s ease-in-out;
                 margin: 0 0.5em;
 
                 a{
-                    color: $white;
+                    color: $blue;
                     text-decoration: none;
                     transition: 0.5s border-bottom ease-in-out;
-                    border-bottom: 5px solid rgba(0,0,0,0);
 
                     &:hover{
                         @extend .sub-nav-item-active;
+                        text-shadow: 1px 1px $blue;
                     }
 
                     &.sub-nav-item-active{
                         @extend .menu-item-current-page;
+                        text-shadow: 0.5px 0.5px $blue;
                     }
                 }
             }

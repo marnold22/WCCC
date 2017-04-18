@@ -11,6 +11,7 @@ class NavBar{
         this.navBarHighlighter = $(element).find('.nav-bar-highlighter')[0];
         this.subNavHighlighter = $(element).find('.sub-nav-highligher')[0];
         this.pageContentOffset = null; //set in setPageContentOffset()
+        this.lastScrollPos = window.pageYOffset || document.documentElement.scrollTop;
 
         //BURGER
         //define the burger menu
@@ -38,8 +39,8 @@ class NavBar{
 
     getPageContentOffset(){
         let content = $('#content-container');
-        let navHeight = $(this.navContent).height() + $(this.subNav).height();
-        return navHeight;
+        let navOffset = $(this.subNav).position().top + $(this.subNav).height() + parseInt($(this.nav).css("margin-top"));
+        return navOffset;
     }
 
     setPageContentOffset(){
@@ -47,6 +48,17 @@ class NavBar{
         let navHeight = this.getPageContentOffset();
         $(content).css({'margin-top': navHeight+'px'});
         this.pageContentOffset = navHeight;
+    }
+
+    setMenuPageScroll(){
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if(this.lastScrollPos < scrollTop){
+            $(this.nav).addClass('nav-bar-hidden');
+        }else if(this.lastScrollPos >= scrollTop){
+            $(this.nav).removeClass('nav-bar-hidden');
+        }
+        this.setPageContentOffset();
+        this.lastScrollPos = scrollTop;
     }
 
     //PAGE LISTENERS-------------------------------------------------
@@ -64,6 +76,7 @@ class NavBar{
         $(window).scroll(()=>{
             //find the current menu item in the viewport
             this.setCurrentSubMenuItem();
+            this.setMenuPageScroll();
         });
 
         //menu item hovered
@@ -275,7 +288,10 @@ class NavBar{
             $(this.subNav).append(navItem);
         }
 
-        $(this.subNav).addClass('sub-nav-active');
+        if($('.anchor').length > 0){
+            $(this.subNav).addClass('sub-nav-active');
+        }
+
         this.subNavItems = $('.sub-nav-item');
         this.setupSmoothScrollAnchors();
     }
@@ -316,10 +332,10 @@ class NavBar{
         //window scroll position
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         //height of nav bar
-        let offset = this.getPageContentOffset();
+        let offset = this.pageContentOffset;
         //current scroll position taking nav bar into account
         let currPos = scrollTop;
-
+        let noItemSelected = true;
         for(let i = 0; i < this.pageAnchors.length; i++){
             let currAnchor = this.pageAnchors[i];
             let anchorOffset = $(currAnchor).position().top;
@@ -342,8 +358,16 @@ class NavBar{
                         scrollLeft: $(subMenuItem).position().left
                     }, 100, null);
                 }
+                noItemSelected = false;
                 break;
             }
+        }
+
+        //if we don't have a valid item
+        if(noItemSelected){
+            //remove any active anchors
+            $('.anchor-active').removeClass('anchor-active');
+            $('.sub-nav-item-active').removeClass('sub-nav-item-active');
         }
     }
 }
