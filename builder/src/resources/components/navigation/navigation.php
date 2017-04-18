@@ -20,7 +20,6 @@
     <div class="sub-nav-content">
         <nav>
             <ul class="sub-nav-list"></ul>
-            <div class="sub-nav-highlighter"></div>
         </nav>
     </div>
 </div>
