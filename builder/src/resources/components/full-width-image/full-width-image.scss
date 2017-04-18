@@ -1,0 +1,12 @@
+.full-width-image{
+    position: relative;
+    width: 100%;
+
+    .full-width-image-image{
+        width: 100%;
+        padding-top: 33%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+    }
+}
