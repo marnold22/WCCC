@@ -4,6 +4,9 @@
     get_template_part('assets/partials/image-slider');
 
     require_once(get_template_directory().'/assets/partials/text-image.php');
+    require_once(get_template_directory().'/assets/partials/full-width-image.php');
+
+    echo createFullWidthImageComponent(array('image_ref'=>'http://westcentralcc.org/wp-content/uploads/2013/10/gym-72391-e1381356627607.jpg'));
 
     $left = true;
     for ($i=1; $i <= 10; $i++) {
