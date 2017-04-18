@@ -64,20 +64,21 @@ class NavBar{
     //PAGE LISTENERS-------------------------------------------------
 
     setupListeners(){
-        $(window).resize(()=>{
+        $(window).resize(_.throttle(()=>{
             //on resize of window so highlight offset is correct
             if(this.currentMenuItem){
                 this.menuItemHovered(this.currentMenuItem);
             }
             //make sure content is never behind menu on window resize
             this.setPageContentOffset();
-        });
+            console.log('log');
+        }, 20));
 
-        $(window).scroll(()=>{
+        $(window).scroll(_.throttle(()=>{
             //find the current menu item in the viewport
             this.setCurrentSubMenuItem();
             this.setMenuPageScroll();
-        });
+        }, 20));
 
         //menu item hovered
         this.setupMenuItemHover();
