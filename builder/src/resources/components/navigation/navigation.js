@@ -274,8 +274,11 @@ class NavBar{
             let navItem = `<li class="sub-nav-item"><a href="#${anchorID}">${title}</a></li>`
             $(this.subNav).append(navItem);
         }
+        
+        if($('.anchor').length > 0){
+          $(this.subNav).addClass('sub-nav-active');
+        }
 
-        $(this.subNav).addClass('sub-nav-active');
         this.subNavItems = $('.sub-nav-item');
         this.setupSmoothScrollAnchors();
     }

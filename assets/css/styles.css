@@ -8,6 +8,9 @@ body {
   margin: 0;
   padding: 0; }
 
+.bold-text {
+  font-weight: bolder; }
+
 .vignette {
   -webkit-box-shadow: inset 0 0 10em black;
   box-shadow: inset 0 -0 10em black;
@@ -121,6 +124,25 @@ header {
       font-weight: bold; }
     .event-component .event-component-text .event-component-text-content {
       margin: 0; }
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.widget {
+  padding-top: 1em;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex; }
+  .widget .sfsi_widget {
+    display: inline-block; }
+
+.footer-contact {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1em;
+  color: white;
+  padding: 0 0; }
+  .footer-contact:last-child {
+    padding-bottom: 1em; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -270,6 +292,7 @@ header {
       opacity: 0.5; }
       .image-slider .image-slider-indexes .image-slider-index.image-slider-index-active {
         opacity: 1; }
+
 
 /*
 Theme Name: WCCC
@@ -496,7 +519,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
           border-bottom: 5px solid transparent; }
           .nav-bar .sub-nav-content .sub-nav-list .sub-nav-item a.sub-nav-item-active, .nav-bar .sub-nav-content .sub-nav-list .sub-nav-item a:hover {
             border-bottom: 5px solid #f2ae00; }
-
 
 /* Media Queries */
 /* Card sizing */
