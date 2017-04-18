@@ -71,7 +71,6 @@ class NavBar{
             }
             //make sure content is never behind menu on window resize
             this.setPageContentOffset();
-            console.log('log');
         }, 20));
 
         $(window).scroll(_.throttle(()=>{
