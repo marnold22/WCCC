@@ -1,10 +1,10 @@
 $border: 1px solid rgba(0, 0, 0, 0.5);
 
-.event-component{
+.text-image-component{
     width: 100%;
 
     //contains all of the content
-    .event-component-content{
+    .text-image-component-content{
         display: flex;
         flex-direction: row;
         max-width: 100%;
@@ -17,7 +17,7 @@ $border: 1px solid rgba(0, 0, 0, 0.5);
     }
 
     //contains the content that will be half the width of the parent
-    .event-component-content-part{
+    .text-image-component-content-part{
         display: flex;
         flex-direction: column;
 
@@ -26,39 +26,39 @@ $border: 1px solid rgba(0, 0, 0, 0.5);
         min-height: 15em;
         margin: 20px 0;
 
-        &.event-component-text-part{
+        &.text-image-component-text-part{
             flex: 2;
             border-top: $border;
             // border-bottom: $border;
         }
 
-        &.event-component-image-part{
+        &.text-image-component-image-part{
             flex: 1;
         }
     }
 
-    .event-component-image{
+    .text-image-component-image{
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;
         height: 100%;
     }
 
-    .event-component-image, .event-component-text{
+    .text-image-component-image, .text-image-component-text{
         width: 90%;
     }
 
-    .event-component-text{
+    .text-image-component-text{
         word-wrap: break-word;
         width: 75%;
 
-        .event-component-title{
+        .text-image-component-title{
             margin: 0;
             font-size: 2em;
             font-weight: bold;
         }
 
-        .event-component-text-content{
+        .text-image-component-text-content{
             margin: 0;
         }
     }
