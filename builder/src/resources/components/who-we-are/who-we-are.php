@@ -3,7 +3,7 @@
     Mustache_Autoloader::register();
 
 
-    //array('imageRef'=>$imageRef, 'name'=>$name, 'position'=>$position, 'phone'=>$phone, 'email'=>$email)
+    //array('image_ref'=>$image_ref, 'name'=>$name, 'position'=>$position, 'phone'=>$phone, 'email'=>$email)
     function createWhoWeArePersonComponent($args){
         //setup
         $m = new Mustache_Engine(array(
@@ -23,7 +23,7 @@
       <?php
 
       for($i = 0; $i < 20; $i++){
-          $args = array('imageRef'=>get_template_directory_uri().'/assets/images/grey_logo.png', 'name'=>'Martha Stuart', 'position'=>'Author', 'phone'=>'(123) 456-7890', 'email'=>'martha@stuart.com');
+          $args = array('image_ref'=>get_template_directory_uri().'/assets/images/grey_logo.png', 'name'=>'Martha Stuart', 'position'=>'Author', 'phone'=>'(123) 456-7890', 'email'=>'martha@stuart.com');
           echo createWhoWeArePersonComponent($args);
       }
 
