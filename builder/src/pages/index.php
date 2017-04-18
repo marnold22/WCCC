@@ -5,6 +5,10 @@
 
     require_once(get_template_directory().'/assets/partials/text-image.php');
     require_once(get_template_directory().'/assets/partials/full-width-image.php');
+    require_once(get_template_directory().'/assets/partials/call-to-action.php');
+
+    echo createCallToActionComponent(array('title'=>'Donate', 'content'=>'this is the content of the message', 'button_link'=>'#this_is_the_link', 'button_title'=> 'Donate'));
+
 
     echo createFullWidthImageComponent(array('image_ref'=>'http://westcentralcc.org/wp-content/uploads/2013/10/gym-72391-e1381356627607.jpg'));
 
