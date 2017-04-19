@@ -351,8 +351,8 @@ class NavBar{
         let noItemSelected = true;
         for(let i = 0; i < this.pageAnchors.length; i++){
             let currAnchor = this.pageAnchors[i];
-            let anchorOffset = Math.round($(currAnchor).position().top);
-            let anchorHeight = Math.round($(currAnchor).height());
+            let anchorOffset = Math.floor($(currAnchor).position().top);
+            let anchorHeight = Math.ceil($(currAnchor).height());
 
             //if the current position is in the middle of the anchor
             if(currPos >= anchorOffset && currPos < anchorOffset + anchorHeight){
