@@ -2,6 +2,7 @@
 <?php /* Template Name: index-template */
     get_header();
     get_template_part('assets/partials/image-slider');
+    get_template_part('assets/partials/where-we-are');
 
     require_once(get_template_directory().'/assets/partials/text-image.php');
     require_once(get_template_directory().'/assets/partials/full-width-image.php');
@@ -22,11 +23,11 @@
 
   // get_template_part('assets/partials/where-we-are');
 
-// $args = array('category_name' => 'about');
-// $posts_array = get_posts( $args );
-// foreach ($posts_array as $post) {
-//     echo $post->post_content;
-// }
+  // $args = array('category_name' => 'about');
+  // $posts_array = get_posts( $args );
+  // foreach ($posts_array as $post) {
+  //     echo $post->post_content;
+  // }
 
     get_footer();
 ?>
