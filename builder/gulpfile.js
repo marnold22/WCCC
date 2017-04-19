@@ -27,6 +27,7 @@ var statics = {
     wordpress: (argv.regular == undefined) ? true : false,
     isPHP: (argv.html == undefined) ? true : false
 }
+let mampPro = (argv.pro == undefined) ? false : true;
 // ────────────────────────────────────────────────────────────────────────────────
 
 //
@@ -236,7 +237,7 @@ gulp.task('php-serve', ()=>{
 //Set up browser-sync server
 gulp.task('browser-sync', ['php-files', 'mustache', 'sass', 'pug', 'js', 'images'], ()=>{
     browserSync.init({
-        proxy: 'localhost:8888',
+        proxy: mampPro ? 'wordpress.localhost:8888' : 'localhost:8888',
         port: 8080,
         open: true,
     });
