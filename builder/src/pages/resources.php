@@ -6,6 +6,6 @@
   // foreach ($posts_array as $post) {
   //     echo $post->post_content;
   // }
-
+    get_posts_for_category('resources');
   get_footer();
 ?>

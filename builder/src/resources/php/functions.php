@@ -168,7 +168,11 @@
   }
   add_action( 'widgets_init', 'arphabet_widgets_init' );
 
-  //WIDGET FOOTER------------------------------------------------------------------------
+  //Category Catcher------------------------------------------------------------------------
 
+  function get_posts_for_category($category) {
+    $args = array('category_name' => $category);
+    return get_posts( $args );
+  }
 
 ?>
