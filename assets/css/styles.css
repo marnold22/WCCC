@@ -127,6 +127,41 @@ header {
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.widget {
+  padding-top: 1em;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex; }
+  .widget .sfsi_widget {
+    display: inline-block; }
+
+.footer-contact {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1em;
+  color: white;
+  padding: 0 0 0 20px; }
+  .footer-contact:last-child {
+    padding-bottom: 1em; }
+
+/*
+Theme Name: WCCC
+Theme URI: http://www.westcentralcc.org
+Author: Tyler Reardon, Michael Arnold, Madeline Cook
+Author URI: NA
+Description: A wordpress theme for the West Central Community Center in Spokane, WA
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Text Domain: twentythirteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
 .image-slider {
   position: relative;
   overflow: hidden;
@@ -273,25 +308,6 @@ header {
       opacity: 0.5; }
       .image-slider .image-slider-indexes .image-slider-index.image-slider-index-active {
         opacity: 1; }
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
-.widget {
-  padding-top: 1em;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex; }
-  .widget .sfsi_widget {
-    display: inline-block; }
-
-.footer-contact {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.1em;
-  color: white;
-  padding: 0 0 0 20px; }
-  .footer-contact:last-child {
-    padding-bottom: 1em; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -503,22 +519,42 @@ header {
           .nav-bar .sub-nav-content .sub-nav-list .sub-nav-item a.sub-nav-item-active, .nav-bar .sub-nav-content .sub-nav-list .sub-nav-item a:hover {
             border-bottom: 5px solid #f2ae00; }
 
-/*
-Theme Name: WCCC
-Theme URI: http://www.westcentralcc.org
-Author: Tyler Reardon, Michael Arnold, Madeline Cook
-Author URI: NA
-Description: A wordpress theme for the West Central Community Center in Spokane, WA
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
-Text Domain: twentythirteen
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-*/
-
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.where-we-are {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 30em;
+  background-color: #23396c; }
+  .where-we-are h1 {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 1000; }
+  .where-we-are .where-we-go-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 100; }
+    .where-we-are .where-we-go-content .where-we-are-map-container {
+      position: relative;
+      width: 100%;
+      height: 100%; }
+      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map-overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.5;
+        background-color: #23396c;
+        z-index: 1000; }
+      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map {
+        z-index: 0;
+        width: 100%;
+        height: 100%; }
 
 /* Media Queries */
 /* Card sizing */
@@ -747,42 +783,6 @@ body {
       background-color: #23396c; }
       #timeline .demo-card--step5 .head::after {
         border-color: #23396c; }
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
-.where-we-are {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 30em;
-  background-color: #23396c; }
-  .where-we-are h1 {
-    text-align: center;
-    color: white;
-    position: relative;
-    z-index: 1000; }
-  .where-we-are .where-we-go-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 100; }
-    .where-we-are .where-we-go-content .where-we-are-map-container {
-      position: relative;
-      width: 100%;
-      height: 100%; }
-      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map-overlay {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        opacity: 0.5;
-        background-color: #23396c;
-        z-index: 1000; }
-      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map {
-        z-index: 0;
-        width: 100%;
-        height: 100%; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
