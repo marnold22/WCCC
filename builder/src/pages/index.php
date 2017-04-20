@@ -23,11 +23,12 @@
 
   // get_template_part('assets/partials/where-we-are');
 
+<<<<<<< HEAD
 
     get_posts_for_category_and_tag('index', 4);
-
-
-
+=======
+    get_posts_for_category_and_tag('index', 'youth-program');
+>>>>>>> origin/master
 
     get_footer();
 ?>

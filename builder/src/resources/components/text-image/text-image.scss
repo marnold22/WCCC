@@ -53,13 +53,14 @@ $border: 1px solid rgba(0, 0, 0, 0.5);
         width: 75%;
 
         .text-image-component-title{
-            margin: 0;
+            margin: 0 0 10px 0;
             font-size: 2em;
             font-weight: bold;
         }
 
         .text-image-component-text-content{
             margin: 0;
+            max-width: 600px;
         }
     }
 }
