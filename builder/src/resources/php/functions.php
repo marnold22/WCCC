@@ -187,7 +187,7 @@
       'category__and' => $category,
       'tag__in' => $tag,
       'posts_per_page' => -1);
-      print_post_array(get_posts($args));
+      echo count(get_posts($args));
       return get_posts($args);
 
   }
