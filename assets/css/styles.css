@@ -83,6 +83,13 @@ header {
   -webkit-transition: margin-top 0.5s ease-in-out;
   transition: margin-top 0.5s ease-in-out; }
 
+.call-to-action {
+  display: inline-block; }
+  .call-to-action .title-heading {
+    margin: 0; }
+  .call-to-action .call-to-action-button-container {
+    text-align: center; }
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
 .widget {
@@ -101,13 +108,6 @@ header {
   padding: 0 0 0 20px; }
   .footer-contact:last-child {
     padding-bottom: 1em; }
-
-.call-to-action {
-  display: inline-block; }
-  .call-to-action .title-heading {
-    margin: 0; }
-  .call-to-action .call-to-action-button-container {
-    text-align: center; }
 
 /*
 Theme Name: WCCC
@@ -283,7 +283,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
       opacity: 0.5; }
       .image-slider .image-slider-indexes .image-slider-index.image-slider-index-active {
         opacity: 1; }
-
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -536,6 +535,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
           .nav-bar .sub-nav-content nav .sub-nav-list .sub-nav-item a.sub-nav-item-active, .nav-bar .sub-nav-content nav .sub-nav-list .sub-nav-item a:hover {
             text-shadow: 0.5px 0.5px #23396c; }
 
+
 .text-image-component {
   width: 100%; }
   .text-image-component .text-image-component-content {
@@ -604,6 +604,42 @@ Use it to make something cool, have fun, and share what you've learned with othe
     .text-image-component .text-image-component-text .text-image-component-text-content {
       margin: 0;
       max-width: 600px; }
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.where-we-are {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 30em;
+  background-color: #23396c; }
+  .where-we-are h1 {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 1000; }
+  .where-we-are .where-we-go-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 100; }
+    .where-we-are .where-we-go-content .where-we-are-map-container {
+      position: relative;
+      width: 100%;
+      height: 100%; }
+      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map-overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.5;
+        background-color: #23396c;
+        z-index: 1000; }
+      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map {
+        z-index: 0;
+        width: 100%;
+        height: 100%; }
 
 /* Media Queries */
 /* Card sizing */
@@ -832,42 +868,6 @@ body {
       background-color: #23396c; }
       #timeline .demo-card--step5 .head::after {
         border-color: #23396c; }
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
-.where-we-are {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 30em;
-  background-color: #23396c; }
-  .where-we-are h1 {
-    text-align: center;
-    color: white;
-    position: relative;
-    z-index: 1000; }
-  .where-we-are .where-we-go-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 100; }
-    .where-we-are .where-we-go-content .where-we-are-map-container {
-      position: relative;
-      width: 100%;
-      height: 100%; }
-      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map-overlay {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        opacity: 0.5;
-        background-color: #23396c;
-        z-index: 1000; }
-      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map {
-        z-index: 0;
-        width: 100%;
-        height: 100%; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");

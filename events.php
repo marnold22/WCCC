@@ -8,5 +8,7 @@
   // }
     get_posts_for_category('events');
 
+    echo do_shortcode( '[staffer department="Computer Science"]' );
+
   get_footer();
 ?>

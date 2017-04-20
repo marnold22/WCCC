@@ -58,11 +58,9 @@
   }
 
   //who-we-are--------------------------------------------------------------------------------
-  add_action("admin_menu", "who_we_are_menu_item");
 
-  function who_we_are_menu_item(){
-    add_menu_page("Who We Are", "Who We Are", "administrator", __FILE__, "who_we_are_settings_page", null);
-    add_action('admin_init', 'register_who_we_are_settings');
-  }
+
+
+
 
 ?>
