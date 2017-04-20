@@ -175,23 +175,26 @@
     return get_posts( $args );
   }
 
-  //Who-We-Are Plugin------------------------------------------------------------------------
+  //Content Fetcher------------------------------------------------------------------------
   function print_post_array($array){
     foreach ($array as $post) {
-      echo $post;
+      echo $post->post_content;
     }
   }
 
   function get_posts_for_category_and_tag($category, $tag) {
-    $args = array(
-      'category__and' => $category,
-      'tag__in' => $tag,
-      'posts_per_page' => -1);
-      print_post_array(get_posts($args));
-      return get_posts($args);
-
+    $cat = get_cat_id('index');
+    $args = "cat=". $cat . "&tag=youth-program";
+    $posts = get_posts($args);
+    return $posts;
   }
 
+  //who-we-are--------------------------------------------------------------------------------
+  add_action("admin_menu", "who_we_are_menu_item");
 
+  function who_we_are_menu_item(){
+    add_menu_page("Who We Are", "Who We Are", "administrator", __FILE__, "who_we_are_settings_page", null);
+    add_action('admin_init', 'register_who_we_are_settings');
+  }
 
 ?>
