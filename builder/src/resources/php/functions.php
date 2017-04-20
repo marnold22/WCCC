@@ -183,8 +183,8 @@
   }
 
   function get_posts_for_category_and_tag($category, $tag) {
-    $cat = get_cat_id('index');
-    $args = "cat=". $cat . "&tag=youth-program";
+    $cat = get_cat_id($category);
+    $args = "cat=". $cat . "&tag=" . $tag;
     $posts = get_posts($args);
     return $posts;
   }

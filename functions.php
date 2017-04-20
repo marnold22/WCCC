@@ -183,20 +183,10 @@
   }
 
   function get_posts_for_category_and_tag($category, $tag) {
-<<<<<<< HEAD
-    $cat = get_cat_id('index');
-    $args = "cat=". $cat . "&tag=youth-program";
+    $cat = get_cat_id($category);
+    $args = "cat=". $cat . "&tag=" . $tag;
     $posts = get_posts($args);
     return $posts;
-=======
-    $args = array(
-      'category__and' => $category,
-      'tag__in' => $tag,
-      'posts_per_page' => -1);
-      echo count(get_posts($args));
-      return get_posts($args);
-
->>>>>>> origin/master
   }
 
   //who-we-are--------------------------------------------------------------------------------
