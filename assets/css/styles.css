@@ -83,6 +83,25 @@ header {
   -webkit-transition: margin-top 0.5s ease-in-out;
   transition: margin-top 0.5s ease-in-out; }
 
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.widget {
+  padding-top: 1em;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex; }
+  .widget .sfsi_widget {
+    display: inline-block; }
+
+.footer-contact {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1em;
+  color: white;
+  padding: 0 0 0 20px; }
+  .footer-contact:last-child {
+    padding-bottom: 1em; }
+
 .call-to-action {
   display: inline-block; }
   .call-to-action .title-heading {
@@ -105,25 +124,6 @@ Text Domain: twentythirteen
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
-.widget {
-  padding-top: 1em;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex; }
-  .widget .sfsi_widget {
-    display: inline-block; }
-
-.footer-contact {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.1em;
-  color: white;
-  padding: 0 0 0 20px; }
-  .footer-contact:last-child {
-    padding-bottom: 1em; }
 
 .full-width-image {
   position: relative;
@@ -283,6 +283,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
       opacity: 0.5; }
       .image-slider .image-slider-indexes .image-slider-index.image-slider-index-active {
         opacity: 1; }
+
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -597,12 +598,12 @@ Use it to make something cool, have fun, and share what you've learned with othe
     word-wrap: break-word;
     width: 75%; }
     .text-image-component .text-image-component-text .text-image-component-title {
-      margin: 0;
+      margin: 0 0 10px 0;
       font-size: 2em;
       font-weight: bold; }
     .text-image-component .text-image-component-text .text-image-component-text-content {
-      margin: 0; }
-
+      margin: 0;
+      max-width: 600px; }
 
 /* Media Queries */
 /* Card sizing */

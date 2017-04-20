@@ -415,8 +415,8 @@ var NavBar = function () {
             var noItemSelected = true;
             for (var i = 0; i < this.pageAnchors.length; i++) {
                 var currAnchor = this.pageAnchors[i];
-                var anchorOffset = Math.round($(currAnchor).position().top);
-                var anchorHeight = Math.round($(currAnchor).height());
+                var anchorOffset = Math.floor($(currAnchor).position().top);
+                var anchorHeight = Math.ceil($(currAnchor).height());
 
                 //if the current position is in the middle of the anchor
                 if (currPos >= anchorOffset && currPos < anchorOffset + anchorHeight) {

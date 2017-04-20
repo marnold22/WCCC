@@ -25,6 +25,5 @@
 
     get_posts_for_category_and_tag('index', 'youth-program');
 
-
     get_footer();
 ?>
