@@ -1,15 +1,6 @@
   </div> <!-- closing the content container -->
   <footer>
-	<div id="contentox>
-	<?php
-	  //Footer widget start
-		if( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Footer')): ?>
-	<?php
-		endif;
-		//Footer Page End
-	?>
-	
-
+    <?php get_template_part('assets/partials/footer-contact'); ?>
   </footer>
   	<?php wp_footer(); ?>
   </body>

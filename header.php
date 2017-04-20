@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri().'/assets/css/styles.css';?>">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="<?php echo get_template_directory_uri().'/assets/js/require.js'; ?>"></script>
-    <script defer src="<?php echo get_template_directory_uri().'/assets/js/parallax.js'; ?>"></script>
+    <script src="<?php echo get_template_directory_uri().'/assets/js/WCCCStyleKit.js'; ?>"></script>
+    <script src="<?php echo get_template_directory_uri().'/assets/js/navigation.js'; ?>"></script>
+    <script defer src="<?php echo get_template_directory_uri().'/assets/js/main.js'; ?>"></script>
     <?php wp_head(); ?>
   </head>
 

@@ -175,4 +175,23 @@
     return get_posts( $args );
   }
 
+  //Who-We-Are Plugin------------------------------------------------------------------------
+  function print_post_array($array){
+    foreach ($array as $post) {
+      echo $post;
+    }
+  }
+
+  function get_posts_for_category_and_tag($category, $tag) {
+    $args = array(
+      'category__and' => $category,
+      'tag__in' => $tag,
+      'posts_per_page' => -1);
+      print_post_array(get_posts($args));
+      return get_posts($args);
+
+  }
+
+
+
 ?>
