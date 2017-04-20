@@ -44,6 +44,7 @@ var paths = {
         partials: '../assets/partials/',
         util: '../assets/util/',
         templates: '../assets/templates/',
+        plugins: '../../../plugins/',
     },
     dev: {
         root: './src/',
@@ -55,6 +56,7 @@ var paths = {
         data: './src/resources/data/data.json',
         util: './src/util/',
         templates: './src/resources/',
+        plugins: './plugins/'
     }
 }
 // ────────────────────────────────────────────────────────────────────────────────
@@ -62,6 +64,12 @@ var paths = {
 //
 // ─── TASKS ──────────────────────────────────────────────────────────────────────
 //
+
+gulp.task('plugins', ()=>{
+    return gulp.src(paths.dev.plugins + '**/*.*')
+    .pipe(gulp.dest(paths.build.plugins));
+});
+
 //Create the html from the pug template files.
 //File names will match --> index.pug == index.php
 gulp.task('pug-pages', ()=>{
@@ -258,6 +266,9 @@ gulp.task('browser-sync-html', ['php-files', 'mustache', 'sass', 'pug', 'js', 'i
 
 //Watch for changes
 gulp.task('watch',()=>{
+    gulp.watch([paths.dev.plugins + '**/*.*'], ()=>{
+      runSequence('plugins', browserSync.reload);
+    });
     gulp.watch([paths.dev.root + '**/*.scss'], ()=>{
       runSequence('sass', browserSync.reload);
     });
@@ -279,7 +290,7 @@ gulp.task('watch',()=>{
 });
 
 //Build and compile everything
-gulp.task('build', ['php-files', 'mustache', 'sass', 'pug', 'js', 'images']);
+gulp.task('build', ['php-files', 'plugins', 'mustache', 'sass', 'pug', 'js', 'images']);
 
 //Default task
 if(statics.isPHP && statics.wordpress){
