@@ -1,5 +1,6 @@
 @import './_fonts.scss';
 @import './_colors.scss';
+@import './_mixins.scss';
 
 *{
     font-family: $open-sans;
@@ -40,22 +41,6 @@ body{
     font-size: 1.5em;
     font-weight: 700;
     text-transform: uppercase;
-}
-
-.link-button{
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: $blue;
-    text-decoration: none;
-    color: $white;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.2s ease-in-out;
-
-    &:hover{
-        color: $gold;
-    }
 }
 
 header, footer{

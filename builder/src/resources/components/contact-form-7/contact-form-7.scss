@@ -1,0 +1,45 @@
+@import '../../sass/_colors.scss';
+@import '../../sass/_fonts.scss';
+@import '../../sass/_mixins.scss';
+
+.contact-form-7-container{
+    width: 50%;
+    margin: 0 auto;
+
+    .wpcf7-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        //all of the elemts are stored in paragraph elements?
+        p{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        input, textarea{
+            border-radius: 3px;
+            border-color: rgba(0,0,0,0.5);
+            border-width: 1px;
+            width: 100%;
+            padding: 10px;
+        }
+
+        input[type="submit"]{
+            @extend .link-button;
+            background-color: $blue;
+            width: auto;
+            border: 0px;
+            align-self: center;
+        }
+
+        textarea{
+            resize: none;
+            border: 0px;
+            background-color: rgba(0,0,0,0.1);
+        }
+    }
+}
