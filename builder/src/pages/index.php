@@ -23,11 +23,11 @@
 
   // get_template_part('assets/partials/where-we-are');
 
-  // $args = array('category_name' => 'about');
-  // $posts_array = get_posts( $args );
-  // foreach ($posts_array as $post) {
-  //     echo $post->post_content;
-  // }
+
+    get_posts_for_category_and_tag('index', 'youth-program');
+
+
+
 
     get_footer();
 ?>

@@ -1,42 +1,32 @@
+<?php
+    require_once(get_template_directory().'/assets/util/Mustache/Autoloader.php');
+    Mustache_Autoloader::register();
 
-<div class="who-we-are section parallax-container">
+
+    //array('image_ref'=>$image_ref, 'name'=>$name, 'position'=>$position, 'phone'=>$phone, 'email'=>$email)
+    function createWhoWeArePersonComponent($args){
+        //setup
+        $m = new Mustache_Engine(array(
+            'loader' => new Mustache_Loader_FilesystemLoader(get_template_directory().'/assets/templates')
+        ));
+        $tpl = $m->loadTemplate('who-we-are-person-template');
+        return $tpl->render($args);
+    }
+?>
+
+
+
+
+<div class="who-we-are">
   <h1 class="title-heading">Who We Are</h1>
-  <div class="who-we-are-content parallax-element">
-    <div class="who-we-are-person">
-      <div class="who-we-are-picture" style="background-image: url(./resources/images/who-we-are/kim_ferraro.png);"></div>
-      <h4 class="who-we-are-name">Kim Ferraro</h4>
-      <p class="who-we-are-title">Executive Director</p>
-      <p class="who-we-are-phone">509-323-7480</p>
-    </div>
-    <div class="who-we-are-person">
-      <div class="who-we-are-picture" style="background-image: url(./resources/images/who-we-are/lisa_fuchs.png);"></div>
-      <h4 class="who-we-are-name">Stephanie Lewis</h4>
-      <p class="who-we-are-title">Administrative Services</p>
-      <p class="who-we-are-phone">509-323-7486</p>
-    </div>
-    <div class="who-we-are-person">
-      <div class="who-we-are-picture" style="background-image: url(./resources/images/who-we-are/rick_harris.png);"></div>
-      <h4 class="who-we-are-name">Rick Harris</h4>
-      <p class="who-we-are-title">Facility &amp; Youth Development</p>
-      <p class="who-we-are-phone">509-323-7501</p>
-    </div>
-    <div class="who-we-are-person">
-      <div class="who-we-are-picture" style="background-image: url(./resources/images/who-we-are/sandi_beckley.png);"></div>
-      <h4 class="who-we-are-name">Susan Dias</h4>
-      <p class="who-we-are-title">Accounting</p>
-      <p class="who-we-are-phone">509-323-7481</p>
-    </div>
-    <div class="who-we-are-person">
-      <div class="who-we-are-picture" style="background-image: url(./resources/images/who-we-are/stephanie_lewis.png);"></div>
-      <h4 class="who-we-are-name">Sandi Beckley</h4>
-      <p class="who-we-are-title">Supportive Services</p>
-      <p class="who-we-are-phone">509-323-7481</p>
-    </div>
-    <div class="who-we-are-person">
-      <div class="who-we-are-picture" style="background-image: url(./resources/images/who-we-are/susan_dias.png);"></div>
-      <h4 class="who-we-are-name">Lisa Fuchs</h4>
-      <p class="who-we-are-title">WIC Coordinator</p>
-      <p class="who-we-are-phone">509-323-7495</p>
-    </div>
+  <div class="who-we-are-content">
+      <?php
+
+      for($i = 0; $i < 20; $i++){
+          $args = array('image_ref'=>get_template_directory_uri().'/assets/images/grey_logo.png', 'name'=>'Martha Stuart', 'position'=>'Author', 'phone'=>'(123) 456-7890', 'email'=>'martha@stuart.com');
+          echo createWhoWeArePersonComponent($args);
+      }
+
+      ?>
   </div>
 </div>

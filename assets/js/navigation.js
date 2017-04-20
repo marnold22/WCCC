@@ -10,10 +10,17 @@ var NavBar = function () {
 
         //ELEMENTS
         this.nav = element;
+        this.subNav = $(element).find('.sub-nav-list')[0];
+        this.subNavItems = null; //set in setupSubMenu()
+        this.pageAnchors = $('.anchor');
         this.navContent = $(element).find('.nav-bar-content')[0];
         this.menuItems = $(element).find('nav > ul > li > a');
         this.currentMenuItem = null;
         this.navBarHighlighter = $(element).find('.nav-bar-highlighter')[0];
+        this.subNavHighlighter = $(element).find('.sub-nav-highligher')[0];
+        this.pageContentOffset = null; //set in setPageContentOffset()
+        this.lastScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+        this.isScrollingProgrammatically = false;
 
         //BURGER
         //define the burger menu
@@ -27,24 +34,74 @@ var NavBar = function () {
         //PAGE
         //which page are we on
         this.updateMenuItemToCurrentPage();
+        //setup the sub menu items
+        this.setupSubMenu();
         //set up the page interactions
         this.setupListeners();
+        //set the page offset
+        this.setPageContentOffset();
+        //set the currently highlighted SubNav item
+        this.setCurrentSubMenuItem();
     }
 
+    //FIX CONTENT OFFSET---------------------------------------------
+
     _createClass(NavBar, [{
+        key: 'getPageContentOffset',
+        value: function getPageContentOffset() {
+            var content = $('#content-container');
+            var navOffset = $(this.nav).height() + $(this.subNav).height() + parseInt($(this.nav).css("margin-top"));
+            return navOffset;
+        }
+    }, {
+        key: 'setPageContentOffset',
+        value: function setPageContentOffset() {
+            var content = $('#content-container');
+            var navHeight = this.getPageContentOffset();
+            $(content).css({ 'margin-top': navHeight + 'px' });
+            this.pageContentOffset = navHeight;
+        }
+    }, {
+        key: 'setMenuPageScroll',
+        value: function setMenuPageScroll() {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (this.lastScrollPos < scrollTop) {
+                $(this.nav).addClass('nav-bar-hidden');
+            } else if (this.lastScrollPos > scrollTop) {
+                $(this.nav).removeClass('nav-bar-hidden');
+            }
+            this.setPageContentOffset();
+            this.lastScrollPos = scrollTop;
+        }
+
+        //PAGE LISTENERS-------------------------------------------------
+
+    }, {
         key: 'setupListeners',
         value: function setupListeners() {
             var _this = this;
 
-            //on resize of window so highlight offset is correct
-            $(window).resize(function () {
+            var throttle = 50;
+
+            $(window).resize(_.throttle(function () {
+                //on resize of window so highlight offset is correct
                 if (_this.currentMenuItem) {
                     _this.menuItemHovered(_this.currentMenuItem);
                 }
-            });
+                //make sure content is never behind menu on window resize
+                _this.setPageContentOffset();
+            }, throttle));
+
+            $(window).scroll(_.throttle(function () {
+                if (!_this.isScrollingProgrammatically) {
+                    //find the current menu item in the viewport
+                    _this.setCurrentSubMenuItem();
+                }
+                _this.setMenuPageScroll();
+            }, throttle));
 
             //menu item hovered
-            this.setupOnHover();
+            this.setupMenuItemHover();
 
             //burger menu
             var burgerMenuID = '#' + this.burgerMenuID;
@@ -55,21 +112,21 @@ var NavBar = function () {
 
     }, {
         key: 'menuItemHovered',
-        value: function menuItemHovered(menuItem) {
+        value: function menuItemHovered(menuItem, highlighter) {
             var width = $(menuItem).outerWidth(true);
             var menuItemOffset = $(menuItem).offset().left;
-            $(this.navBarHighlighter).css({ 'left': menuItemOffset, 'width': width });
+            $(highlighter).css({ 'left': menuItemOffset, 'width': width });
         }
 
         //event handlers
 
     }, {
-        key: 'setupOnHover',
-        value: function setupOnHover() {
+        key: 'setupMenuItemHover',
+        value: function setupMenuItemHover() {
             var _this2 = this;
 
             $(this.menuItems).hover(function (event) {
-                _this2.menuItemHovered(event.target);
+                _this2.menuItemHovered(event.target, _this2.navBarHighlighter);
             });
             $(this.menuItems).mouseleave(function () {
                 _this2.updateMenuItemToCurrentPage();
@@ -109,7 +166,7 @@ var NavBar = function () {
         value: function updateMenuItemToCurrentPage() {
             this.currentMenuItem = this.getMenuItemForCurrentPage();
             if (this.currentMenuItem) {
-                this.menuItemHovered(this.currentMenuItem);
+                this.menuItemHovered(this.currentMenuItem, this.navBarHighlighter);
                 $(this.currentMenuItem).addClass('menu-item-current-page');
             }
         }
@@ -260,14 +317,138 @@ var NavBar = function () {
                 }, 0);
             }
         }
+
+        //SUB MENU-----------------------------------------------------
+
+    }, {
+        key: 'setupSubMenu',
+        value: function setupSubMenu() {
+            var anchorIDs = {};
+            var subNavActive = false;
+
+            for (var i = 0; i < this.pageAnchors.length; i++) {
+                //we have nav items
+                subNavActive = true;
+
+                var currAnchor = this.pageAnchors[i];
+                var anchorID = $(currAnchor).attr('name');
+                var title = $(currAnchor).attr('title');
+
+                //if we haven't seen this id before
+                if (!anchorIDs[anchorID]) {
+                    //keep track of the IDs to make sure they're unique
+                    anchorIDs[anchorID] = true;
+                } else {
+                    //generate a random string and append it to our ID
+                    var randomString = Math.random().toString(36).substring(7);
+                    anchorID += '_' + randomString;
+                    $(currAnchor).attr('name', anchorID);
+                    $(currAnchor).attr('id', anchorID);
+                }
+
+                var navItem = '<li class="sub-nav-item"><a href="#' + anchorID + '">' + title + '</a></li>';
+                $(this.subNav).append(navItem);
+            }
+
+            if ($('.anchor').length > 0) {
+                $(this.subNav).addClass('sub-nav-active');
+            }
+
+            if ($('.anchor').length > 0) {
+                $(this.subNav).addClass('sub-nav-active');
+            }
+
+            this.subNavItems = $('.sub-nav-item');
+            this.setupSmoothScrollAnchors();
+        }
+    }, {
+        key: 'setupSmoothScrollAnchors',
+        value: function setupSmoothScrollAnchors() {
+            var _this7 = this;
+
+            // Get all links in the Sub Nav
+            var links = $(this.subNav).find('a');
+            var setCurrentSubMenuItemFunction = this.setCurrentSubMenuItem.bind(this);
+            // Add smooth scrolling to all links in the sub nav
+            $(links).click(function (event) {
+                _this7.isScrollingProgrammatically = true;
+                // Make sure this.hash has a value before overriding default behavior
+                if (event.target.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+                    // Store hash
+                    var hash = event.target.hash;
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top - _this7.pageContentOffset
+                    }, 800, function () {
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                        _this7.isScrollingProgrammatically = false;
+                        setCurrentSubMenuItemFunction();
+                    });
+                } // End if
+            });
+        }
+    }, {
+        key: 'setupSubMenuItemHover',
+        value: function setupSubMenuItemHover() {
+            var _this8 = this;
+
+            $(this.subNavItems).hover(function (event) {
+                _this8.menuItemHovered(event.target, _this8.subNavHighlighter);
+            });
+            $(this.subNavItems).mouseleave(function () {
+                _this8.menuItemHovered($('.sub-nav-item-active')[0], _this8.subNavHighlighter);
+            });
+        }
+    }, {
+        key: 'setCurrentSubMenuItem',
+        value: function setCurrentSubMenuItem() {
+            //window scroll position
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            //height of nav bar
+            var offset = this.pageContentOffset;
+            //current scroll position taking nav bar into account
+            var currPos = scrollTop;
+            var noItemSelected = true;
+            for (var i = 0; i < this.pageAnchors.length; i++) {
+                var currAnchor = this.pageAnchors[i];
+                var anchorOffset = Math.round($(currAnchor).position().top);
+                var anchorHeight = Math.round($(currAnchor).height());
+
+                //if the current position is in the middle of the anchor
+                if (currPos >= anchorOffset && currPos < anchorOffset + anchorHeight) {
+                    var anchorTag = $(currAnchor).attr('name');
+                    //if we have a new item
+                    if (!$(currAnchor).hasClass('anchor-active')) {
+                        //remove the active classes of the other element
+                        $(this.pageAnchors).removeClass('anchor-active');
+                        $('.sub-nav-item-active').removeClass('sub-nav-item-active');
+
+                        //add the new active class
+                        $(currAnchor).addClass('anchor-active');
+                        var id = $(currAnchor).attr('id');
+                        var subMenuItem = $('[href="#' + id + '"]');
+                        $(subMenuItem).addClass('sub-nav-item-active');
+                        $(this.subNav).animate({
+                            scrollLeft: $(subMenuItem).offset().left
+                        }, 333, null);
+                    }
+                    noItemSelected = false;
+                    break;
+                }
+            }
+
+            //if we don't have a valid item
+            if (noItemSelected) {
+                //remove any active anchors
+                $('.anchor-active').removeClass('anchor-active');
+                $('.sub-nav-item-active').removeClass('sub-nav-item-active');
+            }
+        }
     }]);
 
     return NavBar;
 }();
-
-$(document).ready(function () {
-    var navBars = $('.nav-bar');
-    for (var i = 0; i < navBars.length; i++) {
-        var bar = new NavBar(navBars[i]);
-    }
-});
