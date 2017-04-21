@@ -83,6 +83,25 @@ header {
   -webkit-transition: margin-top 0.5s ease-in-out;
   transition: margin-top 0.5s ease-in-out; }
 
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.widget {
+  padding-top: 1em;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex; }
+  .widget .sfsi_widget {
+    display: inline-block; }
+
+.footer-contact {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1em;
+  color: white;
+  padding: 0 0 0 20px; }
+  .footer-contact:last-child {
+    padding-bottom: 1em; }
+
 .call-to-action {
   display: inline-block; }
   .call-to-action .title-heading {
@@ -173,6 +192,16 @@ header {
       border: 0px;
       background-color: rgba(0, 0, 0, 0.1); }
 
+.full-width-image {
+  position: relative;
+  width: 100%; }
+  .full-width-image .full-width-image-image {
+    width: 100%;
+    padding-top: 33%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; }
+
 /*
 Theme Name: WCCC
 Theme URI: http://www.westcentralcc.org
@@ -188,35 +217,6 @@ Text Domain: twentythirteen
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
-.widget {
-  padding-top: 1em;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex; }
-  .widget .sfsi_widget {
-    display: inline-block; }
-
-.footer-contact {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.1em;
-  color: white;
-  padding: 0 0 0 20px; }
-  .footer-contact:last-child {
-    padding-bottom: 1em; }
-
-.full-width-image {
-  position: relative;
-  width: 100%; }
-  .full-width-image .full-width-image-image {
-    width: 100%;
-    padding-top: 33%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -618,6 +618,47 @@ Use it to make something cool, have fun, and share what you've learned with othe
           .nav-bar .sub-nav-content nav .sub-nav-list .sub-nav-item a.sub-nav-item-active, .nav-bar .sub-nav-content nav .sub-nav-list .sub-nav-item a:hover {
             text-shadow: 0.5px 0.5px #23396c; }
 
+
+.staff-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex; }
+  @media only screen and (max-width: 500px) {
+    .staff-list {
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap; } }
+  .staff-list .abcfslLstRowCntr {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    min-width: 25%; }
+    @media only screen and (max-width: 500px) {
+      .staff-list .abcfslLstRowCntr {
+        min-width: 100%; } }
+    .staff-list .abcfslLstRowCntr .abcfslLstCol {
+      width: 100%;
+      text-align: center;
+      margin-top: 0;
+      padding: 1em 0 0 0; }
+    .staff-list .abcfslLstRowCntr .abcfslLst1ImgCntr img {
+      -webkit-border-radius: 100%;
+              border-radius: 100%;
+      width: 200px;
+      height: auto; }
+  .staff-list .abcfslLst1TxtCntr {
+    padding: 0; }
 
 .text-image-component {
   width: 100%; }

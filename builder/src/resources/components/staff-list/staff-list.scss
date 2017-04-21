@@ -1,0 +1,43 @@
+@import "../../sass/_definitions.scss";
+
+.staff-list{
+  display: flex;
+
+  @media only screen and (max-width: $phone-size){
+    flex-wrap: wrap;
+  }
+
+  //the container for each row
+  .abcfslLstRowCntr{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 25%;
+
+    @media only screen and (max-width: $phone-size){
+      min-width: 100%;
+    }
+
+    .abcfslLstCol{
+      width: 100%;
+      text-align: center;
+      margin-top: 0;
+      padding: 1em 0 0 0;
+    }
+
+    //the image
+    .abcfslLst1ImgCntr{
+      img{
+        border-radius: 100%;
+        width: 200px;
+        height: auto;
+      }
+    }
+  }
+
+  //text container
+  .abcfslLst1TxtCntr{
+    padding: 0;
+  }
+
+}
