@@ -291,6 +291,10 @@ class NavBar{
 
             let navItem = `<li class="sub-nav-item"><a href="#${anchorID}">${title}</a></li>`
             $(this.subNav).append(navItem);
+
+            if (i <= this.pageAnchors.length - 2) {
+                $(this.subNav).append("<span> | </span>");
+            }
         }
 
         if($('.anchor').length > 0){

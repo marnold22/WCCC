@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<section id=timeline>
+<section class="timeline anchor" id=timeline name="timeline" title="Timeline" >
 	<div class="demo-card-wrapper">
 		<div class="demo-card demo-card--step1 ">
 			<div class="head">
