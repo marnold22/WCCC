@@ -19,7 +19,6 @@
         // $left = !($left);
     }
 
-    get_template_part('assets/partials/who-we-are');
 
   // get_template_part('assets/partials/where-we-are');
 

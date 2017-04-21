@@ -8,7 +8,5 @@
   // }
     get_posts_for_category('events');
 
-    echo do_shortcode( '[abcf-staff-list id="69"]' );
-
   get_footer();
 ?>

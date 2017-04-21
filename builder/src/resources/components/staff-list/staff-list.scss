@@ -2,17 +2,18 @@
 
 .staff-list{
   display: flex;
-
-  @media only screen and (max-width: $phone-size){
-    flex-wrap: wrap;
-  }
+  flex-wrap: wrap;
 
   //the container for each row
   .abcfslLstRowCntr{
     display: flex;
     flex-direction: column;
     flex: 1;
-    min-width: 25%;
+    min-width: 33%;
+
+    @media only screen and (max-width: $tablet-size){
+      min-width: 50%;
+    }
 
     @media only screen and (max-width: $phone-size){
       min-width: 100%;

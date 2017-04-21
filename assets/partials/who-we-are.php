@@ -17,15 +17,12 @@
 
 
 
-<div class="who-we-are">
+<div class="who-we-are anchor" id="who-we-are" name="who-we-are" title="Who We Are">
   <h1 class="title-heading">Who We Are</h1>
   <div class="who-we-are-content">
       <?php
 
-      for($i = 0; $i < 20; $i++){
-          $args = array('image_ref'=>get_template_directory_uri().'/assets/images/grey_logo.png', 'name'=>'Martha Stuart', 'position'=>'Author', 'phone'=>'(123) 456-7890', 'email'=>'martha@stuart.com');
-          echo createWhoWeArePersonComponent($args);
-      }
+        echo do_shortcode( '[abcf-staff-list id="69"]' );
 
       ?>
   </div>

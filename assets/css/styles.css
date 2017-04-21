@@ -83,25 +83,6 @@ header {
   -webkit-transition: margin-top 0.5s ease-in-out;
   transition: margin-top 0.5s ease-in-out; }
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
-.widget {
-  padding-top: 1em;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex; }
-  .widget .sfsi_widget {
-    display: inline-block; }
-
-.footer-contact {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.1em;
-  color: white;
-  padding: 0 0 0 20px; }
-  .footer-contact:last-child {
-    padding-bottom: 1em; }
-
 .call-to-action {
   display: inline-block; }
   .call-to-action .title-heading {
@@ -191,6 +172,25 @@ header {
       resize: none;
       border: 0px;
       background-color: rgba(0, 0, 0, 0.1); }
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.widget {
+  padding-top: 1em;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex; }
+  .widget .sfsi_widget {
+    display: inline-block; }
+
+.footer-contact {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1em;
+  color: white;
+  padding: 0 0 0 20px; }
+  .footer-contact:last-child {
+    padding-bottom: 1em; }
 
 .full-width-image {
   position: relative;
@@ -623,12 +623,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
-  @media only screen and (max-width: 500px) {
-    .staff-list {
-      -webkit-flex-wrap: wrap;
-          -ms-flex-wrap: wrap;
-              flex-wrap: wrap; } }
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
   .staff-list .abcfslLstRowCntr {
     display: -webkit-box;
     display: -webkit-flex;
@@ -643,7 +641,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
     -webkit-flex: 1;
         -ms-flex: 1;
             flex: 1;
-    min-width: 25%; }
+    min-width: 33%; }
+    @media only screen and (max-width: 1000px) {
+      .staff-list .abcfslLstRowCntr {
+        min-width: 50%; } }
     @media only screen and (max-width: 500px) {
       .staff-list .abcfslLstRowCntr {
         min-width: 100%; } }
