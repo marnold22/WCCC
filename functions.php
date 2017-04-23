@@ -1,5 +1,17 @@
 <?php
 
+//REQUIRES----------
+require_once(get_template_directory().'/assets/partials/full-width-image.php');
+require_once(get_template_directory().'/assets/partials/contact-form-7.php');
+require_once(get_template_directory().'/assets/partials/text-image.php');
+require_once(get_template_directory().'/assets/partials/call-to-action.php');
+
+//-------------------
+//CONSTANTS----------
+$http = 'http://';
+//-------------------
+
+
 
 
   //GOOGLE MAPS PLUGIN------------------------------------------------------------------------
