@@ -1,5 +1,4 @@
 <?php /* Template Name: about-template */
-require_once(get_template_directory().'/assets/partials/text-image.php');
 
   get_header();
   $header_section = get_posts_for_category_and_tag('about', 'header-section');
@@ -13,7 +12,7 @@ require_once(get_template_directory().'/assets/partials/text-image.php');
 
     //we get the first image if there is one in the post
       $post_title = $section->post_title;
-      $post_content = $section->post_content;
+      $post_content = wp_filter_nohtml_kses($section->post_content);
       $params = array('title'=>$post_title, 'image_ref'=>$image_ref, 'content'=>$post_content, 'image_on_left'=>true);
       echo createTextImageComponent($params);
   }
