@@ -20,7 +20,7 @@ function createTimelineComponent($args){
 	<div class="demo-card-wrapper">
 
 		<?php
-			for($i = 1; $i < 11; $i++){
+			for($i = 1; $i < 6; $i++){
 				echo createTimelineComponent(array('number'=>$i, 'subtitle'=>'subtitle', 'title'=>'title', 'description'=>'description description description description description description description description description description description description description description ', 'imageRef'=>'http://placehold.it/1000x500'));
 			}
 		?>

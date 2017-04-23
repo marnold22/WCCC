@@ -22,7 +22,7 @@
 }
 
 @mixin mq-lg {
-  @media (min-width: 1000px) {
+  @media (min-width: 1200px) {
     @content;
   }
 }
@@ -145,19 +145,22 @@ $marker-dist: $card-width + $outer-margin/2 - $marker-size/2;
         margin: 0;
         max-width: 94%;
         z-index: 2;
+        margin: 10px auto;
+
         @include mq-sm {
-          max-width: 60%;
-          box-shadow: $box-shadow;
+            max-width: 60%;
+            box-shadow: $box-shadow;
         }
         @include mq-md {
-          max-width: 40%;
+
+            max-width: 40%;
         }
         @include mq-lg {
-          max-width: $card-width;
-          height: $card-height;
-          margin: $outer-margin;
-          margin-top: 0;
-          margin-bottom: 0;
+            max-width: $card-width;
+            height: $card-height;
+            margin: $outer-margin;
+            margin-top: 0;
+            margin-bottom: 0;
         //   margin-top: $outer-margin/2;
         //   margin-bottom: $outer-margin/2;
           &:nth-child(odd) {
