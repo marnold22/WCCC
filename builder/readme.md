@@ -6,7 +6,7 @@
 4. To compile everything (without automatic updates) run `gulp build` which will default to `php`, but adding the `--html` flag after `gulp build` will compile everything to html
 5. To compile everything (with automatic updates) run `gulp`
 
-**Notes For Tags**
+# **Notes For Tags**
 | Category      | Tag           |
 | ------------- |:-------------:|
 | Index         | awesome       |
