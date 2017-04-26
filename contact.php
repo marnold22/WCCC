@@ -1,10 +1,6 @@
 <?php /* Template Name: contact-template */
   get_header();
 
-  //requires
-  require_once(get_template_directory().'/assets/partials/full-width-image.php');
-  require_once(get_template_directory().'/assets/partials/contact-form-7.php');
-
   //top image
   echo createFullWidthImageComponent(array('image_ref'=>'http://westcentralcc.org/wp-content/uploads/2013/10/gym-72391-e1381356627607.jpg'));
 

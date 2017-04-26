@@ -173,6 +173,22 @@ header {
       border: 0px;
       background-color: rgba(0, 0, 0, 0.1); }
 
+/*
+Theme Name: WCCC
+Theme URI: http://www.westcentralcc.org
+Author: Tyler Reardon, Michael Arnold, Madeline Cook
+Author URI: NA
+Description: A wordpress theme for the West Central Community Center in Spokane, WA
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Text Domain: twentythirteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
 .widget {
@@ -191,32 +207,6 @@ header {
   padding: 0 0 0 20px; }
   .footer-contact:last-child {
     padding-bottom: 1em; }
-
-.full-width-image {
-  position: relative;
-  width: 100%; }
-  .full-width-image .full-width-image-image {
-    width: 100%;
-    padding-top: 33%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover; }
-
-/*
-Theme Name: WCCC
-Theme URI: http://www.westcentralcc.org
-Author: Tyler Reardon, Michael Arnold, Madeline Cook
-Author URI: NA
-Description: A wordpress theme for the West Central Community Center in Spokane, WA
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
-Text Domain: twentythirteen
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-*/
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -366,6 +356,16 @@ Use it to make something cool, have fun, and share what you've learned with othe
       opacity: 0.5; }
       .image-slider .image-slider-indexes .image-slider-index.image-slider-index-active {
         opacity: 1; }
+
+.full-width-image {
+  position: relative;
+  width: 100%; }
+  .full-width-image .full-width-image-image {
+    width: 100%;
+    padding-top: 33%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -730,12 +730,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
       margin: 0;
       max-width: 600px; }
 
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
 /* Media Queries */
 /* Card sizing */
 /* Colors */
 /* Calculations */
 /* Placeholders */
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
   #timeline .demo-card:nth-child(odd) .head::after, #timeline .demo-card:nth-child(even) .head::after {
     position: absolute;
     content: "";
@@ -755,50 +757,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
             box-shadow: 0px 0px 2px 8px #f7f7f7; } }
 
 /* Some Cool Stuff */
-.demo-card:nth-child(1) {
-  -webkit-box-ordinal-group: 2;
-  -webkit-order: 1;
-      -ms-flex-order: 1;
-          order: 1; }
-
-.demo-card:nth-child(2) {
-  -webkit-box-ordinal-group: 5;
-  -webkit-order: 4;
-      -ms-flex-order: 4;
-          order: 4; }
-
-.demo-card:nth-child(3) {
-  -webkit-box-ordinal-group: 3;
-  -webkit-order: 2;
-      -ms-flex-order: 2;
-          order: 2; }
-
-.demo-card:nth-child(4) {
-  -webkit-box-ordinal-group: 6;
-  -webkit-order: 5;
-      -ms-flex-order: 5;
-          order: 5; }
-
-.demo-card:nth-child(5) {
-  -webkit-box-ordinal-group: 4;
-  -webkit-order: 3;
-      -ms-flex-order: 3;
-          order: 3; }
-
-.demo-card:nth-child(6) {
-  -webkit-box-ordinal-group: 7;
-  -webkit-order: 6;
-      -ms-flex-order: 6;
-          order: 6; }
-
 /* Border Box */
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
-
-/* Fonts */
-body {
-  font-family: Roboto; }
 
 #timeline {
   padding: 100px 0;
@@ -818,7 +780,7 @@ body {
   #timeline .demo-card-wrapper {
     position: relative;
     margin: auto; }
-    @media (min-width: 1000px) {
+    @media (min-width: 1200px) {
       #timeline .demo-card-wrapper {
         display: -webkit-box;
         display: -webkit-flex;
@@ -830,7 +792,6 @@ body {
             -ms-flex-flow: column wrap;
                 flex-flow: column wrap;
         width: 1170px;
-        height: 1650px;
         margin: 0 auto; } }
     #timeline .demo-card-wrapper::after {
       z-index: 1;
@@ -840,15 +801,16 @@ body {
       bottom: 0;
       left: 50%;
       border-left: 1px solid rgba(191, 191, 191, 0.4); }
-      @media (min-width: 1000px) {
+      @media (min-width: 1200px) {
         #timeline .demo-card-wrapper::after {
           border-left: 1px solid #bdbdbd; } }
   #timeline .demo-card {
     position: relative;
     display: block;
-    margin: 10px auto 80px;
+    margin: 0;
     max-width: 94%;
-    z-index: 2; }
+    z-index: 2;
+    margin: 10px auto; }
     @media (min-width: 480px) {
       #timeline .demo-card {
         max-width: 60%;
@@ -857,32 +819,39 @@ body {
     @media (min-width: 720px) {
       #timeline .demo-card {
         max-width: 40%; } }
-    @media (min-width: 1000px) {
+    @media (min-width: 1200px) {
       #timeline .demo-card {
         max-width: 450px;
         height: 400px;
         margin: 90px;
-        margin-top: 45px;
-        margin-bottom: 45px; }
+        margin-top: 0;
+        margin-bottom: 0; }
         #timeline .demo-card:nth-child(odd) {
-          margin-right: 45px; }
+          margin-right: 45px;
+          -webkit-align-self: flex-start;
+              -ms-flex-item-align: start;
+                  align-self: flex-start; }
           #timeline .demo-card:nth-child(odd) .head::after {
             border-left-width: 15px;
             border-left-style: solid;
-            left: 100%; }
+            left: 100%;
+            color: #23396c; }
           #timeline .demo-card:nth-child(odd) .head::before {
             left: 491.5px; }
         #timeline .demo-card:nth-child(even) {
-          margin-left: 45px; }
+          margin-left: 45px;
+          -webkit-align-self: flex-end;
+              -ms-flex-item-align: end;
+                  align-self: flex-end; }
           #timeline .demo-card:nth-child(even) .head::after {
             border-right-width: 15px;
             border-right-style: solid;
-            right: 100%; }
+            right: 100%;
+            color: #23396c; }
           #timeline .demo-card:nth-child(even) .head::before {
-            right: 489.5px; }
-        #timeline .demo-card:nth-child(2) {
-          margin-top: 180px; } }
+            right: 489.5px; } }
     #timeline .demo-card .head {
+      background-color: #23396c;
       position: relative;
       display: -webkit-box;
       display: -webkit-flex;
@@ -927,7 +896,7 @@ body {
       border: 1px solid rgba(191, 191, 191, 0.4);
       border-top: 0;
       padding: 15px; }
-      @media (min-width: 1000px) {
+      @media (min-width: 1200px) {
         #timeline .demo-card .body {
           height: 315px; } }
       #timeline .demo-card .body p {
@@ -937,26 +906,6 @@ body {
       #timeline .demo-card .body img {
         display: block;
         width: 100%; }
-    #timeline .demo-card--step1 {
-      background-color: #23396c; }
-      #timeline .demo-card--step1 .head::after {
-        border-color: #23396c; }
-    #timeline .demo-card--step2 {
-      background-color: #23396c; }
-      #timeline .demo-card--step2 .head::after {
-        border-color: #23396c; }
-    #timeline .demo-card--step3 {
-      background-color: #23396c; }
-      #timeline .demo-card--step3 .head::after {
-        border-color: #23396c; }
-    #timeline .demo-card--step4 {
-      background-color: #23396c; }
-      #timeline .demo-card--step4 .head::after {
-        border-color: #23396c; }
-    #timeline .demo-card--step5 {
-      background-color: #23396c; }
-      #timeline .demo-card--step5 .head::after {
-        border-color: #23396c; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
