@@ -27,9 +27,9 @@
     function createTextImageComponentsForCategoryAndTag($args){
         $components = array();
         //get the posts for the category and tag
-        $posts = get_posts_for_category_and_tag($args['category'], $args['tag']);
+        $posts = get_posts_for_category_and_tags($args['category'], $args['tags']);
         //set the max amount of posts to display
-        $numPostsToDisplay = ($args['number_desired'] ? $args['number_desired'] : sizeof($posts));
+        $numPostsToDisplay = ($args['number_desired'] ? $args['number_desired'] : count($posts));
         $counter = 0;
         foreach ($posts as $post) {
             if($counter < $numPostsToDisplay){
@@ -37,7 +37,7 @@
                 $image_ref = '';
                 //get images from the gallery associated with the post
                 $gallery = get_post_gallery_images( $post->ID );
-                if(sizeof($gallery) > 0){
+                if(count($gallery) > 0){
                     $image_ref = $gallery[0];
                 }
 
@@ -57,5 +57,12 @@
             echo "<br>";
         }
         return $components;
+    }
+
+
+    //array('category'=>$category, 'number_desired'=>$number_desired, 'image_on_left'=>$left)
+    function createTextImageContentSection($args){
+        $args['tags'] = array('text-image', 'content');
+        return createTextImageComponentsForCategoryAndTag($args);
     }
 ?>

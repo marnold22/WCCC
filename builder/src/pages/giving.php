@@ -1,12 +1,9 @@
 <?php /* Template Name: giving-template */
   get_header();
-
-  // $args = array('category_name' => 'giving');
-  // $posts_array = get_posts( $args );
-  // foreach ($posts_array as $post) {
-  //     echo $post->post_content;
-  // }
-    get_posts_for_category('giving');
+  $category = 'Giving';
+  echo createFullWidthImageComponentForCategoryAndTag(array('category'=>$category, 'tags'=>array('full-width-image', 'header')));
+  $components = createTextImageContentSection(array('category'=>$category, 'image_on_left'=>true));
+  foreach ($components as $component) { echo $component; }
 
   get_footer();
 ?>

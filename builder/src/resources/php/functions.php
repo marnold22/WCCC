@@ -62,17 +62,14 @@ $http = 'http://';
     }
   }
 
-  function get_posts_for_category_and_tag($category, $tag) {
+  function get_posts_for_category_and_tags($category, $tags) {
     $cat = get_cat_id($category);
-    $args = "cat=". $cat . "&tag=" . $tag;
+    $args = "cat=". $cat;
+    foreach ($tags as $tag) {
+        $args .= "&tag=" . $tag;
+    }
     $posts = get_posts($args);
     return $posts;
   }
-
-  //who-we-are--------------------------------------------------------------------------------
-
-
-
-
 
 ?>
