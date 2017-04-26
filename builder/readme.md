@@ -7,12 +7,12 @@
 5. To compile everything (with automatic updates) run `gulp`
 
 # **Notes For Tags**
-| Category      | Tag           |
-| ------------- |:-------------:|
-| Index         | awesome       |
-| About         | awesome       |
-| Contact       | awesome       |
-| Events        | awesome       |
-| Giving        | awesome       |
-| Programs      | awesome       |
-| Resources     | awesome       |
+| Category      | Default Mod.  | Tag           | Tag           | Tag           | Tag           |
+| ------------- |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|
+| Index         | awesome       | Tag           | Tag           | Tag           | Tag           |
+| About         | awesome       | Tag           | Tag           | Tag           | Tag           |
+| Contact       | awesome       | Tag           | Tag           | Tag           | Tag           |
+| Events        | awesome       | Tag           | Tag           | Tag           | Tag           |
+| Giving        | awesome       | Tag           | Tag           | Tag           | Tag           |
+| Programs      | awesome       | Tag           | Tag           | Tag           | Tag           |
+| Resources     | awesome       | Tag           | Tag           | Tag           | Tag           |
