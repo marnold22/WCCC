@@ -62,6 +62,12 @@ $http = 'http://';
     }
   }
 
+  function print_component_array($components){
+      foreach ($components as $component) {
+          echo $component;
+      }
+  }
+
   function get_posts_for_category_and_tags($category, $tags) {
     $cat = get_cat_id($category);
     $args = "cat=". $cat;
