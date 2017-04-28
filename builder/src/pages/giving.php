@@ -9,5 +9,8 @@
 
   foreach ($components as $component) { echo $component; }
 
+  get_template_part('assets/partials/giving-paypal');
+
+
   get_footer();
 ?>

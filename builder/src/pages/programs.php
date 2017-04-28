@@ -6,7 +6,8 @@
   // foreach ($posts_array as $post) {
   //     echo $post->post_content;
   // }
-    get_posts_for_category('programs');
+    // get_posts_for_category('programs');
+
 
   get_footer();
 ?>

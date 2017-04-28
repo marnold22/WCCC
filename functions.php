@@ -62,17 +62,31 @@ $http = 'http://';
     }
   }
 
-  function get_posts_for_category_and_tag($category, $tag) {
+  function get_posts_for_category_and_tags($category, $tags) {
     $cat = get_cat_id($category);
-    $args = "cat=". $cat . "&tag=" . $tag;
+    $args = "cat=". $cat;
+    foreach ($tags as $tag) {
+        $args .= "&tag=" . $tag;
+    }
     $posts = get_posts($args);
     return $posts;
   }
 
-  //who-we-are--------------------------------------------------------------------------------
-
-
-
-
+  function get_gallery_images_for_post($args){
+      $image_refs = array();
+      //set the max amount of posts to display
+      $numPostsToDisplay = ($args['number_desired'] ? $args['number_desired'] : count($posts));
+      $counter = 0;
+      //get images from the gallery associated with the post
+      $gallery = get_post_gallery_images( $args['post_id'] );
+      foreach ($gallery as $image) {
+          array_push($image_refs, $image);
+          $counter++;
+          if($counter >= $numPostsToDisplay){
+              break;
+          }
+      }
+      return $image_refs;
+  }
 
 ?>

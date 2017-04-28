@@ -1,12 +1,10 @@
 <?php /* Template Name: events-template */
   get_header();
 
-  // $args = array('category_name' => 'events');
-  // $posts_array = get_posts( $args );
-  // foreach ($posts_array as $post) {
-  //     echo $post->post_content;
-  // }
-    get_posts_for_category('events');
+  $components = createTextImageContentSection(array('category'=>'Events', 'image_on_left'=>true));
+  foreach ($components as $component) { echo $component; }
+
+  get_template_part('assets/partials/calendar');
 
   get_footer();
 ?>
