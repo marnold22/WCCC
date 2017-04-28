@@ -72,4 +72,21 @@ $http = 'http://';
     return $posts;
   }
 
+  function get_gallery_images_for_post($args){
+      $image_refs = array();
+      //set the max amount of posts to display
+      $numPostsToDisplay = ($args['number_desired'] ? $args['number_desired'] : count($posts));
+      $counter = 0;
+      //get images from the gallery associated with the post
+      $gallery = get_post_gallery_images( $args['post_id'] );
+      foreach ($gallery as $image) {
+          array_push($image_refs, $image);
+          $counter++;
+          if($counter >= $numPostsToDisplay){
+              break;
+          }
+      }
+      return $image_refs;
+  }
+
 ?>

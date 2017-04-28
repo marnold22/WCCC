@@ -13,15 +13,15 @@
         return $tpl->render($args);
     }
 
-    function createFullWidthImageComponentForCategoryAndTag($args){
+    function createFullWidthImageComponentForCategoryAndTags($args){
         $posts = get_posts_for_category_and_tags($args['category'], $args['tags']);
+        $image_refs = get_gallery_images_for_post(array('post_id'=>$posts[0]->ID));
         $image_ref = '';
-        if(count($posts) > 0){
-            $gallery = get_post_gallery_images( $post[0]->ID );
-            if($gallery){
-                $image_ref = $gallery[0];
-            }
+
+        if(count($image_refs) > 0){
+            $image_ref = $image_refs[0];
         }
+        
         return createFullWidthImageComponent(array('image_ref'=>$image_ref));
     }
 ?>
