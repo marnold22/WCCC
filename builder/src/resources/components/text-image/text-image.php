@@ -9,7 +9,8 @@
             'loader' => new Mustache_Loader_FilesystemLoader(get_template_directory().'/assets/templates')
         ));
 
-        $sideClass = ($args['image_on_left'] ? 'left' : 'right');
+        $imageOnLeft = $args['image_on_left'];
+        $sideClass = ($imageOnLeft ? 'left' : 'right');
         $args['class'] = $sideClass;
 
         $name = "";
@@ -45,7 +46,7 @@
                 $post_title = $post->post_title;
                 $post_content = wp_filter_nohtml_kses($post->post_content);
                 $post_content = strip_shortcodes($post_content);
-                $params = array('title'=>$post_title, 'image_ref'=>$image_ref, 'content'=>$post_content, 'image_on_left'=>true);
+                $params = array('title'=>$post_title, 'image_ref'=>$image_ref, 'content'=>$post_content, 'image_on_left'=>$args['image_on_left']);
                 $component = createTextImageComponent($params);
                 array_push($components, $component);
             }else{
