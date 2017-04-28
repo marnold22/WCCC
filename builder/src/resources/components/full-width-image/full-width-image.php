@@ -19,7 +19,6 @@
         if(count($posts) > 0){
             $gallery = get_post_gallery_images( $post[0]->ID );
             if($gallery){
-                echo 'found image<br>';
                 $image_ref = $gallery[0];
             }
         }
