@@ -1,13 +1,18 @@
 <?php /* Template Name: giving-template */
   get_header();
   $category = 'Giving';
+
+  //header section
   echo createFullWidthImageComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('full-width-image', 'header')));
-  $components = createTextImageContentSection(array('category'=>$category, 'image_on_left'=>true));
-  foreach ($components as $component) { echo $component; }
 
-  $components = createTextImageComponentsForCategoryAndTag(array('category'=>$category, 'tags'=>array('awesome', 'something'), 'number_desired'=>null, 'image_on_left'=>true));
+  //text image section
+  $components = createTextImageComponentsForCategoryAndTag(array('category'=>$category, 'tags'=>array('awesome', 'something'), 'number_desired'=>null, 'image_on_left'=>false));
+  print_component_array($components);
 
-  foreach ($components as $component) { echo $component; }
+  //call to action components
+  $components = createCallToActionComponentForCategoryAndTag(array('category'=>$category, 'tags'=>array('awesome', 'something')));
+  print_component_array($components);
+
 
   get_footer();
 ?>
