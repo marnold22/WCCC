@@ -14,5 +14,8 @@
   print_component_array($components);
 
 
+  get_template_part('assets/partials/giving-paypal');
+
+
   get_footer();
 ?>
