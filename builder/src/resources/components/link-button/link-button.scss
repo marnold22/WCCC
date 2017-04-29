@@ -1,0 +1,12 @@
+@import "../../sass/_mixins.scss";
+@import "../../sass/_fonts.scss";
+
+.link-button{
+    @extend .link-button;
+    border: 0px;
+    font-family: $open-sans;
+
+    &:hover{
+        cursor: pointer;
+    }
+}
