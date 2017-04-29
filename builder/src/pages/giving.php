@@ -10,11 +10,12 @@
   print_component_array($components);
 
   //call to action components
+  $paypal = createGivingPayPalComponent();
   $components = createCallToActionComponentForCategoryAndTag(array('category'=>$category, 'tags'=>array('awesome', 'something')));
   print_component_array($components);
 
 
-  echo createGivingPayPalComponent();
+
 
 
 
