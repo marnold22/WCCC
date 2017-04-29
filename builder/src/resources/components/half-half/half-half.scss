@@ -1,0 +1,10 @@
+.half-half{
+    position: relative;
+    display: flex;
+    height: 10em;
+
+    .right, .left{
+        flex: 1;
+        min-width: 50%;
+    }
+}
