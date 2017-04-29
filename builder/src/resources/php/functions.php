@@ -77,6 +77,15 @@ $http = 'http://';
       }
   }
 
+  function get_tags_for_post($post_id){
+      $tag_objects = get_the_tags($post_id);
+      $tags = array();
+      foreach ($tag_objects as $tag_object) {
+          array_push($tags, $tag_object->name);
+      }
+      return $tags;
+  }
+
   function get_posts_for_category_and_tags($category, $tags) {
     $cat = get_cat_id($category);
     $args = "cat=". $cat;
