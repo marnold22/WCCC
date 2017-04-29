@@ -13,7 +13,7 @@
   $components = createCallToActionComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('awesome', 'something')));
   print_component_array($components);
 
-  //$components = createGalleryComponentsForCategoryAndTags(array('category'=>$category, 'tags'=>array('awesome', 'something')));
+  get_template_part('assets/partials/image-viewer');
   $components = createGalleryContainerComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('awesome', 'something')));
   echo $components;
 
