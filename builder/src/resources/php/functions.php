@@ -9,8 +9,10 @@ require_once(get_template_directory().'/assets/partials/text-image.php');
 require_once(get_template_directory().'/assets/partials/call-to-action.php');
 require_once(get_template_directory().'/assets/partials/half-half.php');
 require_once(get_template_directory().'/assets/partials/calendar.php');
+require_once(get_template_directory().'/assets/partials/link-button.php');
+require_once(get_template_directory().'/assets/partials/giving-paypal.php');
 
-//MUSTACHE
+//MUSTACHE----------
 Mustache_Autoloader::register();
 
 //-------------------
