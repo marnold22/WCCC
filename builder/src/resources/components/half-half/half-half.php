@@ -1,8 +1,4 @@
 <?php
-
-require_once(get_template_directory().'/assets/util/Mustache/Autoloader.php');
-Mustache_Autoloader::register();
-
 //array('left_content'=>$left_content,'right_content'=>$right_content)
 function createHalfHalfComponent($args){
     //setup

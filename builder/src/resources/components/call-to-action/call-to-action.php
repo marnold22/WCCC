@@ -1,7 +1,4 @@
 <?php
-    require_once(get_template_directory().'/assets/util/Mustache/Autoloader.php');
-    Mustache_Autoloader::register();
-
     //array('title'=>$title, 'content'=>$content, 'button_link'=>$button_link, 'button_title'=>$button_title)
     function createCallToActionComponent($args){
         //setup

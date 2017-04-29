@@ -1,8 +1,4 @@
 <?php
-
-require_once(get_template_directory().'/assets/util/Mustache/Autoloader.php');
-Mustache_Autoloader::register();
-
 //array('shortcode'=>$shortcode)
 function createCalendarComponent($args){
     //setup

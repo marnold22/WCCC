@@ -1,7 +1,4 @@
 <?php
-    require_once(get_template_directory().'/assets/util/Mustache/Autoloader.php');
-    Mustache_Autoloader::register();
-
     //array('image_ref'=>$image_ref)
     function createFullWidthImageComponent($args){
         //setup
@@ -21,7 +18,7 @@
         if(count($image_refs) > 0){
             $image_ref = $image_refs[0];
         }
-        
+
         return createFullWidthImageComponent(array('image_ref'=>$image_ref));
     }
 ?>

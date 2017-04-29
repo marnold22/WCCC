@@ -1,7 +1,4 @@
 <?php
-    require_once(get_template_directory().'/assets/util/Mustache/Autoloader.php');
-    Mustache_Autoloader::register();
-
     //array('title'=>$title, 'image_ref'=>$image_ref, 'content'=>$content, 'image_on_left'=>$left)
     function createTextImageComponent($args){
         //setup
