@@ -21,7 +21,7 @@
     }
 
     //array('category', 'tag', 'button_type', 'button')
-    function createCallToActionComponentForCategoryAndTag($args){
+    function createCallToActionComponentForCategoryAndTags($args){
         //get the posts for the category and tag
         $posts = get_posts_for_category_and_tags($args['category'], $args['tags']);
         $params = array();

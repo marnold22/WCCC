@@ -6,18 +6,16 @@
   echo createFullWidthImageComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('full-width-image', 'header')));
 
   //text image section
-  $components = createTextImageComponentsForCategoryAndTag(array('category'=>$category, 'tags'=>array('awesome', 'something'), 'number_desired'=>null, 'image_on_left'=>false));
+  $components = createTextImageComponentsForCategoryAndTags(array('category'=>$category, 'tags'=>array('awesome', 'something'), 'number_desired'=>null, 'image_on_left'=>false));
   print_component_array($components);
 
   //call to action components
-  $paypal = createGivingPayPalComponent();
-  $components = createCallToActionComponentForCategoryAndTag(array('category'=>$category, 'tags'=>array('awesome', 'something')));
+  $components = createCallToActionComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('awesome', 'something')));
   print_component_array($components);
 
-
-
-
-
+  //$components = createGalleryComponentsForCategoryAndTags(array('category'=>$category, 'tags'=>array('awesome', 'something')));
+  $components = createGalleryContainerComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('awesome', 'something')));
+  echo $components;
 
   get_footer();
 ?>

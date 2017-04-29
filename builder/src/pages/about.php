@@ -2,7 +2,7 @@
 
   get_header();
 
-  $components = createTextImageComponentsForCategoryAndTag(array('category'=>'About', 'tags'=>array('awesome', 'something'), 'number_desired'=>null, 'image_on_left'=>true));
+  $components = createTextImageComponentsForCategoryAndTags(array('category'=>'About', 'tags'=>array('awesome', 'something'), 'number_desired'=>null, 'image_on_left'=>true));
 
   foreach ($components as $component) { echo $component; }
 

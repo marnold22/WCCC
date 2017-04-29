@@ -22,7 +22,7 @@
     }
 
     //array('category'=>$category, 'tag'=>$tag, 'number_desired'=>$number_desired, 'image_on_left'=>$left)
-    function createTextImageComponentsForCategoryAndTag($args){
+    function createTextImageComponentsForCategoryAndTags($args){
         $components = array();
         //get the posts for the category and tag
         $posts = get_posts_for_category_and_tags($args['category'], $args['tags']);
@@ -61,6 +61,6 @@
     //array('category'=>$category, 'number_desired'=>$number_desired, 'image_on_left'=>$left)
     function createTextImageContentSection($args){
         $args['tags'] = array('text-image', 'content');
-        return createTextImageComponentsForCategoryAndTag($args);
+        return createTextImageComponentsForCategoryAndTags($args);
     }
 ?>
