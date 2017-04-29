@@ -30,9 +30,9 @@
 
         .image-slider-title, .image-slider-tag{
           font-family: $open-sans;
-          color: white;
+          color: $white;
           margin: 0;
-          text-shadow: 0 0 15px black;
+          text-shadow: 0 0 15px $black;
           display: flex;
         }
 
@@ -124,12 +124,12 @@
         z-index: 2000;
 
         .image-slider-index{
-            background-color: white;
+            background-color: $white;
             border-radius: 100%;
             width: 0.35em;
             height: 0.35em;
             transition: background-color 0.33s ease-in-out;
-            border: 1px solid black;
+            border: 1px solid $black;
             opacity: 0.5;
 
             &.image-slider-index-active{
