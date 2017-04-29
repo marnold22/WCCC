@@ -1,0 +1,119 @@
+@import '../../sass/_colors';
+@import '../../sass/_fonts';
+
+.image-viewer{
+    position: relative;
+    overflow: hidden;
+    position: fixed;
+    top: 0;bottom: 0;left: 0;right: 0;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 100000;
+    display: none;
+
+    &.image-viewer-open{
+        display: flex;
+    }
+
+    .image-viewer-content{
+        flex: 1;
+        align-self: stretch;
+        position: relative;
+        overflow: hidden;
+        width: inherit;
+        height: inherit;
+        display: flex;
+        align-items: center;
+
+        .image-viewer-close{
+            $margin: 15px;
+
+            position: absolute;
+            top: $margin; right: $margin;
+            width: 25px;
+            height: 25px;
+            transition: 0.33s ease-in-out;
+
+            &:hover{
+                transform: scale(1.2);
+                cursor: pointer;
+            }
+        }
+
+        .image-viewer-images{
+            background-color: $black;
+            position: relative;
+            margin: auto;
+            width: 80%;
+            height: 80%;
+            display: flex;
+
+            .image-viewer-image{
+                background-position: center center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                flex: 0;
+
+                &.image-active{
+                    align-self: stretch;
+                    flex: 1;
+                }
+            }
+        }
+
+        .image-viewer-buttons{
+            position: absolute;
+            margin: auto 0;
+            top: 0; bottom: 0;
+            height: 1.5em;
+            width: 100%;
+            z-index: 1000;
+
+            .image-viewer-button{
+                width: 2.5em;
+                height: 100%;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center center;
+                transition: 0.33s transform ease-in-out;
+
+                &:hover{
+                    transform: scale(1.25);
+                }
+
+                &.image-viewer-button-left{
+                    float: left;
+                }
+                &.image-viewer-button-right{
+                    float: right;
+                }
+            }
+        }
+    }
+
+    .image-viewer-indexes{
+        position: absolute;
+        bottom: 0; right: 0; left: 0;
+        width: 20%;
+        height: 2em;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 2000;
+
+        .image-viewer-index{
+            background-color: $white;
+            border-radius: 100%;
+            width: 0.35em;
+            height: 0.35em;
+            transition: background-color 0.33s ease-in-out;
+            border: 1px solid $black;
+            opacity: 0.5;
+
+            &.image-viewer-index-active{
+                opacity: 1;
+            }
+        }
+    }
+}
