@@ -6,6 +6,10 @@
     flex: 1;
     margin: 2em;
 
+    &:hover{
+        cursor: pointer;
+    }
+
     .gallery-component-images{
         display: none;
     }

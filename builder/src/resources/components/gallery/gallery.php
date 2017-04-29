@@ -18,6 +18,7 @@ function createGalleryComponent($args){
         $images .= '<div class="gallery-image" image-ref="'.$image_ref.'"></div>';
     }
     $args['images'] = $images;
+    $args['script'] = get_template_directory_uri().'/assets/js/gallery.js';
 
     $tpl = $m->loadTemplate('gallery');
     return $tpl->render($args);
