@@ -17,5 +17,8 @@
   $components = createGalleryContainerComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('awesome', 'something')));
   echo $components;
 
+  $components = createTextComponentsForCategoryAndTags(array('category'=>$category, 'tags'=>array('awesome', 'something')));
+  print_component_array($components);
+
   get_footer();
 ?>
