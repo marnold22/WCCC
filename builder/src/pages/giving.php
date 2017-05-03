@@ -1,6 +1,6 @@
 <?php /* Template Name: giving-template */
   get_header();
-  $category = 'Giving';
+  $category = 'giving';
 
   //header section
   echo createFullWidthImageComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('full-width-image', 'header')));
