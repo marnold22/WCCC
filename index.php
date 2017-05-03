@@ -15,7 +15,6 @@
         // $left = !($left);
     }
 
-
   // get_template_part('assets/partials/where-we-are');
 
     get_posts_for_category_and_tags('index', array('youth-program'));

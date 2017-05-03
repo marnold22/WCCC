@@ -1,10 +1,21 @@
 <?php
 
 //REQUIRES----------
+require_once(get_template_directory().'/assets/util/Mustache/Autoloader.php');
 require_once(get_template_directory().'/assets/partials/full-width-image.php');
+require_once(get_template_directory().'/assets/partials/fill-image.php');
 require_once(get_template_directory().'/assets/partials/contact-form-7.php');
 require_once(get_template_directory().'/assets/partials/text-image.php');
 require_once(get_template_directory().'/assets/partials/call-to-action.php');
+require_once(get_template_directory().'/assets/partials/half-half.php');
+require_once(get_template_directory().'/assets/partials/calendar.php');
+require_once(get_template_directory().'/assets/partials/link-button.php');
+require_once(get_template_directory().'/assets/partials/giving-paypal.php');
+require_once(get_template_directory().'/assets/partials/gallery.php');
+require_once(get_template_directory().'/assets/partials/gallery-container.php');
+
+//MUSTACHE----------
+Mustache_Autoloader::register();
 
 //-------------------
 //CONSTANTS----------
@@ -62,6 +73,21 @@ $http = 'http://';
     }
   }
 
+  function print_component_array($components){
+      foreach ($components as $component) {
+          echo $component;
+      }
+  }
+
+  function get_tags_for_post($post_id){
+      $tag_objects = get_the_tags($post_id);
+      $tags = array();
+      foreach ($tag_objects as $tag_object) {
+          array_push($tags, $tag_object->name);
+      }
+      return $tags;
+  }
+
   function get_posts_for_category_and_tags($category, $tags) {
     $cat = get_cat_id($category);
     $args = "cat=". $cat;
@@ -75,16 +101,16 @@ $http = 'http://';
   function get_gallery_images_for_post($args){
       $image_refs = array();
       //set the max amount of posts to display
-      $numPostsToDisplay = ($args['number_desired'] ? $args['number_desired'] : count($posts));
+      $numPostsToDisplay = ($args['number_desired'] === NULL ? -1 : $args['number_desired']);
       $counter = 0;
       //get images from the gallery associated with the post
       $gallery = get_post_gallery_images( $args['post_id'] );
       foreach ($gallery as $image) {
-          array_push($image_refs, $image);
-          $counter++;
-          if($counter >= $numPostsToDisplay){
+          if($numPostsToDisplay != -1 && $counter >= $numPostsToDisplay){
               break;
           }
+          array_push($image_refs, $image);
+          $counter++;
       }
       return $image_refs;
   }
