@@ -1,16 +1,21 @@
 <?php /* Template Name: giving-template */
   get_header();
   $category = 'Giving';
+
+  //header section
   echo createFullWidthImageComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('full-width-image', 'header')));
-  $components = createTextImageContentSection(array('category'=>$category, 'image_on_left'=>true));
-  foreach ($components as $component) { echo $component; }
 
-  $components = createTextImageComponentsForCategoryAndTag(array('category'=>$category, 'tags'=>array('awesome', 'something'), 'number_desired'=>null, 'image_on_left'=>true));
+  //text image section
+  $components = createTextImageComponentsForCategoryAndTags(array('category'=>$category, 'tags'=>array('awesome', 'something'), 'number_desired'=>null, 'image_on_left'=>false));
+  print_component_array($components);
 
-  foreach ($components as $component) { echo $component; }
+  //call to action components
+  $components = createCallToActionComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('awesome', 'something')));
+  print_component_array($components);
 
-  get_template_part('assets/partials/giving-paypal');
-
+  get_template_part('assets/partials/image-viewer');
+  $components = createGalleryContainerComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('awesome', 'something')));
+  echo $components;
 
   get_footer();
 ?>
