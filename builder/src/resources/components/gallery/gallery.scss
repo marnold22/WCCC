@@ -1,10 +1,13 @@
 .gallery-component{
     position: relative;
-    text-align: center;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     flex: 1;
-    margin: 2em;
+    min-width: 50%;
+    max-width: 50%;
+    height: 10em;
 
     &:hover{
         cursor: pointer;
@@ -17,8 +20,8 @@
         background-size: cover;
         background-position: center center;
         background-repeat: no-repeat;
-        width: 100%;
-        height: 7em;
+        width: 80%;
+        height: 80%;
     }
     .gallery-component-title{
         display: flex;
