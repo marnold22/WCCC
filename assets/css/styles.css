@@ -48,7 +48,8 @@ body {
 .title-heading {
   font-family: "Open Sans", sans-serif;
   font-size: 3em;
-  font-weight: 300; }
+  font-weight: 300;
+  margin: 0; }
 
 .sub-heading {
   font-family: "Open Sans", sans-serif;
@@ -85,13 +86,6 @@ header {
 
 .calendar-div {
   max-width: 320px; }
-
-.call-to-action {
-  display: inline-block; }
-  .call-to-action .title-heading {
-    margin: 0; }
-  .call-to-action .call-to-action-button-container {
-    text-align: center; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -176,21 +170,6 @@ header {
       border: 0px;
       background-color: rgba(0, 0, 0, 0.1); }
 
-.fill-image {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  -webkit-align-self: stretch;
-      -ms-flex-item-align: stretch;
-              -ms-grid-row-align: stretch;
-          align-self: stretch;
-  width: 100%;
-  height: 100%; }
-
 /*
 Theme Name: WCCC
 Theme URI: http://www.westcentralcc.org
@@ -206,6 +185,28 @@ Text Domain: twentythirteen
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+
+.fill-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-align-self: stretch;
+      -ms-flex-item-align: stretch;
+              -ms-grid-row-align: stretch;
+          align-self: stretch;
+  width: 100%;
+  height: 100%; }
+
+.call-to-action {
+  display: inline-block; }
+  .call-to-action .title-heading {
+    margin: 0; }
+  .call-to-action .call-to-action-button-container {
+    text-align: center; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -248,29 +249,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
       -ms-flex-pack: distribute;
           justify-content: space-around; }
 
-
-.half-half {
-  position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  min-height: 10em; }
-  .half-half .right, .half-half .left {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    min-width: 50%;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex; }
-
 .gallery-component {
   position: relative;
   text-align: center;
@@ -311,6 +289,29 @@ Use it to make something cool, have fun, and share what you've learned with othe
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center; }
+
+
+.half-half {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 10em; }
+  .half-half .right, .half-half .left {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    min-width: 50%;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -930,74 +931,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
   .staff-list .abcfslLst1TxtCntr {
     padding: 0; }
 
-.text-image-component {
-  width: 100%; }
-  .text-image-component .text-image-component-content {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    max-width: 100%;
-    height: 100%; }
-    .text-image-component .text-image-component-content.left {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: reverse;
-      -webkit-flex-direction: row-reverse;
-          -ms-flex-direction: row-reverse;
-              flex-direction: row-reverse; }
-  .text-image-component .text-image-component-content-part {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    min-height: 15em;
-    margin: 20px 0; }
-    .text-image-component .text-image-component-content-part.text-image-component-text-part {
-      -webkit-box-flex: 2;
-      -webkit-flex: 2;
-          -ms-flex: 2;
-              flex: 2;
-      border-top: 1px solid rgba(0, 0, 0, 0.5); }
-    .text-image-component .text-image-component-content-part.text-image-component-image-part {
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-          -ms-flex: 1;
-              flex: 1; }
-  .text-image-component .text-image-component-image {
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%; }
-  .text-image-component .text-image-component-image, .text-image-component .text-image-component-text {
-    width: 90%; }
-  .text-image-component .text-image-component-text {
-    word-wrap: break-word;
-    width: 75%; }
-    .text-image-component .text-image-component-text .text-image-component-title {
-      margin: 0 0 10px 0;
-      font-size: 2em;
-      font-weight: bold; }
-    .text-image-component .text-image-component-text .text-image-component-text-content {
-      margin: 0;
-      max-width: 600px; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -1176,41 +1109,74 @@ Use it to make something cool, have fun, and share what you've learned with othe
         display: block;
         width: 100%; }
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
-.where-we-are {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 30em;
-  background-color: #23396c; }
-  .where-we-are h1 {
-    text-align: center;
-    color: white;
-    position: relative;
-    z-index: 1000; }
-  .where-we-are .where-we-go-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 100; }
-    .where-we-are .where-we-go-content .where-we-are-map-container {
-      position: relative;
-      width: 100%;
-      height: 100%; }
-      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map-overlay {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        opacity: 0.5;
-        background-color: #23396c;
-        z-index: 1000; }
-      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map {
-        z-index: 0;
-        width: 100%;
-        height: 100%; }
+.text-image-component {
+  width: 100%; }
+  .text-image-component .text-image-component-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    max-width: 100%;
+    height: 100%; }
+    .text-image-component .text-image-component-content.left {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+      -webkit-flex-direction: row-reverse;
+          -ms-flex-direction: row-reverse;
+              flex-direction: row-reverse; }
+  .text-image-component .text-image-component-content-part {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    min-height: 15em;
+    margin: 20px 0; }
+    .text-image-component .text-image-component-content-part.text-image-component-text-part {
+      -webkit-box-flex: 2;
+      -webkit-flex: 2;
+          -ms-flex: 2;
+              flex: 2;
+      border-top: 1px solid rgba(0, 0, 0, 0.5); }
+    .text-image-component .text-image-component-content-part.text-image-component-image-part {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+          -ms-flex: 1;
+              flex: 1; }
+  .text-image-component .text-image-component-image {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%; }
+  .text-image-component .text-image-component-image, .text-image-component .text-image-component-text {
+    width: 90%; }
+  .text-image-component .text-image-component-text {
+    word-wrap: break-word;
+    width: 75%; }
+    .text-image-component .text-image-component-text .text-image-component-title {
+      margin: 0 0 10px 0;
+      font-size: 2em;
+      font-weight: bold; }
+    .text-image-component .text-image-component-text .text-image-component-text-content {
+      margin: 0;
+      max-width: 600px; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -1262,3 +1228,39 @@ Use it to make something cool, have fun, and share what you've learned with othe
       @media (max-width: 580px) {
         .who-we-are .who-we-are-content .who-we-are-person {
           width: 50%; } }
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.where-we-are {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 30em;
+  background-color: #23396c; }
+  .where-we-are h1 {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 1000; }
+  .where-we-are .where-we-go-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 100; }
+    .where-we-are .where-we-go-content .where-we-are-map-container {
+      position: relative;
+      width: 100%;
+      height: 100%; }
+      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map-overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.5;
+        background-color: #23396c;
+        z-index: 1000; }
+      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map {
+        z-index: 0;
+        width: 100%;
+        height: 100%; }

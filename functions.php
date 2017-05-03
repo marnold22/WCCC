@@ -13,6 +13,7 @@ require_once(get_template_directory().'/assets/partials/link-button.php');
 require_once(get_template_directory().'/assets/partials/giving-paypal.php');
 require_once(get_template_directory().'/assets/partials/gallery.php');
 require_once(get_template_directory().'/assets/partials/gallery-container.php');
+require_once(get_template_directory().'/assets/partials/text-component.php');
 
 //MUSTACHE----------
 Mustache_Autoloader::register();
