@@ -1,5 +1,11 @@
 .call-to-action{
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    margin: 2em 0;
 
     .title-heading{
         margin: 0;
@@ -7,5 +13,10 @@
 
     .call-to-action-button-container{
         text-align: center;
+    }
+
+    .call-to-action-text{
+      max-width: 30em;
+      word-wrap: break-word;
     }
 }

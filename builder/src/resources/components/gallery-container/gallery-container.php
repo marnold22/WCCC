@@ -20,7 +20,7 @@ function createGalleryContainerComponentForCategoryAndTags($args){
         $contents .= $gallery;
     }
     //return a gallery container full of galleries
-    return createGalleryContainerComponent(array('contents'=>$contents));
+    return createGalleryContainerComponent(array('contents'=>$contents, 'title'=>$args['title']));
 }
 
 ?>

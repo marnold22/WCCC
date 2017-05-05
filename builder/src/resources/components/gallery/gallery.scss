@@ -1,3 +1,5 @@
+@import "../../sass/_definitions.scss";
+
 .gallery-component{
     position: relative;
     display: flex;
@@ -7,7 +9,12 @@
     flex: 1;
     min-width: 50%;
     max-width: 50%;
-    height: 10em;
+
+    @media only screen and (max-width: $tablet-size){
+        min-width: 100%;
+        max-width: 100%;
+    }
+
 
     &:hover{
         cursor: pointer;
@@ -21,7 +28,7 @@
         background-position: center center;
         background-repeat: no-repeat;
         width: 80%;
-        height: 80%;
+        padding-top: 30%;
     }
     .gallery-component-title{
         display: flex;

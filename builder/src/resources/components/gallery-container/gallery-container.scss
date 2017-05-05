@@ -2,4 +2,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+
+    .title-heading{
+      min-width: 100%;
+      text-align: left;
+    }
 }

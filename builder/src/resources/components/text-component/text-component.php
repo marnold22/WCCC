@@ -15,7 +15,9 @@ function createTextComponentsForCategoryAndTags($args){
     $posts = get_posts_for_category_and_tags($args['category'], $args['tags']);
     $components = array();
     foreach ($posts as $post) {
-        $textComponent = createTextComponent(array('title'=>$post->post_title, 'content'=>$post->post_content));
+        $content = $post->post_content;
+        $content = strip_shortcodes($content);
+        $textComponent = createTextComponent(array('title'=>$post->post_title, 'content'=>$content));
         array_push($components, $textComponent);
     }
     return $components;

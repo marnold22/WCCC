@@ -1,8 +1,6 @@
 <?php /* Template Name: events-template */
   get_header();
   $category = 'events';
-  $components = createTextImageContentSection(array('category'=>$category, 'image_on_left'=>true));
-  foreach ($components as $component) { echo $component; }
 
 
 
