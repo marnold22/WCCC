@@ -2,7 +2,7 @@
 
   get_header();
   $category = 'about';
-  echo createFullWidthImageComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('full-width-image', 'header')));
+  echo createFullWidthImageComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('full-width-image')));
 
   $components = createTextComponentsForCategoryAndTags(array('category'=>$category, 'tags'=>array('text-component')));
 
