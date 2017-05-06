@@ -120,6 +120,22 @@ header {
     max-width: 30em;
     word-wrap: break-word; }
 
+/*
+Theme Name: WCCC
+Theme URI: http://www.westcentralcc.org
+Author: Tyler Reardon, Michael Arnold, Madeline Cook
+Author URI: NA
+Description: A wordpress theme for the West Central Community Center in Spokane, WA
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Text Domain: twentythirteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
 .link-button, .contact-form-7-container .wpcf7-form input[type="submit"] {
@@ -203,61 +219,6 @@ header {
       border: 0px;
       background-color: rgba(0, 0, 0, 0.1); }
 
-.fill-image {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0; }
-
-/*
-Theme Name: WCCC
-Theme URI: http://www.westcentralcc.org
-Author: Tyler Reardon, Michael Arnold, Madeline Cook
-Author URI: NA
-Description: A wordpress theme for the West Central Community Center in Spokane, WA
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
-Text Domain: twentythirteen
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-*/
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
-.widget {
-  padding-top: 1em;
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex; }
-  .widget .sfsi_widget {
-    display: inline-block; }
-
-.footer-contact {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.1em;
-  color: white;
-  padding: 0 0 0 20px; }
-  .footer-contact:last-child {
-    padding-bottom: 1em; }
-
-.full-width-image {
-  position: relative;
-  width: 100%; }
-  .full-width-image .full-width-image-image {
-    width: 100%;
-    padding-top: 33%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover; }
-
 .gallery-component {
   position: relative;
   display: -webkit-box;
@@ -311,6 +272,16 @@ Use it to make something cool, have fun, and share what you've learned with othe
         -ms-flex-align: center;
             align-items: center; }
 
+.full-width-image {
+  position: relative;
+  width: 100%; }
+  .full-width-image .full-width-image-image {
+    width: 100%;
+    padding-top: 33%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; }
+
 .gallery-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -363,6 +334,35 @@ Use it to make something cool, have fun, and share what you've learned with othe
   .heading-component .heading-component-title {
     width: 100%;
     text-align: center; }
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.widget {
+  padding-top: 1em;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex; }
+  .widget .sfsi_widget {
+    display: inline-block; }
+
+.footer-contact {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1em;
+  color: white;
+  padding: 0 0 0 20px; }
+  .footer-contact:last-child {
+    padding-bottom: 1em; }
+
+.fill-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -939,6 +939,38 @@ Use it to make something cool, have fun, and share what you've learned with othe
             text-shadow: 1px 1px #23396c; }
           .nav-bar .sub-nav-content nav .sub-nav-list .sub-nav-item a.sub-nav-item-active, .nav-bar .sub-nav-content nav .sub-nav-list .sub-nav-item a:hover {
             text-shadow: 0.5px 0.5px #23396c; }
+
+.partners-spotlight {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+  .partners-spotlight .partner {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    min-width: 20%; }
+    .partners-spotlight .partner .partner-image {
+      height: 10em;
+      width: 100%;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat; }
+    .partners-spotlight .partner .partner-name {
+      text-align: center; }
 
 .staff-list {
   display: -webkit-box;
