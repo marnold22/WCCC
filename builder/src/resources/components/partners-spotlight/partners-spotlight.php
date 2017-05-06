@@ -16,9 +16,14 @@
     <?php
         echo createHeadingComponent(array('title'=>'Our Partners'));
 
-        for($i = 0; $i < 15; $i++){
-            echo createPartnerComponent(array('name'=>'West Central Community Center', 'image_ref'=>'http://wallpapercave.com/wp/Rw91f3y.jpg'));
-        }
+        $path = get_template_directory().'/assets/images/partner_logos';
+        $files = scandir($path);
 
+        foreach ($files as $file) {
+            if(!($file == '.' || $file == '..')){
+                $image_ref = get_template_directory_uri().'/assets/images/partner_logos/'.$file;
+                echo createPartnerComponent(array( 'image_ref'=>$image_ref));
+            }
+        }
     ?>
 </div>
