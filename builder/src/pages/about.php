@@ -11,6 +11,7 @@
 
 
   get_template_part('assets/partials/who-we-are');
+  echo createHeadingComponent(array('title'=> 'History'));
   get_template_part('assets/partials/timeline');
   get_footer();
 ?>

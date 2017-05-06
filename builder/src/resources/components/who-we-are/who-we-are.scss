@@ -6,10 +6,12 @@
     font-family: $open-sans;
     overflow: hidden;
     padding-bottom: 8em;
+    background-color: $blue;
 
     h1{
         width: 100%;
         text-align: center;
+        color: $white;
     }
 
     &:after{
@@ -22,6 +24,7 @@
         position: relative;
         width: 80%;
         margin: 0 auto;
+        color: $white;
 
         &:after{
             content: " ";

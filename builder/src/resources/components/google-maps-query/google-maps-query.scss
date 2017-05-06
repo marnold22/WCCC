@@ -1,0 +1,23 @@
+.google-maps-query{
+  width: 100%;
+  height: 20em;
+
+  .google-map-query-selector{
+    display: flex;
+    justify-content: center;
+
+    .link-button{
+      margin: 1em;
+    }
+  }
+
+  .google-map-query-item{
+    // display: none;
+    width: 100%;
+    height: 100%;
+
+    &.active{
+      display: block;
+    }
+  }
+}

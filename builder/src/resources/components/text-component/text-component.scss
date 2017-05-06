@@ -15,6 +15,7 @@
 
   .text-component-content{
     max-width: 60em;
+    padding-bottom: 4em;
 
     @media only screen and (max-width: $tablet-size){
         width: 80%;

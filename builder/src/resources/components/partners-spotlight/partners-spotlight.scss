@@ -1,9 +1,15 @@
 @import "../../sass/_definitions.scss";
+@import "../../sass/_colors.scss";
 
 .partners-spotlight{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    background-color: $blue;
+
+    .title-heading{
+      color:$white;
+    }
 
     .partner{
         margin: 2em 0 0 0;
@@ -12,6 +18,7 @@
         justify-content: center;
         align-items: center;
         width: 25%;
+        color: $white;
 
         @media only screen and (max-width: $tablet-size){
             width: 50%;

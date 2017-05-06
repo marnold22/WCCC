@@ -9,5 +9,6 @@ $category = 'resources';
 
   echo $components;
 
+  get_template_part('assets/partials/google-maps-query');
   get_footer();
 ?>
