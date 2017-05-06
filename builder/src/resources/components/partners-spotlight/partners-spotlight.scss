@@ -1,16 +1,32 @@
+@import "../../sass/_definitions.scss";
+
 .partners-spotlight{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 
     .partner{
+        margin: 2em 0 0 0;
         display: flex;
         flex-direction: column;
-        flex: 1;
-        min-width: 20%;
+        justify-content: center;
+        align-items: center;
+        width: 25%;
+
+        @media only screen and (max-width: $tablet-size){
+            width: 50%;
+        }
+
+        @media only screen and (max-width: $phone-size){
+            width: 100%;
+        }
+
+        .partner-image, .partner-name{
+            width: 90%;
+        }
 
         .partner-image{
             height: 10em;
-            width: 100%;
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
