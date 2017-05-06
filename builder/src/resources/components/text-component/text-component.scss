@@ -1,0 +1,23 @@
+@import "../../sass/_definitions.scss";
+
+.text-component{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+
+  .text-component-title{
+    text-align: center;
+  }
+
+  .text-component-content{
+    max-width: 60em;
+
+    @media only screen and (max-width: $tablet-size){
+        width: 80%;
+    }
+  }
+
+}
