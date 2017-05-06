@@ -15,6 +15,10 @@
 <div class="partners-spotlight">
     <?php
         echo createHeadingComponent(array('title'=>'Our Partners'));
-        echo createPartnerComponent(array('name'=>'West Central Community Center', 'image_ref'=>'http://wallpapercave.com/wp/Rw91f3y.jpg'));
+
+        for($i = 0; $i < 15; $i++){
+            echo createPartnerComponent(array('name'=>'West Central Community Center', 'image_ref'=>'http://wallpapercave.com/wp/Rw91f3y.jpg'));
+        }
+
     ?>
 </div>
