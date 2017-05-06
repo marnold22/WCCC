@@ -1,0 +1,23 @@
+.partners-spotlight{
+    display: flex;
+    flex-wrap: wrap;
+
+    .partner{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 20%;
+
+        .partner-image{
+            height: 10em;
+            width: 100%;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        .partner-name{
+            text-align: center;
+        }
+    }
+}
