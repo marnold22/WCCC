@@ -15,5 +15,9 @@
   $components = createTextImageComponentsForCategoryAndTags(array('category'=>$category, 'tags'=>array('awesome', 'something'), 'number_desired'=>null, 'image_on_left'=>false));
   print_component_array($components);
 
+
+  get_template_part('assets/partials/partners-spotlight');
+
+
   get_footer();
 ?>
