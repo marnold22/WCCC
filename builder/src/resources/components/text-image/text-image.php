@@ -60,7 +60,7 @@
 
     //array('category'=>$category, 'number_desired'=>$number_desired, 'image_on_left'=>$left)
     function createTextImageContentSection($args){
-        $args['tags'] = array('text-image', 'content');
+        $args['tags'] = array('text-image');
         return createTextImageComponentsForCategoryAndTags($args);
     }
 ?>

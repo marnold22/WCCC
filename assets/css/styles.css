@@ -82,7 +82,11 @@ header {
 
 #content-container {
   -webkit-transition: margin-top 0.5s ease-in-out;
-  transition: margin-top 0.5s ease-in-out; }
+  transition: margin-top 0.5s ease-in-out;
+  min-height: 100vh; }
+
+.calendar-div {
+  max-width: 320px; }
 
 .call-to-action {
   display: -webkit-inline-box;
@@ -115,25 +119,6 @@ header {
   .call-to-action .call-to-action-text {
     max-width: 30em;
     word-wrap: break-word; }
-
-.calendar-div {
-  max-width: 320px; }
-
-/*
-Theme Name: WCCC
-Theme URI: http://www.westcentralcc.org
-Author: Tyler Reardon, Michael Arnold, Madeline Cook
-Author URI: NA
-Description: A wordpress theme for the West Central Community Center in Spokane, WA
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
-Text Domain: twentythirteen
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-*/
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -227,6 +212,22 @@ Use it to make something cool, have fun, and share what you've learned with othe
   bottom: 0;
   left: 0;
   right: 0; }
+
+/*
+Theme Name: WCCC
+Theme URI: http://www.westcentralcc.org
+Author: Tyler Reardon, Michael Arnold, Madeline Cook
+Author URI: NA
+Description: A wordpress theme for the West Central Community Center in Spokane, WA
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Text Domain: twentythirteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -999,7 +1000,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%; }
+  width: 90%;
+  margin: auto; }
   .text-component .text-component-title {
     text-align: center; }
   .text-component .text-component-content {

@@ -2,11 +2,11 @@
   get_header();
 $category = 'resources';
 
+  echo createFullWidthImageComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('full-width-image')));
 
-  $left_content = createFillImageComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('full-width-image', 'header')));
-  $right_content = createTextComponentsForCategoryAndTags(array('category'=>$category, 'tags'=>array('text-component')));
+  $components = createTextComponentsForCategoryAndTags(array('category'=>$category, 'tags'=>array('text-component')));
+  $components = (count($components) > 0 ? $components[0] : "");
 
-  $components = createHalfHalfComponent(array('left_content'=>$left_content,'right_content'=>$right_content));
   echo $components;
 
   get_footer();
