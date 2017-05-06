@@ -2,8 +2,12 @@
   get_header();
 $category = 'resources';
 
-  // $components = createTextImageContentSection(array('category'=>'Resources', 'image_on_left'=>false));
-  // foreach ($components as $component) { echo $component; }
+
+  $left_content = createFillImageComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('full-width-image', 'header')));
+  $right_content = createTextComponentsForCategoryAndTags(array('category'=>$category, 'tags'=>array('text-component')));
+
+  $components = createHalfHalfComponent(array('left_content'=>$left_content,'right_content'=>$right_content));
+  echo $components;
 
   get_footer();
 ?>
