@@ -19,20 +19,20 @@
 <div class="google-maps-query">
   <div class="google-map-query-selector">
     <?php
-      echo createLinkButtonComponent(array('button_link'=>'0', 'button_title'=>'Churches'));
-      echo createLinkButtonComponent(array('button_link'=>'1', 'button_title'=>'Communities'));
-      echo createLinkButtonComponent(array('button_link'=>'2', 'button_title'=>'Safety'));
-      echo createLinkButtonComponent(array('button_link'=>'3', 'button_title'=>'Healthcare'));
-      echo createLinkButtonComponent(array('button_link'=>'4', 'button_title'=>'WIC'));
+      echo createLinkButtonComponent(array('button_link'=>'https://www.google.com/maps/d/viewer?ll=47.668801453639716%2C-117.44118700000001&spn=0.037974%2C0.084114&msa=0&mid=1w-4n0L2LEpOrDl7SAvI2HDv6g_4&z=14', 'button_title'=>'Churches'));
+      echo createLinkButtonComponent(array('button_link'=>'https://www.google.com/maps/d/viewer?ll=47.6672378634536%2C-117.44049999999999&spn=0.018988%2C0.042057&msa=0&mid=1RXQZDgI0LRGwJOlLFV0mn3sKfVo&z=15', 'button_title'=>'Communities'));
+      echo createLinkButtonComponent(array('button_link'=>'https://www.google.com/maps/d/viewer?ll=47.6674688634606%2C-117.43492099999997&spn=0.018988%2C0.042057&msa=0&mid=1UiUK2n4apm0tv6wp8h3enc6ulAA&z=15', 'button_title'=>'Safety'));
+      echo createLinkButtonComponent(array('button_link'=>'https://www.google.com/maps/d/viewer?ll=47.66772886346845%2C-117.44311799999997&spn=0.018988%2C0.041971&msa=0&mid=1nEco2Mqgh4-cbiZxyCfGw9NR9to&z=15', 'button_title'=>'Healthcare'));
+      echo createLinkButtonComponent(array('button_link'=>'https://www.google.com/maps/d/viewer?ll=47.667587453674614%2C-117.43741&spn=0.037975%2C0.084114&msa=0&mid=1FsVMYikB1hGzluZVELbp10Ddn8Y&z=14', 'button_title'=>'Child & Youth'));
     ?>
   </div>
   <?php
-    $worship = createGoogleMapQueryComponent(array('shortcode'=>'[wpgmza id="1"]'));
-    // $safety = createGoogleMapQueryComponent(array('shortcode'=>'[wpgmza id="1"]'));
-    // $wic = createGoogleMapQueryComponent(array('shortcode'=>'[wpgmza id="1"]'));
-    // $healthcare = createGoogleMapQueryComponent(array('shortcode'=>'[wpgmza id="1"]'));
-    // $community = createGoogleMapQueryComponent(array('shortcode'=>'[wpgmza id="1"]'));
-    $mapArray = array($worship);//array($worship, $safety, $wic, $healthcare, $community);
-    print_component_array($mapArray);
+    // $worship = createGoogleMapQueryComponent(array('shortcode'=>'[wpgmza id="1"]'));
+    // // $safety = createGoogleMapQueryComponent(array('shortcode'=>'[wpgmza id="1"]'));
+    // // $wic = createGoogleMapQueryComponent(array('shortcode'=>'[wpgmza id="1"]'));
+    // // $healthcare = createGoogleMapQueryComponent(array('shortcode'=>'[wpgmza id="1"]'));
+    // // $community = createGoogleMapQueryComponent(array('shortcode'=>'[wpgmza id="1"]'));
+    // $mapArray = array($worship);//array($worship, $safety, $wic, $healthcare, $community);
+    // print_component_array($mapArray);
   ?>
 </div>

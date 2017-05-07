@@ -89,6 +89,54 @@ header {
 .calendar-div {
   max-width: 320px; }
 
+.call-to-action {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+  margin: 2em 0; }
+  .call-to-action .title-heading {
+    margin: 0; }
+  .call-to-action .call-to-action-button-container {
+    text-align: center; }
+  .call-to-action .call-to-action-text {
+    max-width: 30em;
+    word-wrap: break-word; }
+
+/*
+Theme Name: WCCC
+Theme URI: http://www.westcentralcc.org
+Author: Tyler Reardon, Michael Arnold, Madeline Cook
+Author URI: NA
+Description: A wordpress theme for the West Central Community Center in Spokane, WA
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Text Domain: twentythirteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
 .link-button, .contact-form-7-container .wpcf7-form input[type="submit"] {
@@ -172,38 +220,6 @@ header {
       border: 0px;
       background-color: rgba(0, 0, 0, 0.1); }
 
-.call-to-action {
-  display: -webkit-inline-box;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  width: 100%;
-  margin: 2em 0; }
-  .call-to-action .title-heading {
-    margin: 0; }
-  .call-to-action .call-to-action-button-container {
-    text-align: center; }
-  .call-to-action .call-to-action-text {
-    max-width: 30em;
-    word-wrap: break-word; }
-
 .fill-image {
   background-size: cover;
   background-repeat: no-repeat;
@@ -213,32 +229,6 @@ header {
   bottom: 0;
   left: 0;
   right: 0; }
-
-/*
-Theme Name: WCCC
-Theme URI: http://www.westcentralcc.org
-Author: Tyler Reardon, Michael Arnold, Madeline Cook
-Author URI: NA
-Description: A wordpress theme for the West Central Community Center in Spokane, WA
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
-Text Domain: twentythirteen
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-*/
-
-.full-width-image {
-  position: relative;
-  width: 100%; }
-  .full-width-image .full-width-image-image {
-    width: 100%;
-    padding-top: 33%;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -259,41 +249,15 @@ Use it to make something cool, have fun, and share what you've learned with othe
   .footer-contact:last-child {
     padding-bottom: 1em; }
 
-.gallery-container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around; }
-  .gallery-container .title-heading {
-    min-width: 100%;
-    text-align: left; }
-
-
-.google-maps-query {
-  width: 100%;
-  height: 20em; }
-  .google-maps-query .google-map-query-selector {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center; }
-    .google-maps-query .google-map-query-selector .link-button {
-      margin: 1em; }
-  .google-maps-query .google-map-query-item {
+.full-width-image {
+  position: relative;
+  width: 100%; }
+  .full-width-image .full-width-image-image {
     width: 100%;
-    height: 100%; }
-    .google-maps-query .google-map-query-item.active {
-      display: block; }
+    padding-top: 33%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover; }
 
 .gallery-component {
   position: relative;
@@ -347,6 +311,42 @@ Use it to make something cool, have fun, and share what you've learned with othe
     -webkit-align-items: center;
         -ms-flex-align: center;
             align-items: center; }
+
+.gallery-container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
+  .gallery-container .title-heading {
+    min-width: 100%;
+    text-align: left; }
+
+.google-maps-query {
+  width: 100%;
+  height: 20em; }
+  .google-maps-query .google-map-query-selector {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    .google-maps-query .google-map-query-selector .link-button {
+      margin: 1em; }
+  .google-maps-query .google-map-query-item {
+    width: 100%;
+    height: 100%; }
+    .google-maps-query .google-map-query-item.active {
+      display: block; }
+
 
 .half-half {
   position: relative;
@@ -1084,75 +1084,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
       .text-component .text-component-content {
         width: 80%; } }
 
-.text-image-component {
-  width: 100%; }
-  .text-image-component .text-image-component-content {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    max-width: 100%;
-    height: 100%; }
-    .text-image-component .text-image-component-content.left {
-      -webkit-box-orient: horizontal;
-      -webkit-box-direction: reverse;
-      -webkit-flex-direction: row-reverse;
-          -ms-flex-direction: row-reverse;
-              flex-direction: row-reverse; }
-  .text-image-component .text-image-component-content-part {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
-    min-height: 15em;
-    margin: 20px 0; }
-    .text-image-component .text-image-component-content-part.text-image-component-text-part {
-      -webkit-box-flex: 2;
-      -webkit-flex: 2;
-          -ms-flex: 2;
-              flex: 2;
-      border-top: 1px solid rgba(0, 0, 0, 0.5); }
-    .text-image-component .text-image-component-content-part.text-image-component-image-part {
-      -webkit-box-flex: 1;
-      -webkit-flex: 1;
-          -ms-flex: 1;
-              flex: 1; }
-  .text-image-component .text-image-component-image {
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%; }
-  .text-image-component .text-image-component-image, .text-image-component .text-image-component-text {
-    width: 90%; }
-  .text-image-component .text-image-component-text {
-    word-wrap: break-word;
-    width: 75%; }
-    .text-image-component .text-image-component-text .text-image-component-title {
-      margin: 0 0 10px 0;
-      font-size: 2em;
-      font-weight: bold; }
-    .text-image-component .text-image-component-text .text-image-component-text-content {
-      margin: 0;
-      max-width: 600px; }
-
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
 /* Media Queries */
@@ -1329,6 +1260,75 @@ Use it to make something cool, have fun, and share what you've learned with othe
       #timeline .demo-card .body img {
         display: block;
         width: 100%; }
+
+.text-image-component {
+  width: 100%; }
+  .text-image-component .text-image-component-content {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    max-width: 100%;
+    height: 100%; }
+    .text-image-component .text-image-component-content.left {
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: reverse;
+      -webkit-flex-direction: row-reverse;
+          -ms-flex-direction: row-reverse;
+              flex-direction: row-reverse; }
+  .text-image-component .text-image-component-content-part {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    min-height: 15em;
+    margin: 20px 0; }
+    .text-image-component .text-image-component-content-part.text-image-component-text-part {
+      -webkit-box-flex: 2;
+      -webkit-flex: 2;
+          -ms-flex: 2;
+              flex: 2;
+      border-top: 1px solid rgba(0, 0, 0, 0.5); }
+    .text-image-component .text-image-component-content-part.text-image-component-image-part {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+          -ms-flex: 1;
+              flex: 1; }
+  .text-image-component .text-image-component-image {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%; }
+  .text-image-component .text-image-component-image, .text-image-component .text-image-component-text {
+    width: 90%; }
+  .text-image-component .text-image-component-text {
+    word-wrap: break-word;
+    width: 75%; }
+    .text-image-component .text-image-component-text .text-image-component-title {
+      margin: 0 0 10px 0;
+      font-size: 2em;
+      font-weight: bold; }
+    .text-image-component .text-image-component-text .text-image-component-text-content {
+      margin: 0;
+      max-width: 600px; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
