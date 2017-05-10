@@ -23,4 +23,5 @@ function createGalleryContainerComponentForCategoryAndTags($args){
     return createGalleryContainerComponent(array('contents'=>$contents, 'title'=>$args['title']));
 }
 
+
 ?>
