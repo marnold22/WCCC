@@ -1,0 +1,14 @@
+.partner-list{
+  .half-half{
+    .left, .right{
+      display: inline-block;
+      text-align: center;
+    }
+  }
+
+  .partner{
+    width: 100%;
+    display: block;
+    font-size: 16pt;
+  }
+}

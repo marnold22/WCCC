@@ -1,7 +1,7 @@
 <?php /* Template Name: events-template */
   get_header();
   $category = 'events';
-
+  echo createFullWidthImageComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('full-width-image')));
 
 
   $image = createFillImageComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('fill-image')));
