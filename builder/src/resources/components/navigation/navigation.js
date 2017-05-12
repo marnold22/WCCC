@@ -275,6 +275,7 @@ class NavBar{
 
             let currAnchor = this.pageAnchors[i];
             let anchorID = $(currAnchor).attr('name');
+            anchorID = this.formatAnchorTagString(anchorID);
             let title = $(currAnchor).attr('title');
 
             //if we haven't seen this id before
@@ -345,6 +346,10 @@ class NavBar{
         });
     }
 
+    formatAnchorTagString(anchor){
+        return anchor.replace(/[^0-9a-z]/gi, '');
+    }
+
     setCurrentSubMenuItem(){
         //window scroll position
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -361,6 +366,7 @@ class NavBar{
             //if the current position is in the middle of the anchor
             if(currPos >= anchorOffset && currPos < anchorOffset + anchorHeight){
                 let anchorTag = $(currAnchor).attr('name');
+                anchorTag = this.formatAnchorTagString(anchorTag);
                 //if we have a new item
                 if(!$(currAnchor).hasClass('anchor-active')){
                     //remove the active classes of the other element
