@@ -13,7 +13,7 @@
         $name = "";
         if($args['title']){
             $name = strtolower($args['title']);
-            $name = str_replace(" ", "_", $name);
+            $name = str_replace(" ", "", $name);
         }
         $args["name"] = $name;
 
@@ -41,7 +41,7 @@
 
                 //we get the first image if there is one in the post
                 $post_title = $post->post_title;
-                $post_content = wp_filter_nohtml_kses($post->post_content);
+                $post_content = $post->post_content;
                 $post_content = strip_shortcodes($post_content);
                 $params = array('title'=>$post_title, 'image_ref'=>$image_ref, 'content'=>$post_content, 'image_on_left'=>$args['image_on_left']);
                 $component = createTextImageComponent($params);
