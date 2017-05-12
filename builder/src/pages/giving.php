@@ -17,6 +17,10 @@
 
 
   get_template_part('assets/partials/partners-spotlight');
+  get_template_part('assets/partials/partner-list');
+
+
+
 
 
   get_footer();

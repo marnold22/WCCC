@@ -39,7 +39,7 @@ var NavBar = function () {
         //set up the page interactions
         this.setupListeners();
         //set the page offset
-        this.setPageContentOffset();
+        // this.setPageContentOffset();
         //set the currently highlighted SubNav item
         this.setCurrentSubMenuItem();
     }
@@ -70,7 +70,7 @@ var NavBar = function () {
             } else if (this.lastScrollPos > scrollTop) {
                 $(this.nav).removeClass('nav-bar-hidden');
             }
-            this.setPageContentOffset();
+            // this.setPageContentOffset();
             this.lastScrollPos = scrollTop;
         }
 
@@ -89,7 +89,7 @@ var NavBar = function () {
                     _this.menuItemHovered(_this.currentMenuItem);
                 }
                 //make sure content is never behind menu on window resize
-                _this.setPageContentOffset();
+                // this.setPageContentOffset();
             }, throttle));
 
             $(window).scroll(_.throttle(function () {

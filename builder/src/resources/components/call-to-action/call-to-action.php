@@ -24,9 +24,9 @@
     function createCallToActionComponentForCategoryAndTags($args){
         //get the posts for the category and tag
         $posts = get_posts_for_category_and_tags($args['category'], $args['tags']);
-        $params = array();
         $components = array();
         foreach ($posts as $post) {
+            $params = array();
             $post_title = $post->post_title;
             $post_content = $post->post_content;
 

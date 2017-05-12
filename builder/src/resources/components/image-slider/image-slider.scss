@@ -64,7 +64,7 @@
                 background-position: center center;
                 background-size: cover;
                 background-repeat: no-repeat;
-                background-attachment: fixed;
+                // background-attachment: fixed;
                 transition: opacity 1s ease-in-out, transform 15s ease-in-out, filter 1s ease-in-out;
                 opacity: 0;
                 filter: brightness(0.5);

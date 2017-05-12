@@ -14,7 +14,7 @@
 
 <div class="partners-spotlight">
     <?php
-        echo createHeadingComponent(array('title'=>'Our Partners'));
+        echo createHeadingComponent(array('title'=>'Donor Spotlight'));
 
         $path = get_template_directory().'/assets/images/partner_logos';
         $files = scandir($path);
