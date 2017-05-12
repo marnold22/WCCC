@@ -332,6 +332,8 @@ var NavBar = function () {
 
                 var currAnchor = this.pageAnchors[i];
                 var anchorID = $(currAnchor).attr('name');
+                anchorID = this.formatAnchorTagString(anchorID);
+                $(currAnchor).attr('name', anchorID);
                 var title = $(currAnchor).attr('title');
 
                 //if we haven't seen this id before
@@ -408,6 +410,11 @@ var NavBar = function () {
             });
         }
     }, {
+        key: 'formatAnchorTagString',
+        value: function formatAnchorTagString(anchor) {
+            return anchor.replace(/[^0-9a-z]/gi, '_');
+        }
+    }, {
         key: 'setCurrentSubMenuItem',
         value: function setCurrentSubMenuItem() {
             //window scroll position
@@ -425,6 +432,7 @@ var NavBar = function () {
                 //if the current position is in the middle of the anchor
                 if (currPos >= anchorOffset && currPos < anchorOffset + anchorHeight) {
                     var anchorTag = $(currAnchor).attr('name');
+                    anchorTag = this.formatAnchorTagString(anchorTag);
                     //if we have a new item
                     if (!$(currAnchor).hasClass('anchor-active')) {
                         //remove the active classes of the other element

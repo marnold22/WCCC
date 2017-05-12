@@ -276,6 +276,7 @@ class NavBar{
             let currAnchor = this.pageAnchors[i];
             let anchorID = $(currAnchor).attr('name');
             anchorID = this.formatAnchorTagString(anchorID);
+            $(currAnchor).attr('name', anchorID);
             let title = $(currAnchor).attr('title');
 
             //if we haven't seen this id before
@@ -347,7 +348,7 @@ class NavBar{
     }
 
     formatAnchorTagString(anchor){
-        return anchor.replace(/[^0-9a-z]/gi, '');
+        return anchor.replace(/[^0-9a-z]/gi, '_');
     }
 
     setCurrentSubMenuItem(){
