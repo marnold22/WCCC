@@ -92,10 +92,20 @@ $http = 'http://';
 
   function get_posts_for_category_and_tags($category, $tags) {
     $cat = get_cat_id($category);
-    $args = "cat=". $cat;
-    foreach ($tags as $tag) {
-        $args .= "&tag=" . $tag;
-    }
+    // $args = "cat=". $cat;
+
+    $args = array(
+        'category_name' => $category,
+        'tag' => $tags,
+        'orderby' => 'DESC',
+        'posts_per_page'=>-1,
+        'numberposts'=>-1
+    );
+
+
+    // foreach ($tags as $tag) {
+    //     $args .= "&tag=" . $tag;
+    // }
     $posts = get_posts($args);
     return $posts;
   }
