@@ -24,6 +24,7 @@
       echo createLinkButtonComponent(array('button_link'=>'https://www.google.com/maps/d/viewer?ll=47.6674688634606%2C-117.43492099999997&spn=0.018988%2C0.042057&msa=0&mid=1UiUK2n4apm0tv6wp8h3enc6ulAA&z=15', 'button_title'=>'Safety'));
       echo createLinkButtonComponent(array('button_link'=>'https://www.google.com/maps/d/viewer?ll=47.66772886346845%2C-117.44311799999997&spn=0.018988%2C0.041971&msa=0&mid=1nEco2Mqgh4-cbiZxyCfGw9NR9to&z=15', 'button_title'=>'Healthcare'));
       echo createLinkButtonComponent(array('button_link'=>'https://www.google.com/maps/d/viewer?ll=47.667587453674614%2C-117.43741&spn=0.037975%2C0.084114&msa=0&mid=1FsVMYikB1hGzluZVELbp10Ddn8Y&z=14', 'button_title'=>'Child & Youth'));
+      echo createLinkButtonComponent(array('button_link'=>'http://www.accreditedonlinecolleges.org/', 'button_title'=>'Online Education'));
     ?>
   </div>
   <?php

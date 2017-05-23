@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
-.link-button {
+.link-button, .wpcf7-form input[type="submit"] {
   padding: 10px 20px;
   -webkit-border-radius: 5px;
           border-radius: 5px;
@@ -21,7 +21,7 @@
           justify-content: center;
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out; }
-  .link-button:hover {
+  .link-button:hover, .wpcf7-form input[type="submit"]:hover {
     color: #f2ae00; }
 
 * {
@@ -84,7 +84,61 @@ header {
 #content-container {
   -webkit-transition: margin-top 0.5s ease-in-out;
   transition: margin-top 0.5s ease-in-out;
-  min-height: 100vh; }
+  min-height: 100vh;
+  margin-top: 4em; }
+
+@media only screen and (max-width: 1000px) {
+  width: 90%; }
+
+.wpcf7-form {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .wpcf7-form p {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin: 10px 0;
+    width: 100%; }
+  .wpcf7-form input, .wpcf7-form textarea {
+    -webkit-border-radius: 3px;
+            border-radius: 3px;
+    border-color: rgba(0, 0, 0, 0.5);
+    border-width: 1px;
+    width: 100%;
+    padding: 10px; }
+  .wpcf7-form input[type="submit"] {
+    background-color: #23396c;
+    width: auto;
+    border: 0px;
+    -webkit-align-self: center;
+        -ms-flex-item-align: center;
+                -ms-grid-row-align: center;
+            align-self: center; }
+  .wpcf7-form textarea {
+    resize: none;
+    border: 0px;
+    background-color: rgba(0, 0, 0, 0.1); }
 
 .calendar-div {
   max-width: 320px; }
@@ -112,7 +166,10 @@ header {
       -ms-flex: 1;
           flex: 1;
   width: 100%;
-  margin: 2em 0; }
+  margin: 2em 0;
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start; }
   .call-to-action .title-heading {
     margin: 0; }
   .call-to-action .call-to-action-button-container {
@@ -219,6 +276,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
       resize: none;
       border: 0px;
       background-color: rgba(0, 0, 0, 0.1); }
+
 
 .fill-image {
   background-size: cover;
