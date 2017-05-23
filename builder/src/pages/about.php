@@ -5,10 +5,7 @@
   echo createFullWidthImageComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('full-width-image')));
 
   $components = createTextComponentsForCategoryAndTags(array('category'=>$category, 'tags'=>array('text-component')));
-
-  foreach ($components as $component) { echo $component; }
-
-
+  print_component_array($components);
 
   get_template_part('assets/partials/who-we-are');
   echo createHeadingComponent(array('title'=> 'History'));

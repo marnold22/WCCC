@@ -1,10 +1,15 @@
+@import "../../sass/_colors.scss";
 .gallery-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    background-color: $blue;
+    color: white;
+
 
     .title-heading{
       min-width: 100%;
       text-align: left;
+      background-color: $blue;
     }
 }

@@ -31,7 +31,7 @@ class NavBar{
         //set up the page interactions
         this.setupListeners();
         //set the page offset
-        // this.setPageContentOffset();
+        this.setPageContentOffset();
         //set the currently highlighted SubNav item
         this.setCurrentSubMenuItem();
     }
@@ -45,9 +45,9 @@ class NavBar{
     }
 
     setPageContentOffset(){
-        let content = $('#content-container');
+        // let content = $('#content-container');
         let navHeight = this.getPageContentOffset();
-        $(content).css({'margin-top': navHeight+'px'});
+        // $(content).css({'margin-top': navHeight+'px'});
         this.pageContentOffset = navHeight;
     }
 
@@ -58,7 +58,7 @@ class NavBar{
         }else if(this.lastScrollPos > scrollTop){
             $(this.nav).removeClass('nav-bar-hidden');
         }
-        // this.setPageContentOffset();
+        this.setPageContentOffset();
         this.lastScrollPos = scrollTop;
     }
 
@@ -71,9 +71,10 @@ class NavBar{
             //on resize of window so highlight offset is correct
             if(this.currentMenuItem){
                 this.menuItemHovered(this.currentMenuItem);
+                this.updateMenuItemToCurrentPage();
             }
             //make sure content is never behind menu on window resize
-            // this.setPageContentOffset();
+            this.setPageContentOffset();
         }, throttle));
 
         $(window).scroll(_.throttle(()=>{

@@ -11,9 +11,9 @@
   $components = createTextImageContentSection(array('category'=>$category, 'number_desired'=>6, 'image_on_left'=>true));
   print_component_array($components);
 
-  echo createHeadingComponent(array('title'=>'Room Rentals'));
+  $title = createHeadingComponent(array('title'=>'Room Rentals'));
   get_template_part('assets/partials/image-viewer');
-  $components = createGalleryContainerComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('gallery')));
+  $components = createGalleryContainerComponentForCategoryAndTags(array('title'=>$title, 'category'=>$category, 'tags'=>array('gallery')));
   echo $components;
 
   get_footer();

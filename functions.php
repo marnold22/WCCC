@@ -15,6 +15,7 @@ require_once(get_template_directory().'/assets/partials/gallery.php');
 require_once(get_template_directory().'/assets/partials/gallery-container.php');
 require_once(get_template_directory().'/assets/partials/text-component.php');
 require_once(get_template_directory().'/assets/partials/heading-component.php');
+require_once(get_template_directory().'/assets/partials/partner-list.php');
 
 //MUSTACHE----------
 Mustache_Autoloader::register();

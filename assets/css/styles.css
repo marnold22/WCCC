@@ -140,9 +140,6 @@ header {
     border: 0px;
     background-color: rgba(0, 0, 0, 0.1); }
 
-.calendar-div {
-  max-width: 320px; }
-
 .call-to-action {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -178,21 +175,8 @@ header {
     max-width: 30em;
     word-wrap: break-word; }
 
-/*
-Theme Name: WCCC
-Theme URI: http://www.westcentralcc.org
-Author: Tyler Reardon, Michael Arnold, Madeline Cook
-Author URI: NA
-Description: A wordpress theme for the West Central Community Center in Spokane, WA
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
-Text Domain: twentythirteen
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-*/
+.calendar-div {
+  max-width: 320px; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -277,6 +261,22 @@ Use it to make something cool, have fun, and share what you've learned with othe
       border: 0px;
       background-color: rgba(0, 0, 0, 0.1); }
 
+
+/*
+Theme Name: WCCC
+Theme URI: http://www.westcentralcc.org
+Author: Tyler Reardon, Michael Arnold, Madeline Cook
+Author URI: NA
+Description: A wordpress theme for the West Central Community Center in Spokane, WA
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Text Domain: twentythirteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
 
 .fill-image {
   background-size: cover;
@@ -382,10 +382,13 @@ Use it to make something cool, have fun, and share what you've learned with othe
           flex-wrap: wrap;
   -webkit-justify-content: space-around;
       -ms-flex-pack: distribute;
-          justify-content: space-around; }
+          justify-content: space-around;
+  background-color: #23396c;
+  color: white; }
   .gallery-container .title-heading {
     min-width: 100%;
-    text-align: left; }
+    text-align: left;
+    background-color: #23396c; }
 
 
 .google-maps-query {
@@ -1123,6 +1126,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
       height: auto; }
   .staff-list .abcfslLst1TxtCntr {
     padding: 0; }
+  .staff-list .board-name {
+    font-weight: bold;
+    font-size: 1.5em; }
+  .staff-list .board-position {
+    font-weight: bold; }
 
 .text-component {
   display: -webkit-box;
@@ -1160,19 +1168,32 @@ Use it to make something cool, have fun, and share what you've learned with othe
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    max-width: 100%;
+    height: 100%;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
         -ms-flex-direction: row;
-            flex-direction: row;
-    max-width: 100%;
-    height: 100%; }
+            flex-direction: row; }
     .text-image-component .text-image-component-content.left {
       -webkit-box-orient: horizontal;
       -webkit-box-direction: reverse;
       -webkit-flex-direction: row-reverse;
           -ms-flex-direction: row-reverse;
               flex-direction: row-reverse; }
+    @media only screen and (max-width: 1000px) {
+      .text-image-component .text-image-component-content {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column; }
+        .text-image-component .text-image-component-content.left {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: reverse;
+          -webkit-flex-direction: column-reverse;
+              -ms-flex-direction: column-reverse;
+                  flex-direction: column-reverse; } }
   .text-image-component .text-image-component-content-part {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1199,6 +1220,9 @@ Use it to make something cool, have fun, and share what you've learned with othe
           -ms-flex: 2;
               flex: 2;
       border-top: 1px solid rgba(0, 0, 0, 0.5); }
+      @media only screen and (max-width: 1000px) {
+        .text-image-component .text-image-component-content-part.text-image-component-text-part {
+          border-top: 0; } }
     .text-image-component .text-image-component-content-part.text-image-component-image-part {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
@@ -1210,7 +1234,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
     background-repeat: no-repeat;
     height: 100%; }
   .text-image-component .text-image-component-image, .text-image-component .text-image-component-text {
-    width: 90%; }
+    width: 90%;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1; }
   .text-image-component .text-image-component-text {
     word-wrap: break-word;
     width: 75%; }
@@ -1401,42 +1429,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
-.where-we-are {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 30em;
-  background-color: #23396c; }
-  .where-we-are h1 {
-    text-align: center;
-    color: white;
-    position: relative;
-    z-index: 1000; }
-  .where-we-are .where-we-go-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 100; }
-    .where-we-are .where-we-go-content .where-we-are-map-container {
-      position: relative;
-      width: 100%;
-      height: 100%; }
-      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map-overlay {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        opacity: 0.5;
-        background-color: #23396c;
-        z-index: 1000; }
-      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map {
-        z-index: 0;
-        width: 100%;
-        height: 100%; }
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
 .who-we-are {
   position: relative;
   font-family: "Open Sans", sans-serif;
@@ -1488,3 +1480,39 @@ Use it to make something cool, have fun, and share what you've learned with othe
       @media (max-width: 580px) {
         .who-we-are .who-we-are-content .who-we-are-person {
           width: 50%; } }
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.where-we-are {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 30em;
+  background-color: #23396c; }
+  .where-we-are h1 {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 1000; }
+  .where-we-are .where-we-go-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 100; }
+    .where-we-are .where-we-go-content .where-we-are-map-container {
+      position: relative;
+      width: 100%;
+      height: 100%; }
+      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map-overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.5;
+        background-color: #23396c;
+        z-index: 1000; }
+      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map {
+        z-index: 0;
+        width: 100%;
+        height: 100%; }

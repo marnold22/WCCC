@@ -10,16 +10,13 @@
     }
 ?>
 
-
-
-
 <div class="who-we-are anchor" id="who-we-are" name="who-we-are" title="Who We Are">
   <h1 class="title-heading">Who We Are</h1>
   <div class="who-we-are-content">
       <?php
-
         echo do_shortcode( '[abcf-staff-list id="69"]' );
-
+        echo createHeadingComponent(array('title'=>'Board of Directors'));
+        echo do_shortcode( '[abcf-staff-list id="270"]' );
       ?>
   </div>
 </div>
