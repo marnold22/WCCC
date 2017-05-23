@@ -14,7 +14,7 @@ function createTimelineComponent($args){
 
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<section class="timeline anchor" id=timeline name="timeline" title="Timeline" >
+<section class="timeline" id="timeline" >
 	<div class="demo-card-wrapper">
 
 		<?php
