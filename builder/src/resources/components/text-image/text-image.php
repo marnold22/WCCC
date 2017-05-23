@@ -38,7 +38,6 @@
                 if(count($gallery) > 0){
                     $image_ref = $gallery[0];
                 }
-
                 //we get the first image if there is one in the post
                 $post_title = $post->post_title;
                 $post_content = $post->post_content;
@@ -51,8 +50,6 @@
                 break;
             }
             $counter++;
-
-            echo "<br>";
         }
         return $components;
     }

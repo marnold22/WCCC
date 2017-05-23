@@ -334,6 +334,7 @@ var NavBar = function () {
                 var anchorID = $(currAnchor).attr('name');
                 anchorID = this.formatAnchorTagString(anchorID);
                 $(currAnchor).attr('name', anchorID);
+                $(currAnchor).attr('id', anchorID);
                 var title = $(currAnchor).attr('title');
 
                 //if we haven't seen this id before
@@ -412,7 +413,7 @@ var NavBar = function () {
     }, {
         key: 'formatAnchorTagString',
         value: function formatAnchorTagString(anchor) {
-            return anchor.replace(/[^0-9a-z]/gi, '_');
+            return anchor.replace(/[^0-9a-z]/gi, '');
         }
     }, {
         key: 'setCurrentSubMenuItem',
