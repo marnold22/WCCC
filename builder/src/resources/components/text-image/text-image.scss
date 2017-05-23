@@ -1,3 +1,4 @@
+@import "../../sass/_definitions.scss";
 $border: 1px solid rgba(0, 0, 0, 0.5);
 
 .text-image-component{
@@ -6,13 +7,20 @@ $border: 1px solid rgba(0, 0, 0, 0.5);
     //contains all of the content
     .text-image-component-content{
         display: flex;
-        flex-direction: row;
         max-width: 100%;
         height: 100%;
 
         //determines which side the image is on
+        flex-direction: row;
         &.left{
             flex-direction: row-reverse;
+        }
+
+        @media only screen and (max-width: $tablet-size){
+          flex-direction: column;
+          &.left{
+              flex-direction: column-reverse;
+          }
         }
     }
 
@@ -29,7 +37,9 @@ $border: 1px solid rgba(0, 0, 0, 0.5);
         &.text-image-component-text-part{
             flex: 2;
             border-top: $border;
-            // border-bottom: $border;
+            @media only screen and (max-width: $tablet-size){
+              border-top: 0;
+            }
         }
 
         &.text-image-component-image-part{
