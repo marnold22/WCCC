@@ -140,6 +140,9 @@ header {
     border: 0px;
     background-color: rgba(0, 0, 0, 0.1); }
 
+.calendar-div {
+  max-width: 320px; }
+
 .call-to-action {
   display: -webkit-inline-box;
   display: -webkit-inline-flex;
@@ -174,9 +177,6 @@ header {
   .call-to-action .call-to-action-text {
     max-width: 30em;
     word-wrap: break-word; }
-
-.calendar-div {
-  max-width: 320px; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -1342,7 +1342,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
     @media (min-width: 1200px) {
       #timeline .demo-card {
         max-width: 450px;
-        height: 400px;
+        height: 470px;
         margin: 90px;
         margin-top: 0;
         margin-bottom: 0; }
@@ -1418,7 +1418,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
       padding: 15px; }
       @media (min-width: 1200px) {
         #timeline .demo-card .body {
-          height: 315px; } }
+          height: 385px; } }
       #timeline .demo-card .body p {
         font-size: 14px;
         line-height: 18px;
@@ -1426,6 +1426,42 @@ Use it to make something cool, have fun, and share what you've learned with othe
       #timeline .demo-card .body img {
         display: block;
         width: 100%; }
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
+.where-we-are {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 30em;
+  background-color: #23396c; }
+  .where-we-are h1 {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 1000; }
+  .where-we-are .where-we-go-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 100; }
+    .where-we-are .where-we-go-content .where-we-are-map-container {
+      position: relative;
+      width: 100%;
+      height: 100%; }
+      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map-overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0.5;
+        background-color: #23396c;
+        z-index: 1000; }
+      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map {
+        z-index: 0;
+        width: 100%;
+        height: 100%; }
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
@@ -1480,39 +1516,3 @@ Use it to make something cool, have fun, and share what you've learned with othe
       @media (max-width: 580px) {
         .who-we-are .who-we-are-content .who-we-are-person {
           width: 50%; } }
-
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-@import url("https://fonts.googleapis.com/css?family=Alegreya:300,400,700");
-.where-we-are {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 30em;
-  background-color: #23396c; }
-  .where-we-are h1 {
-    text-align: center;
-    color: white;
-    position: relative;
-    z-index: 1000; }
-  .where-we-are .where-we-go-content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 100; }
-    .where-we-are .where-we-go-content .where-we-are-map-container {
-      position: relative;
-      width: 100%;
-      height: 100%; }
-      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map-overlay {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        opacity: 0.5;
-        background-color: #23396c;
-        z-index: 1000; }
-      .where-we-are .where-we-go-content .where-we-are-map-container .where-we-are-map {
-        z-index: 0;
-        width: 100%;
-        height: 100%; }
