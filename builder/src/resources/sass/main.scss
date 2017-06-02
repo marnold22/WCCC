@@ -29,6 +29,11 @@ body{
     content: "";
 }
 
+.blue-background{
+  background-color: $blue;
+  color: $white;
+}
+
 .title-heading{
     font-family: $open-sans;
     font-size: 3em;
