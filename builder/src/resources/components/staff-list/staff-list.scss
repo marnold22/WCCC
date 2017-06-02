@@ -1,8 +1,12 @@
 @import "../../sass/_definitions.scss";
 
-.staff-list{
+.staff-list, .donor-list{
   display: flex;
   flex-wrap: wrap;
+
+  .abcfslPadBMB30{
+    margin: 0;
+  }
 
   //the container for each row
   .abcfslLstRowCntr{
@@ -10,7 +14,7 @@
     flex-direction: column;
     flex: 1;
     min-width: 33%;
-    padding-top: 3em;
+    padding-top: 1em;
 
     @media only screen and (max-width: $tablet-size){
       min-width: 50%;
@@ -25,15 +29,6 @@
       text-align: center;
       margin-top: 0;
       padding: 1em 0 0 0;
-    }
-
-    //the image
-    .abcfslLst1ImgCntr{
-      img{
-        border-radius: 100%;
-        width: 200px;
-        height: auto;
-      }
     }
   }
 
@@ -54,5 +49,25 @@
   .board-organization{
 
   }
+}
 
+.staff-list{
+  //the image
+  .abcfslLst1ImgCntr{
+    img{
+      border-radius: 100%;
+      width: 200px;
+      height: auto;
+    }
+  }
+}
+
+.donor-list{
+  //the image
+  .abcfslLst1ImgCntr{
+    img{
+      width: 200px;
+      height: auto;
+    }
+  }
 }
