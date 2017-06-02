@@ -17,7 +17,7 @@
 
 
   //get_template_part('assets/partials/partners-spotlight');
-  echo createHeadingComponent(array('title'=>'Donor Spotlight'));
+  echo createHeadingComponent(array('title'=>'Donor Spotlight', 'classes'=>'blue-background'));
   echo do_shortcode('[abcf-staff-list id="277"]');
 
 

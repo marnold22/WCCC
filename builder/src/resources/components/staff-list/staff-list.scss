@@ -1,4 +1,5 @@
 @import "../../sass/_definitions.scss";
+@import "../../sass/_colors.scss";
 
 .staff-list, .donor-list{
   display: flex;
@@ -64,6 +65,7 @@
 
 .donor-list{
   //the image
+  background-color: $blue;
   .abcfslLst1ImgCntr{
     img{
       width: 200px;
