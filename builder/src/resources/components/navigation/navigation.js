@@ -54,9 +54,9 @@ class NavBar{
     setMenuPageScroll(){
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         if(this.lastScrollPos < scrollTop){
-            $(this.nav).addClass('nav-bar-hidden');
+            // $(this.nav).addClass('nav-bar-hidden');
         }else if(this.lastScrollPos > scrollTop){
-            $(this.nav).removeClass('nav-bar-hidden');
+            // $(this.nav).removeClass('nav-bar-hidden');
         }
         this.setPageContentOffset();
         this.lastScrollPos = scrollTop;
