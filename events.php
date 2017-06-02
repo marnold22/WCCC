@@ -5,7 +5,7 @@
 
 
   $image = createFillImageComponentForCategoryAndTags(array('category'=>$category, 'tags'=>array('fill-image')));
-  $calendar = createCalendarComponent(array('shortcode'=>'[calendar id="108"]'));
+  $calendar = createCalendarComponent(array('shortcode'=>'[calendar id="37"]'));
   echo createHalfHalfComponent(array('left_content'=>$image, 'right_content'=>$calendar));
 
 
