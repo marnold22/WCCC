@@ -42,13 +42,13 @@
                     $params['button_link'] = $matches[0][1];
                     $params['button_title'] = $matches[0][2];
                 }
+                //remove all the links from the post
+                $post_content = preg_replace($re, "", $post_content);
             }else{
                 //we want a paypal button
                 $params['button'] = createGivingPayPalComponent();
             }
 
-            //remove all the links from the post
-            $post_content = preg_replace($re, "", $post_content);
             //strip the html and shortcodes
             $post_content = wp_filter_nohtml_kses($post_content);
             $post_content = strip_shortcodes($post_content);
